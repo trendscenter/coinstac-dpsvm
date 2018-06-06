@@ -17,7 +17,7 @@ def local_1(args):
     eps = 15
     W_site = dps.dp_svm(data[0], data[1], epsilon=eps)
 
-    output_dict = {"W_site": W_site.tolist()}
+    output_dict = {"W_site": W_site.tolist(), "computation_phase":"local_1"}
     cache_dict = {}
 
     computation_output = {'output': output_dict, 'cache': cache_dict}
@@ -33,8 +33,5 @@ if __name__ == '__main__':
     if not phase_key:
         computation_output = local_1(parsed_args)
         sys.stdout.write(computation_output)
-#    elif "remote_1" in phase_key:
-#        computation_output = local_2(parsed_args)
-#        sys.stdout.write(computation_output)
     else:
         raise ValueError("Error occurred at Local")

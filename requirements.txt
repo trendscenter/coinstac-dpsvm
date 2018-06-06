@@ -1,5 +1,5 @@
 # dp_stats
-# matplotlib
+matplotlib
 # numba
 scikit-learn
 scipy
