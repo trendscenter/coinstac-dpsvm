@@ -1,0 +1,7 @@
+# dp_stats
+# matplotlib
+# numba
+scikit-learn
+scipy
+statsmodels
+ujson
