@@ -3,8 +3,8 @@ import pickle
 from sklearn.linear_model import LogisticRegression
 import sys
 import ujson as json
-from ancillary import list_recursive
 import common_functions
+from common_functions import list_recursive
 
 
 def remote_1(args):
@@ -35,7 +35,7 @@ def remote_1(args):
             map(lambda x: min(0, x),
                 clf.predict(test_data_mapped) * y_test))) / len(y_test)
 
-    output_dict = {{"final_error_rate": e}}
+    output_dict = {"final_error_rate": e}
 
     computation_output = {"output": output_dict, "success": True}
 
