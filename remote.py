@@ -25,7 +25,7 @@ def remote_1(args):
     W_site = [input_list[site]['W_site'] for site in input_list]
 
     train_data_mapped = common_functions.data2data(X_train, W_site)
-    clf = LogisticRegression()
+    clf = LogisticRegression(solver='lbfgs')
     clf.fit(train_data_mapped, y_train)
 
     # test
