@@ -1,10 +1,12 @@
 import os
 import pickle
-from sklearn.linear_model import LogisticRegression
 import sys
+
 import ujson as json
+
 import common_functions
 from common_functions import list_recursive
+from sklearn.linear_model import LogisticRegression
 
 
 def remote_1(args):
@@ -31,8 +33,7 @@ def remote_1(args):
     # test
     test_data_mapped = common_functions.data2data(X_test, W_site)
     e = 100 * abs(
-        sum(
-            map(lambda x: min(0, x),
+        sum(map(lambda x: min(0, x),
                 clf.predict(test_data_mapped) * y_test))) / len(y_test)
 
     output_dict = {"final_error_rate": e}
