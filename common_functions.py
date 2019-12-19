@@ -1,6 +1,7 @@
 import numpy as np
-from scipy import sign
 from matplotlib.pylab import demean
+
+from scipy import sign
 
 
 def list_recursive(d, key):
@@ -14,8 +15,8 @@ def list_recursive(d, key):
 
 def test_errors(ws, data, labels):
     error = 100 * abs(
-        sum(map(lambda x: min(0, x), sign(
-            np.dot(ws, data.T)) * labels))) / labels.shape[0]
+        sum(map(lambda x: min(0, x),
+                sign(np.dot(ws, data.T)) * labels))) / labels.shape[0]
     return error
 
 
