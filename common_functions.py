@@ -1,5 +1,5 @@
 import numpy as np
-from matplotlib.pylab import demean
+from matplotlib.pylab import detrend_mean
 
 from scipy import sign
 
@@ -25,5 +25,5 @@ def data2data(data, clfs):
     Applies all classifiers to the data and returns their output as vectors
     """
     X = np.transpose([np.dot(data, clf) for clf in clfs])
-    X = demean(X, axis=1)
+    X = detrend_mean(X, axis=1)
     return X
