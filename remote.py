@@ -8,11 +8,10 @@ def remote_1(args):
 
     W_site = [input_list[site]['W_site'] for site in input_list]
 
-    output_dict = {"W_set": W_site}
+    output_dict = {"W_set": W_site, "computation_phase": "remote_1"}
 
     computation_output = {
-        "output": output_dict,
-        "computation_phase": "remote_1"
+        "output": output_dict
     }
 
     return json.dumps(computation_output)

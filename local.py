@@ -64,12 +64,12 @@ def local_2(args):
             sum(map(lambda x: min(0, x),
                     clf.predict(test_data_mapped) * y_test))) / len(y_test)
 
-        output_dict = {"final_error_rate": e}
+        output_dict = {"final_error_rate": e, "computation_phase": "local_2"}
     
     else:
         output_dict = {}
 
-    computation_output = {"output": output_dict, "computation_phase": "local_2"}
+    computation_output = {"output": output_dict}
 
     return json.dumps(computation_output)
 
@@ -78,7 +78,6 @@ if __name__ == '__main__':
 
     parsed_args = json.loads(sys.stdin.read())
     phase_key = list(list_recursive(parsed_args, 'computation_phase'))
-
     if not phase_key:
         computation_output = local_1(parsed_args)
         sys.stdout.write(computation_output)
