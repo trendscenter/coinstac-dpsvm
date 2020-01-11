@@ -43,7 +43,7 @@ def local_2(args):
     full_train_file = os.path.join(args["state"]["baseDirectory"], train_file_name)
     full_test_file = os.path.join(args["state"]["baseDirectory"], test_file_name)
                                    
-    if os.path.exists(full_train_file) and os.path.exists(full_test_file):
+    if os.path.isfile(full_train_file) and os.path.isfile(full_test_file):
 
         with open(full_train_file, 'rb') as ftrain:
             X_train, y_train = pickle.load(ftrain)

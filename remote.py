@@ -19,8 +19,8 @@ def remote_1(args):
 
 def remote_2(args):
     input_list = args["input"]
-    error = [input_list[site]['final_error_rate'] for site in input_list]
-    output_dict = {"final_error_rate": error}
+    error = [input_list[site].get('final_error_rate', 0) for site in input_list]
+    output_dict = {"final_error_rate": sum(error)}
     
     computation_output = {
         "output": output_dict,
