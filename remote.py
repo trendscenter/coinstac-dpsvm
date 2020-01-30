@@ -6,8 +6,8 @@ from common_functions import list_recursive
 def remote_1(args):
     input_list = args["input"]
 
-    W_site = [input_list[site]['W_site'] for site in input_list]
-
+    W_site = [input_list[site].get('W_site') for site in input_list if input_list[site].get('W_site', None)]
+    
     output_dict = {"W_set": W_site, "computation_phase": "remote_1"}
 
     computation_output = {
