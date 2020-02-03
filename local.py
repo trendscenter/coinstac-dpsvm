@@ -8,69 +8,72 @@ import common_functions
 import dp_stats as dps
 from common_functions import list_recursive
 from sklearn.linear_model import LogisticRegression
+from parsers import fsl_parser
+from sklearn.model_selection import train_test_split
+from ancillary import saveBin, loadBin
 
 
 def local_1(args):
-    input_list = args["input"]
-
-    try:
-        train_data = input_list["covariates"][0]
-        train_labels = input_list["covariates"][1]
-        test_data = input_list["covariates"][2]
-        test_labels = input_list["covariates"][3]
-        cache_dict = {
-            "train_data": train_data,
-            "train_labels": train_labels,
-            "test_data": test_data,
-            "test_labels": test_labels
-        }
-    except IndexError:
+    state_ = args["state"]
+    cache_dir = state_["cacheDirectory"]
+    
+    (X, y) = fsl_parser(args)
+    
+    y_temp = y
+    y = X['isControl']
+    y = y.replace(0, -1)
+    X = X.drop(columns=['isControl'])
+    
+    X = y_temp.merge(X, how='inner', left_index=True, right_index=True)
+    X = X.drop(columns=['EstimatedTotalIntraCranialVol'])
+    
+    eps = 10
+    
+    if args['state']['clientId'] != 'local0':
+        W_site = dps.dp_svm(X.values, y.values, epsilon=eps)
         cache_dict = {}
-
-    input_dir = os.path.join(args["state"]["baseDirectory"])
-    num_files = len([
-        name for name in os.listdir(input_dir)
-        if os.path.isfile(os.path.join(input_dir, name))
-    ])
-
-    if num_files == 2:
-        with open(os.path.join(args["state"]["baseDirectory"], train_data),
-                  'rb') as fp:
-            train_data = np.load(fp)
-        with open(os.path.join(args["state"]["baseDirectory"], train_labels),
-                  'rb') as fp:
-            train_labels = np.load(fp)
-
-        eps = 10
-        W_site = dps.dp_svm(train_data, train_labels, epsilon=eps)
-
         output_dict = {
-            "W_site": W_site.tolist(),
-            "computation_phase": "local_1"
-        }
+        "W_site": W_site.tolist(),
+        "computation_phase": "local_1"
+    }
     else:
-        output_dict = {"computation_phase": "local_1"}
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
 
+        np.save(os.path.join(cache_dir, 'X_test.npy'), X_test.values)
+        np.save(os.path.join(cache_dir, 'y_test.npy'), y_test.values)
+        np.save(os.path.join(cache_dir, 'X_train.npy'), X_train.values)
+        np.save(os.path.join(cache_dir, 'y_train.npy'), y_train.values)
+        
+        cache_dict = {"X_train": 'X_train.npy',
+                 "y_train": 'y_train.npy',
+                 "X_test": 'X_test.npy',
+                 "y_test": 'y_test.npy'
+                 
+        }
+        output_dict = {
+        "computation_phase": "local_1"
+        }
+    
     computation_output = {'output': output_dict, 'cache': cache_dict}
-
+    
     return json.dumps(computation_output)
 
 
 def local_2(args):
     W_site = args["input"]["W_set"]
-    train_data = args["cache"].get('train_data', "")
-    train_labels = args["cache"].get('train_labels', "")
-    test_data = args["cache"].get('test_data', "")
-    test_labels = args["cache"].get('test_labels', "")
+    train_data = args["cache"].get('X_train', "")
+    train_labels = args["cache"].get('y_train', "")
+    test_data = args["cache"].get('X_test', "")
+    test_labels = args["cache"].get('y_test', "")
 
-    full_train_data = os.path.join(args["state"]["baseDirectory"], train_data)
-    full_train_labels = os.path.join(args["state"]["baseDirectory"],
+    full_train_data = os.path.join(args["state"]["cacheDirectory"], train_data)
+    full_train_labels = os.path.join(args["state"]["cacheDirectory"],
                                      train_labels)
 
-    full_test_data = os.path.join(args["state"]["baseDirectory"], test_data)
-    full_test_labels = os.path.join(args["state"]["baseDirectory"],
+    full_test_data = os.path.join(args["state"]["cacheDirectory"], test_data)
+    full_test_labels = os.path.join(args["state"]["cacheDirectory"],
                                     test_labels)
-
+                
     if os.path.isfile(full_train_data) and os.path.isfile(
             full_test_data) and os.path.isfile(
                 full_train_labels) and os.path.isfile(full_test_labels):
@@ -104,9 +107,9 @@ def local_2(args):
 
     else:
         output_dict = {}
-
+        
     computation_output = {"output": output_dict}
-
+    
     return json.dumps(computation_output)
 
 
