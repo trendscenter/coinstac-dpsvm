@@ -1,1 +1,7 @@
 __pycache__
+test/cache/*
+test/output/*
+test/remote/*
+test/transfer/*
+test/system/*
+
