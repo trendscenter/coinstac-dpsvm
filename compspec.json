@@ -11,14 +11,14 @@
     "dockerImage": "dpsvm",
     "command": [
       "python",
-      "\/computation\/local.py"
+      "\/computation\/scripts\/local.py"
     ],
     "remote": {
       "type": "docker",
       "dockerImage": "dpsvm",
       "command": [
         "python",
-        "\/computation\/remote.py"
+        "\/computation\/scripts\/remote.py"
       ]
     },
     "input": {
