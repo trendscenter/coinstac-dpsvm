@@ -36,10 +36,10 @@ def local_1(args):
             "computation_phase": "local_1"
         }
     else:
-        X_train, X_test, y_train, y_test = train_test_split(X,
-                                                            y,
-                                                            test_size=0.33,
-                                                            random_state=42)
+        train_test_split = args['input']['train_test_split']
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, test_size=train_test_split, random_state=42
+        )
 
         np.save(os.path.join(cache_dir, 'X_test.npy'), X_test.values)
         np.save(os.path.join(cache_dir, 'y_test.npy'), y_test.values)
