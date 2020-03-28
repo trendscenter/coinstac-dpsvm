@@ -32,6 +32,16 @@
         "type": "number",
         "source": "owner"
       },
+      "train_test_split":
+      {
+        "defaultValue": 0.33,
+        "label": "Train/Test Split",
+        "max": 1,
+        "min": 0,
+        "step": 0.01,
+        "type": "number",
+        "source": "owner"
+      },
       "covariates":
       {
         "label": "Covariates",
