@@ -13,22 +13,38 @@ from parsers import fsl_parser
 
 
 def local_1(args):
+    input_ = args["input"]
     state_ = args["state"]
     cache_dir = state_["cacheDirectory"]
+    owner = state_["owner"] if "owner" in state_ else 'local0'
 
     (X, y) = fsl_parser(args)
 
-    y_temp = y
-    y = X['isControl']
-    y = y.replace(0, -1)
-    X = X.drop(columns=['isControl'])
+    # X = Covariates/Features
+    # y = Data/Labels
+
+    y_temp = y # Store original Data/Labels into Temporary variable
+    y = X['isControl'] # Copy isControl Column into new y
+    y = y.replace(0, -1) # Replace 0 values with -1 for isControl
+    X = X.drop(columns=['isControl']) # Remove 'isControl' from X
 
     X = y_temp.merge(X, how='inner', left_index=True, right_index=True)
-    X = X.drop(columns=['EstimatedTotalIntraCranialVol'])
+    # Inner Join modified y_temp into X (without 'isControl' column)
+    # Proceed
+
+    if 'EstimatedTotalIntraCranialVol' in X :
+        X = X.drop(columns=['EstimatedTotalIntraCranialVol'])
+
+    # y = isControl column with 0 values = -1
+    # X = X (sans isControl) merged into y
+
+    X = X.replace(0, -1) # Replace 0 values with -1
+    if 'EstimatedTotalIntraCranialVol' in y:
+        y = y.drop(columns=['EstimatedTotalIntraCranialVol'])
 
     eps = 10
 
-    if args['state']['clientId'] != 'local0':
+    if state_['clientId'] != owner:
         W_site = dps.dp_svm(X.values, y.values, epsilon=eps)
         cache_dict = {}
         output_dict = {
@@ -36,10 +52,10 @@ def local_1(args):
             "computation_phase": "local_1"
         }
     else:
-        X_train, X_test, y_train, y_test = train_test_split(X,
-                                                            y,
-                                                            test_size=0.33,
-                                                            random_state=42)
+        train_split = input_['train_split'] if 'train_split' in input_ else 0.8
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, test_size=train_split, random_state=42
+        )
 
         np.save(os.path.join(cache_dir, 'X_test.npy'), X_test.values)
         np.save(os.path.join(cache_dir, 'y_test.npy'), y_test.values)

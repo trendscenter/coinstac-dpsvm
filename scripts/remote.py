@@ -44,4 +44,5 @@ if __name__ == '__main__':
         computation_output = remote_2(parsed_args)
         sys.stdout.write(computation_output)
     else:
+        raise Exception(parsed_args)
         raise ValueError("Error occurred at Remote")
