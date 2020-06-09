@@ -2,90 +2,105 @@ import numpy as np
 #from statistics import stdev
 # from pylab import norm
 from scipy.optimize import minimize
+from dp_func import noisevector
 
 
-def noisevector( scale, Length ):
+def huberloss(z, huberconst):  
+    # chaudhuri2011differentially: equation 7 & corollary 13
 
-    r1 = np.random.normal(0, 1, Length)#standard normal distribution
-    n1 = np.linalg.norm( r1, 2 )#get the norm of this random vector
-    r2 = r1 / n1#the norm of r2 is 1
-    normn = np.random.gamma( Length, 1/scale, 1 )#Generate the norm of noise according to gamma distribution
-    res = r2 * normn#get the result noise vector
-    return res
-
-def huber(z, h):#chaudhuri2011differentially corollary 21
-
-    if z > 1 + h:
-        hb = 0
-    elif np.fabs(1-z) <= h:
-        hb = (1 + h - z)**2 / (4 * h)
+    if z > 1.0 + huberconst:
+        hz = 0
+    elif z < 1.0 - huberconst:
+        hz = 1 - z
     else:
-        hb = 1 - z
-    return hb
+        hz = (1 + huberconst - z)**2 / (4 * huberconst)
+    return hz
 
-def svm_output_train(data, labels, epsilon, Lambda, h):
+def eval_svm(weights, XY, num, lambda_, b, huberconst):
+        
+    # add huber loss from all samples ( 1/n * sum( huberloss(y_i w' x_i) ) )
+    # fw = average( huberloss(XY.dot(weights)) )
+    XY = np.matmul(XY, weights)
+    fw = 0
+    for z in XY:
+        fw += huberloss(z, huberconst)
+    fw /= float(num) 
 
-    N = len( labels )
-    l = len( data[0] )#length of a data point
-    scale = N * Lambda * epsilon / 2
-    noise = noisevector( scale, l )
-    x0 = np.zeros(l)#starting point with same length as any data point
+    # add regularization term (1/2 * lambda * |w|^2) and b term (1/n * b'w) 
+    fw += 0.5 * lambda_ * weights.dot(weights) + 1.0 / num * b.dot(weights) 
+    return fw
 
-    def obj_func(x):
-        jfd = huber( labels[0] * np.dot(data[0],x), h )
-        for i in range(1,N):
-            jfd = jfd + huber( labels[i] * np.dot(data[i],x), h )
-        f = ( 1/N )*jfd + (1/2) * Lambda * ( np.linalg.norm(x,2)**2 )
-        return f
+def train_svm_nonpriv(XY, num, dim, lambda_, huberconst):
+    # return a non-private svm classifier
 
-    #minimization procedure
-    f = minimize(obj_func, x0, method='Nelder-Mead').x #empirical risk minimization using scipy.optimize minimize function
+    w0 = np.zeros(dim)  # w starting point              ?? dataframe
+    b = np.zeros(dim)  # zero noise vector
+    res = minimize(eval_svm, w0, args=(XY, num, lambda_, b, huberconst), 
+                   method='L-BFGS-B', bounds=None)
+
+    print("non-priv:")
+    print("    w: ", res.x)
+    print("    status: ", res.success)
+
+    # if not res.success:
+    #     raise Exception(res.message)
+    f = res.x
+    return f
+
+def train_svm_outputperturbation(XY, num, dim, lambda_, epsilon, huberconst):
+    # train a non-private svm classifier, then add noise
+    # chaudhuri2011differentially: Algorithm 1 ERM with output perturbation
+    
+    f = train_svm_nonpriv(XY, num, dim, lambda_, huberconst)
+
+    beta = num * lambda_ * epsilon / 2
+    noise = noisevector(dim, beta)
     fpriv = f + noise
+
+    print("output:")
+    print("    w: ", fpriv)
     return fpriv
 
-def svm_objective_train(data, labels,  epsilon, Lambda, h):
+def train_svm_objectiveperturbation(XY, num, dim, lambda_, epsilon, huberconst):
+    # chaudhuri2011differentially: Algorithm 2 ERM with objective perturbation
 
-    #parameters in objective perturbation method
-    c = 1 / ( 2 * h )#chaudhuri2011differentially corollary 13
-    N = len( labels )#number of data points in the data set
-    l = len( data[0] )#length of a data point
-    x0 = np.zeros(l)#starting point with same length as any data point
-    Epsilonp = epsilon - 2 * np.log( 1 + c / (Lambda * N))
-    if Epsilonp > 0:
-        Delta = 0
-    else:
-        Delta = c / ( N * (np.exp(epsilon/4)-1) ) - Lambda
-        Epsilonp = epsilon / 2
-    noise = noisevector(Epsilonp/2, l)
+    c = 1 / (2 * huberconst)  # value for svm 
+    tmp = c / (num * lambda_)
+    epsilon_p = epsilon - np.log(1.0 + 2 * tmp + tmp * tmp)
+    if epsilon_p < 1e-4:
+        raise Exception("Error: Cannot run algorithm for this lambda, epsilon and huberconst value")
+    
+    w0 = np.zeros(dim)
+    beta = epsilon_p / 2
+    b = noisevector(dim, beta)
+    res = minimize(eval_svm, w0, args=(XY, num, lambda_, b, huberconst),
+                   method='L-BFGS-B', bounds=None)
 
-    def obj_func(x):
-        jfd = huber( labels[0] * np.dot(data[0], x), h)
-        for i in range(1,N):
-            jfd = jfd + huber( labels[i] * np.dot(data[i], x), h )
-        f = (1/N) * jfd + (1/2) * Lambda * (np.linalg.norm(x,2)**2) + (1/N) * np.dot(noise,x) + (1/2)*Delta*(np.linalg.norm(x,2)**2)
-        return f
+    print("objective:")
+    print("    w: ", res.x)
+    print("    status: ", res.success)
 
-    #minimization procedure
-    fpriv = minimize(obj_func, x0, method='Nelder-Mead').x#empirical risk minimization using scipy.optimize minimize function
-    return fpriv
+    # if not res.success:
+    #     raise Exception(res.message)
+    fpriv = res.x
+    return fpriv   
 
-def dp_svm(data, labels, method='obj', epsilon=0.1, Lambda = 0.01, h = 0.5):
-    '''
-    This function provides a differentially-private estimate of the svm classifier according to Sarwate et al. 2011,
+def dp_svm(features, labels, lambda_=0.01, epsilon=0.1, huberconst=0.5, method='obj'):
+    '''This function provides a differentially-private estimate of the svm classifier according to Sarwate et al. 2011,
     "Differentially Private Empirical Risk Minimization" paper.
 
     Input:
 
-      data = data matrix, samples are in rows
+      features = features matrix, samples are in rows
       labels = labels of the data samples
       method = 'obj' (for objective perturbation) or 'out' (for output perturbation)
       epsilon = privacy parameter, default 1.0
-      Lambda = regularization parameter
+      lambda_ = regularization parameter
       h = huber loss parameter
 
     Output:
 
-      fpriv = (\epsilon)-differentially-private estimate of the svm classifier
+      fpriv = epsilon-differentially-private estimate of the svm classifier
 
     Example:
 
@@ -97,24 +112,26 @@ def dp_svm(data, labels, method='obj', epsilon=0.1, Lambda = 0.01, h = 0.5):
       >>> labelX = 1.0 * np.ones(n);
       >>> labelY = -1.0 * np.ones(n);
 
-      >>> data = np.vstack((X,Y));
+      >>> features = np.vstack((X,Y));
       >>> labels = np.hstack((labelX,labelY));
 
-      >>> fpriv = dps.classification.dp_svm (data, labels, 'obj', 0.1, 0.01, 0.5)
+      >>> fpriv = dps.classification.dp_svm (features, labels, 'obj', 0.1, 0.01, 0.5)
       [  9.23418189   2.63380995  -2.01654661  -1.19112074  17.32083386
          3.37943017 -14.76815378  12.3119061   -1.82132988  24.03559848]
-
     '''
 
-    import numpy as np
-
     if epsilon < 0.0:
-        print('ERROR: Epsilon should be positive.')
-        return
+        raise Exception('ERROR: Epsilon should be positive.')
     else:
+        num = features.shape[0]  # number of samples
+        dim = features.shape[1]  # dimension of a sample vector 
+        # svm function only needs [vector x_i * label y_i], i.e., multiply all the training data vectors by their labels
+        XY = features.multiply(labels[labels.columns[0]], axis="index")
+        XY = XY.to_numpy(copy=False) 
+
         if method == 'obj':
-            fpriv = svm_objective_train(data, labels, epsilon, Lambda, h)
+            fpriv = train_svm_objectiveperturbation(XY, num, dim, epsilon, lambda_, huberconst)
         else:
-            fpriv = svm_output_train(data, labels, epsilon, Lambda, h)
+            fpriv = train_svm_outputperturbation(XY, num, dim, epsilon, lambda_, huberconst)
 
         return fpriv
