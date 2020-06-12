@@ -386,7 +386,7 @@
         ]
       ]
     },
-    "data": {
+    "measurements": {
       "value": [
         [
           "subject0_aseg_stats.txt",
@@ -536,11 +536,47 @@
         ]
       ]
     },
-    "lambda": {
-      "value": 0
+    "label": {
+      "value": "isControl"
+    }, 
+    "model_local": {
+      "value": "SVM"
     },
-    "train_test_split": {
-      "value": 0.33
+    "is_private_local": {
+      "value": true
+    },
+    "perturb_method_local": {
+      "value": "objective"
+    },
+    "lambda_local": {
+      "value": 0.01
+    },
+    "epsilon_local": {
+      "value": 3.0
+    },
+    "huberconst_local": {
+      "value": 0.5
+    },    
+    "model_owner": {
+      "value": "LR"
+    },
+    "is_private_owner": {
+      "value": true
+    },
+    "perturb_method_owner": {
+      "value": "objective"
+    },
+    "lambda_owner": {
+      "value": 0.01
+    },
+    "epsilon_owner": {
+      "value": 3.0
+    },
+    "huberconst_owner": {
+      "value": 0.5
+    },    
+    "train_split": {
+      "value": 0.8
     }
   },
   {
@@ -815,7 +851,7 @@
         ]
       ]
     },
-    "data": {
+    "measurements": {
       "value": [
         [
           "subject0_aseg_stats.txt",
@@ -942,11 +978,47 @@
         ]
       ]
     },
-    "lambda": {
-      "value": 0
+    "label": {
+      "value": "isControl"
+    }, 
+    "model_local": {
+      "value": "SVM"
     },
-    "train_test_split": {
-      "value": 0.33
+    "is_private_local": {
+      "value": true
+    },
+    "perturb_method_local": {
+      "value": "objective"
+    },
+    "lambda_local": {
+      "value": 0.01
+    },
+    "epsilon_local": {
+      "value": 3.0
+    },
+    "huberconst_local": {
+      "value": 0.5
+    },    
+    "model_owner": {
+      "value": "LR"
+    },
+    "is_private_owner": {
+      "value": true
+    },
+    "perturb_method_owner": {
+      "value": "objective"
+    },
+    "lambda_owner": {
+      "value": 0.01
+    },
+    "epsilon_owner": {
+      "value": 3.0
+    },
+    "huberconst_owner": {
+      "value": 0.5
+    },    
+    "train_split": {
+      "value": 0.8
     }
   },
   {
@@ -1471,7 +1543,7 @@
         ]
       ]
     },
-    "data": {
+    "measurements": {
       "value": [
         [
           "subject0_aseg_stats.txt",
@@ -1648,11 +1720,47 @@
         ]
       ]
     },
-    "lambda": {
-      "value": 0
+    "label": {
+      "value": "isControl"
+    }, 
+    "model_local": {
+      "value": "SVM"
     },
-    "train_test_split": {
-      "value": 0.33
+    "is_private_local": {
+      "value": true
+    },
+    "perturb_method_local": {
+      "value": "objective"
+    },
+    "lambda_local": {
+      "value": 0.01
+    },
+    "epsilon_local": {
+      "value": 3.0
+    },
+    "huberconst_local": {
+      "value": 0.5
+    },    
+    "model_owner": {
+      "value": "LR"
+    },
+    "is_private_owner": {
+      "value": true
+    },
+    "perturb_method_owner": {
+      "value": "objective"
+    },
+    "lambda_owner": {
+      "value": 0.01
+    },
+    "epsilon_owner": {
+      "value": 3.0
+    },
+    "huberconst_owner": {
+      "value": 0.5
+    },    
+    "train_split": {
+      "value": 0.8
     }
   },
   {
@@ -2077,7 +2185,7 @@
         ]
       ]
     },
-    "data": {
+    "measurements": {
       "value": [
         [
           "subject0_aseg_stats.txt",
@@ -2234,11 +2342,47 @@
         ]
       ]
     },
-    "lambda": {
-      "value": 0
+    "label": {
+      "value": "isControl"
+    }, 
+    "model_local": {
+      "value": "SVM"
     },
-    "train_test_split": {
-      "value": 0.33
+    "is_private_local": {
+      "value": true
+    },
+    "perturb_method_local": {
+      "value": "objective"
+    },
+    "lambda_local": {
+      "value": 0.01
+    },
+    "epsilon_local": {
+      "value": 3.0
+    },
+    "huberconst_local": {
+      "value": 0.5
+    },    
+    "model_owner": {
+      "value": "LR"
+    },
+    "is_private_owner": {
+      "value": true
+    },
+    "perturb_method_owner": {
+      "value": "objective"
+    },
+    "lambda_owner": {
+      "value": 0.01
+    },
+    "epsilon_owner": {
+      "value": 3.0
+    },
+    "huberconst_owner": {
+      "value": 0.5
+    },    
+    "train_split": {
+      "value": 0.8
     }
   },
   {
@@ -2863,7 +3007,7 @@
         ]
       ]
     },
-    "data": {
+    "measurements": {
       "value": [
         [
           "subject0_aseg_stats.txt",
@@ -3060,11 +3204,47 @@
         ]
       ]
     },
-    "lambda": {
-      "value": 0
+    "label": {
+      "value": "isControl"
+    }, 
+    "model_local": {
+      "value": "SVM"
     },
-    "train_test_split": {
-      "value": 0.33
+    "is_private_local": {
+      "value": true
+    },
+    "perturb_method_local": {
+      "value": "objective"
+    },
+    "lambda_local": {
+      "value": 0.01
+    },
+    "epsilon_local": {
+      "value": 3.0
+    },
+    "huberconst_local": {
+      "value": 0.5
+    },    
+    "model_owner": {
+      "value": "LR"
+    },
+    "is_private_owner": {
+      "value": true
+    },
+    "perturb_method_owner": {
+      "value": "objective"
+    },
+    "lambda_owner": {
+      "value": 0.01
+    },
+    "epsilon_owner": {
+      "value": 3.0
+    },
+    "huberconst_owner": {
+      "value": 0.5
+    },    
+    "train_split": {
+      "value": 0.8
     }
   }
 ]

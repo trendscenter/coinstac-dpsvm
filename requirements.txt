@@ -1,7 +1,10 @@
 # dp_stats
-matplotlib
+# matplotlib
 # numba
-scikit-learn
 scipy
-statsmodels
+numpy
+scikit-learn
+
+# statsmodels
 ujson
+pandas
