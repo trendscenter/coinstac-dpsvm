@@ -1,6 +1,4 @@
 import numpy as np
-#from statistics import stdev
-# from pylab import norm
 from scipy.optimize import minimize
 
 from .general_funcs import noisevector
@@ -11,9 +9,9 @@ def lrloss(z):
     return hz 
 
 def eval_lr(weights, XY, num, lambda_, b):
-        
-    # add logistic loss from all samples ( 1/n * sum( huberloss(y_i w' x_i) ) )
-    # fw = average( lrloss(XY.dot(weights)) )
+    # Return the lr loss.
+    
+    # add logistic loss from all samples
     XY = np.matmul(XY, weights)
     fw = np.mean(lrloss(XY))
 
@@ -22,13 +20,12 @@ def eval_lr(weights, XY, num, lambda_, b):
     return fw
 
 def train_lr_nonpriv(XY, num, dim, lambda_):
-    # return a non-private lr classifier
+    # Return the weights of a non-private lr classifier.
 
-    w0 = np.zeros(dim)  # w starting point              ?? dataframe
+    w0 = np.zeros(dim)  # w starting point            
     b = np.zeros(dim)  # zero noise vector
     res = minimize(eval_lr, w0, args=(XY, num, lambda_, b), 
                  method='L-BFGS-B', bounds=None)
-
     # print('non-priv:')
     # print('    w: ', res.x)
     # print('    status: ', res.success)
@@ -37,39 +34,37 @@ def train_lr_nonpriv(XY, num, dim, lambda_):
         raise Exception(res.message)
     w_nonpriv = res.x
     return w_nonpriv
-    # return res.x, res.success
 
-def train_lr_outputperturbation(XY, num, dim, lambda_, epsilon):
-    # train a non-private lr classifier, then add noise
-    # chaudhuri2011differentially: Algorithm 1 ERM with output perturbation
+def train_lr_outputperturb(XY, num, dim, lambda_, epsilon):
+    # Train a non-private lr classifier, then add noise,
+    # return the weights of a private lr classifier.
+    # chaudhuri2011differentially: Algorithm 1 output perturbation
     
-    w_nonpriv = train_lr_nonpriv(XY=XY, num=num, dim=dim, lambda_=lambda_)
+    w_nonpriv = train_lr_nonpriv(XY=XY, num=num, dim=dim, 
+                                 lambda_=lambda_)
 
     beta = num * lambda_ * epsilon / 2
     noise = noisevector(dim, beta)
     w_priv = w_nonpriv + noise
-
     # print('output:')
     # print('    w: ', w_priv)
 
     return w_priv
 
-def train_lr_objectiveperturbation(XY, num, dim, lambda_, epsilon):
-    # chaudhuri2011differentially: Algorithm 2 ERM with objective perturbation
-
+def train_lr_objectiveperturb(XY, num, dim, lambda_, epsilon):
+    # chaudhuri2011differentially: Algorithm 2 objective perturbation
     c = 0.25  # value for lr
     tmp = c / (num * lambda_)
     epsilon_p = epsilon - np.log(1.0 + 2 * tmp + tmp * tmp)
     if epsilon_p < 1e-4:
-        # raise Exception('Error: Cannot run algorithm for this lambda, epsilon and huberconst value')
-        print('Error: Cannot run algorithm for this lambda, epsilon and huberconst value')
+        raise Exception('Error: Cannot run algorithm' 
+                        + 'for this lambda, epsilon and huberconst value')
     
     w0 = np.zeros(dim)
     beta = epsilon_p / 2
     b = noisevector(dim, beta)
     res = minimize(eval_lr, w0, args=(XY, num, lambda_, b),
                    method='L-BFGS-B', bounds=None)
-
     # print('objective:')
     # print('    w: ', res.x)
     # print('    status: ', res.success)
@@ -79,14 +74,39 @@ def train_lr_objectiveperturbation(XY, num, dim, lambda_, epsilon):
     w_priv = res.x
     return w_priv   
 
-def dp_lr(features, labels, is_private=True, perturb_method='objective', lambda_=0.01, epsilon=0.1):
+def dp_lr(features, labels, 
+          is_private=True, perturb_method='objective', 
+          lambda_=0.01, epsilon=0.1):
     '''
-    This function provides a differentially-private estimate of the lr classifier 
-    according to Sarwate et al. 2011, 'Differentially Private Empirical Risk Minimization' paper.
+    Return a non-private or differentially private lr classifier. 
+
+    Keyword arguments:
+        features (ndarray of shape (n_sample, n_feature)) -- X
+        labels (ndarray of shape (n_sample,)) -- y
+        is_private (bool) -- run private version or not
+        perturb_method (str) -- 'output' (output perturbation)
+                                 other (objective perturbation)
+        lambda_ (float) -- regularization parameter
+        epsilon (float) -- privacy parameter
+
+    Return:
+        w_nonpriv / w_priv (ndarray of shape (n_feature,)) 
+            -- weights in w'x in lr classifier
+
+    Reference:
+        [1] K. Chaudhuri, C. Monteleoni, and A. D. Sarwate, 
+        “Differentially  privateempirical risk minimization,” 
+        Journal of Machine Learning Research, vol. 12,no. Mar, 
+        pp. 1069–1109, 2011.
+        [2] ——, “Documentation for regularized lr and regularized svm 
+        code,” Available at 
+        http://cseweb.ucsd.edu/kamalika/code/dperm/documentation.pdf.
     '''
+
     num = features.shape[0]  # number of samples
-    dim = features.shape[1]  # dimension of a sample vector 
-    XY = features * labels[:, np.newaxis]  # lr function only needs [vector x_i * label y_i]
+    dim = features.shape[1]  # dimension of a sample vector x_i
+    # lr function only needs [vector x_i * label y_i]
+    XY = features * labels[:, np.newaxis]  
 
     # non-private version
     if not is_private:
@@ -99,12 +119,12 @@ def dp_lr(features, labels, is_private=True, perturb_method='objective', lambda_
     if lambda_ < 0.0 or epsilon < 0.0:
         raise Exception('ERROR: Lambda and Epsilon should all be positive.')
 
-    if perturb_method == 'objective':
-        w_priv = train_lr_objectiveperturbation(XY=XY, num=num, dim=dim, lambda_=lambda_, epsilon=epsilon) 
+    if perturb_method == 'output':
+        w_priv = train_lr_outputperturb(XY=XY, num=num, dim=dim, 
+                                        lambda_=lambda_, 
+                                        epsilon=epsilon)    
     else:
-        w_priv = train_lr_outputperturbation(XY=XY, num=num, dim=dim, lambda_=lambda_, epsilon=epsilon) 
+        w_priv = train_lr_objectiveperturb(XY=XY, num=num, dim=dim,
+                                           lambda_=lambda_, 
+                                           epsilon=epsilon)
     return w_priv
-
-        # lr function only needs [vector x_i * label y_i], i.e., multiply all the training data vectors by their labels
-        # XY = features.multiply(labels[labels.columns[0]], axis='index') 
-        # XY = XY.to_numpy(copy=False)

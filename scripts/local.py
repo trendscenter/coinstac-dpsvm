@@ -19,11 +19,12 @@ def local_0(args):
     owner = state['owner'] if 'owner' in state else 'local0' 
 
     (X, y) = fsl_parser(input, base_dir)
+    # raise Exception(str(X) + '\n\n' + str(y) + 
+    #                 '\n\n' + str(X.shape) +'\n\n'+str(y.shape))
 
     if state['clientId'] == owner:
         np.save(os.path.join(cache_dir, 'X.npy'), X)
         np.save(os.path.join(cache_dir, 'y.npy'), y)
-        # raise Exception('owner:\n' + cache_dir)
 
         cache_dict = {
             'model_owner': input['model_owner'],
@@ -39,12 +40,16 @@ def local_0(args):
         output_dict = {'phase': 'local_0'}
     else:
         w_local = train_model(X, y, input, 'local')
+        y_pred = predict_linearmodel(w_local, X)
+        # w_local, y_pred = train_model(X, y, input, 'local')  # sklearn
+        cm_local = confusion_matrix(y, y_pred, normalize=None)  
         cache_dict = {}
         output_dict = {
+            'cm_local': cm_local.tolist(),
             'w_local': w_local.tolist(),
             'num_sample_local': y.shape[0],
             'phase': 'local_0'
-        }
+        } 
 
     result_dict = {'output': output_dict, 'cache': cache_dict}
     return json.dumps(result_dict)
@@ -78,17 +83,29 @@ def local_1(args):
             shuffle=True
         )        
 
-        # train model and predict on test data
+        # train model, then predict on train and test data, 
+        # show the results by confusion matrix (cm)
+        # cm: 2D array (n_classes, n_classes)
+        # e.g.        predicted
+        #               -1    1
+        #    true  -1   ...   ...
+        #           1   ...   ...          
+
         w_owner = train_model(U_train, y_train, cache, 'owner')
+        y_pred_train = predict_linearmodel(w_owner, U_train)
+        # w_owner, y_pred_train = train_model(U_train, y_train, cache, 'owner')  # sklearn
+        cm_train_owner = confusion_matrix(y_train, y_pred_train, normalize=None)  
+        
         y_pred = predict_linearmodel(w_owner, U_test)
-        cm = confusion_matrix(y_test, y_pred, normalize=None)  # cm: array of shape (n_classes, n_classes)
+        cm = confusion_matrix(y_test, y_pred, normalize=None) 
         cm_normalized = confusion_matrix(y_test, y_pred, normalize='true') 
 
-        output_dict = {'confusion_matrix': cm.tolist(),
-                       'confusion_matrix_normalized': cm_normalized.tolist(),
+        output_dict = {'cm_train_owner': cm_train_owner.tolist(),
+                       'cm_owner': cm.tolist(),
+                       'cm_owner_normalized': cm_normalized.tolist(),
                        'w_owner': w_owner.tolist(),
                        'num_sample_owner': y.shape[0],
-                       'phase': 'local_1'}
+                       'phase': 'local_1'}  
     else:
         output_dict = {}
 
@@ -101,7 +118,6 @@ if __name__ == '__main__':
     phase_key = list(list_recursive(parsed_args, 'phase'))
     if not phase_key:
         result_dict = local_0(parsed_args)
-        # raise Exception(str(result_dict))
         sys.stdout.write(result_dict)
     elif 'remote_0' in phase_key:
         result_dict = local_1(parsed_args)

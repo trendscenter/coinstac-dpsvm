@@ -24,7 +24,8 @@
     "input": {
       "covariates":   
       {
-        "label": "Covariates",   
+        "label": "Covariates",
+        "description": "Files containing features other than brain region measurements (e.g., isControl, sex, age) and the binary label to predict.",    
         "type": "array",
         "items": ["boolean", "number"],
         "order": 1
@@ -32,6 +33,7 @@
       "measurements": 
       {
         "label": "Measurements",
+        "description": "Files containing brain region measurements (e.g., FreeSurfer files)", 
         "items": ["FreeSurfer"],
         "extensions": [["csv", "txt"]],
         "order": 0
@@ -39,7 +41,7 @@
       "label":   
       {
         "label": "Label", 
-        "description": "the binary label to predict",  
+        "description": "The binary label to predict",  
         "type": "string",
         "source": "owner",
         "order": 1
@@ -48,7 +50,7 @@
       {
         "default": "SVM",
         "label": "Model_local",
-        "description": "binary classification: SVM / LR",
+        "description": "Binary classification model: SVM / LR",
         "type": "string",
         "source": "owner",
         "order": 4
@@ -57,7 +59,7 @@
       {
         "default": true,
         "label": "Is_private_local",
-        "description": "private or public version of model",
+        "description": "Private or public version of model",
         "type": "boolean",
         "source": "owner", 
         "order": 4
@@ -66,7 +68,7 @@
       {
         "default": "objective",
         "label": "Perturb_method_local",
-        "description": "perturbation method for conserving privacy: objective / output, not needed for public version",
+        "description": "Perturbation method for conserving privacy: objective / output, not needed for public version",
         "type": "string",
         "source": "owner",
         "order": 4
@@ -111,7 +113,7 @@
       {
         "default": "SVM",
         "label": "Model_owner",
-        "description": "binary classification: SVM / LR",
+        "description": "Binary classification model: SVM / LR",
         "type": "string",
         "source": "owner",
         "order": 4
@@ -120,7 +122,7 @@
       {
         "default": true,
         "label": "Is_private_owner",
-        "description": "private or public version of model",
+        "description": "Private or public version of model",
         "type": "boolean",
         "source": "owner", 
         "order": 4
@@ -129,7 +131,7 @@
       {
         "default": "objective",
         "label": "Perturb_method_owner",
-        "description": "perturbation method for conserving privacy: objective / output, not needed for public version",
+        "description": "Perturbation method for conserving privacy: objective / output, not needed for public version",
         "type": "string",
         "source": "owner",
         "order": 4

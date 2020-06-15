@@ -543,7 +543,7 @@
       "value": "SVM"
     },
     "is_private_local": {
-      "value": true
+      "value":  true
     },
     "perturb_method_local": {
       "value": "objective"
@@ -558,13 +558,13 @@
       "value": 0.5
     },    
     "model_owner": {
-      "value": "LR"
+      "value":  "LR"
     },
     "is_private_owner": {
-      "value": true
+      "value":false
     },
     "perturb_method_owner": {
-      "value": "objective"
+      "value": "output"
     },
     "lambda_owner": {
       "value": 0.01
@@ -576,7 +576,7 @@
       "value": 0.5
     },    
     "train_split": {
-      "value": 0.8
+      "value": 0.7
     }
   },
   {
@@ -985,7 +985,7 @@
       "value": "SVM"
     },
     "is_private_local": {
-      "value": true
+      "value":  true
     },
     "perturb_method_local": {
       "value": "objective"
@@ -1000,13 +1000,13 @@
       "value": 0.5
     },    
     "model_owner": {
-      "value": "LR"
+      "value":  "LR"
     },
     "is_private_owner": {
-      "value": true
+     "value":false
     },
     "perturb_method_owner": {
-      "value": "objective"
+      "value": "output"
     },
     "lambda_owner": {
       "value": 0.01
@@ -1018,7 +1018,7 @@
       "value": 0.5
     },    
     "train_split": {
-      "value": 0.8
+      "value": 0.7
     }
   },
   {
@@ -1727,7 +1727,7 @@
       "value": "SVM"
     },
     "is_private_local": {
-      "value": true
+      "value":  true
     },
     "perturb_method_local": {
       "value": "objective"
@@ -1742,13 +1742,13 @@
       "value": 0.5
     },    
     "model_owner": {
-      "value": "LR"
+      "value":  "LR"
     },
     "is_private_owner": {
-      "value": true
+     "value":false
     },
     "perturb_method_owner": {
-      "value": "objective"
+      "value": "output"
     },
     "lambda_owner": {
       "value": 0.01
@@ -1760,7 +1760,7 @@
       "value": 0.5
     },    
     "train_split": {
-      "value": 0.8
+      "value": 0.7
     }
   },
   {
@@ -2349,7 +2349,7 @@
       "value": "SVM"
     },
     "is_private_local": {
-      "value": true
+      "value":  true
     },
     "perturb_method_local": {
       "value": "objective"
@@ -2364,13 +2364,13 @@
       "value": 0.5
     },    
     "model_owner": {
-      "value": "LR"
+      "value":  "LR"
     },
     "is_private_owner": {
-      "value": true
+     "value":false
     },
     "perturb_method_owner": {
-      "value": "objective"
+      "value": "output"
     },
     "lambda_owner": {
       "value": 0.01
@@ -2382,7 +2382,7 @@
       "value": 0.5
     },    
     "train_split": {
-      "value": 0.8
+      "value": 0.7
     }
   },
   {
@@ -3211,7 +3211,7 @@
       "value": "SVM"
     },
     "is_private_local": {
-      "value": true
+      "value":  true
     },
     "perturb_method_local": {
       "value": "objective"
@@ -3226,13 +3226,13 @@
       "value": 0.5
     },    
     "model_owner": {
-      "value": "LR"
+      "value":  "LR"
     },
     "is_private_owner": {
-      "value": true
+     "value":false
     },
     "perturb_method_owner": {
-      "value": "objective"
+      "value": "output"
     },
     "lambda_owner": {
       "value": 0.01
@@ -3244,7 +3244,7 @@
       "value": 0.5
     },    
     "train_split": {
-      "value": 0.8
+      "value": 0.7
     }
   }
 ]

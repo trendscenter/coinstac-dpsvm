@@ -1,7 +1,6 @@
 import sys
-import ujson as json
-
 import numpy as np
+import ujson as json
 
 from common_functions import list_recursive
 
@@ -12,20 +11,27 @@ def remote_0(args):
     W_locals = np.array([
         site_dict['w_local'] for site, site_dict in input.items()
         if 'w_local' in site_dict
-    ])
+    ]).T
 
     num_sample_locals = np.array([
         site_dict['num_sample_local'] for site, site_dict in input.items()
         if 'num_sample_local' in site_dict
     ])
+    
+    CM_train_locals = np.array([
+        site_dict['cm_local'] for site, site_dict in input.items()
+        if 'cm_local' in site_dict
+    ])  
 
     output_dict = {'W_locals': W_locals.tolist(), 
-                   'num_sample_locals': num_sample_locals,
-                   'phase': 'remote_0'
-    }
+                   'phase': 'remote_0'} 
+    
+    cache_dict = output_dict.copy()
+    cache_dict['num_sample_locals'] = num_sample_locals.tolist()
+    cache_dict['CM_train_locals'] = CM_train_locals.tolist()
 
     # save a copy in cache
-    result_dict = {'output': output_dict, 'cache': output_dict}
+    result_dict = {'output': output_dict, 'cache': cache_dict}
     return json.dumps(result_dict)
 
 
@@ -39,12 +45,14 @@ def remote_1(args):
             break
 
     # combine w_owner and W_locals
-    output_dict = {'confusion_matrix': owner_dict.get('confusion_matrix'),
-                   'confusion_matrix_normalized': owner_dict.get('confusion_matrix_normalized'),
-                   'w_owner': owner_dict.get('w_owner'),
+    output_dict = {'w_owner': owner_dict.get('w_owner'),
                    'W_locals': locals_dict.get('W_locals'),
                    'num_sample_owner': owner_dict.get('num_sample_owner'),
-                   'num_sample_locals': locals_dict.get('num_sample_locals')}
+                   'num_sample_locals': locals_dict.get('num_sample_locals'),
+                   'cm_owner': owner_dict.get('cm_owner'),
+                   'cm_owner_normalized': owner_dict.get('cm_owner_normalized'),
+                   'cm_train_owner': owner_dict.get('cm_train_owner'),
+                   'CM_train_locals': locals_dict.get('CM_train_locals')}
 
     result_dict = {'output': output_dict, 'success': True}
     return json.dumps(result_dict)
