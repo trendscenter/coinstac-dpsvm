@@ -125,7 +125,6 @@ def train_svm_outputperturb(XY, num, dim, lambda_, epsilon, huberconst):
     w_nonpriv = train_svm_nonpriv(
         XY=XY, num=num, dim=dim, lambda_=lambda_, huberconst=huberconst
     )
-
     beta = num * lambda_ * epsilon / 2
     noise = noisevector(dim, beta)
     w_priv = w_nonpriv + noise
