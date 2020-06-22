@@ -30,7 +30,7 @@
         "items": ["boolean", "number"],
         "order": 1
       },    
-      "measurements": 
+      "data": 
       {
         "label": "Measurements",
         "description": "Files containing brain region measurements (e.g., FreeSurfer files)", 

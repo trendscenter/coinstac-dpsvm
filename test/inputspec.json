@@ -386,7 +386,7 @@
         ]
       ]
     },
-    "measurements": {
+    "data": {
       "value": [
         [
           "subject0_aseg_stats.txt",
@@ -851,7 +851,7 @@
         ]
       ]
     },
-    "measurements": {
+    "data": {
       "value": [
         [
           "subject0_aseg_stats.txt",
@@ -1543,7 +1543,7 @@
         ]
       ]
     },
-    "measurements": {
+    "data": {
       "value": [
         [
           "subject0_aseg_stats.txt",
@@ -2185,7 +2185,7 @@
         ]
       ]
     },
-    "measurements": {
+    "data": {
       "value": [
         [
           "subject0_aseg_stats.txt",
@@ -3007,7 +3007,7 @@
         ]
       ]
     },
-    "measurements": {
+    "data": {
       "value": [
         [
           "subject0_aseg_stats.txt",
