@@ -1,80 +1,90 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar 21 19:25:26 2018
-
-@author: Harshvardhan
+"""Parsers to extract features X and labels y from raw data.
 """
 import os
 
+import numpy as np
 import pandas as pd
 
 
-def parse_for_y(args, y_files, y_labels):
-    """Read contents of fsl files into a dataframe"""
-    y = pd.DataFrame(index=y_labels)
+def fsl_parser(input, base_dir):
+    """Parses fsl-specific inputspec.json, returns features X and labels y.
 
-    for file in y_files:
-        if file:
-            try:
-                y_ = pd.read_csv(os.path.join(args["state"]["baseDirectory"],
-                                              file),
-                                 sep='\t',
-                                 header=None,
-                                 names=['Measure:volume', file],
-                                 index_col=0)
-                y_ = y_[~y_.index.str.contains("Measure:volume")]
-                y_ = y_.apply(pd.to_numeric, errors='ignore')
-                y = pd.merge(y,
-                             y_,
-                             how='left',
-                             left_index=True,
-                             right_index=True)
-            except pd.errors.EmptyDataError:
-                continue
-            except FileNotFoundError:
-                continue
+    Args:
+        input (dict): Input of COINSTAC pipeline at each iteration.
+        base_dir (str): baseDirectory at each site.
 
-    y = y.T
+    Returns:
+        features_np (ndarray of shape (n_sample, n_feature)): X.
+        labels_np (ndarray of shape (n_sample,)): y.
+    """
+    # process covariates
+    covariates_raw = input["covariates"]
+    covariates = covariates_raw[0][0][
+        1:
+    ]  # e.g., [[subject0.txt, true, 47], ...]
+    covariate_names = covariates_raw[0][0][
+        0
+    ]  # e.g., freesurferfile, isControl, age
+    index_name = covariates_raw[0][0][0][0]  # e.g., freesurferfile
 
-    return y
+    features_df = pd.DataFrame.from_records(covariates, columns=covariate_names)
+    features_df.set_index(index_name, inplace=True)
 
+    # process measurements (data)
+    measurements_raw = input["data"]
+    measurement_files = measurements_raw[0]  # e.g., ['subject0.txt', ...]
 
-def fsl_parser(args):
-    """Parse the freesurfer (fsl) specific inputspec.json and return the
-    covariate matrix (X) as well the dependent matrix (y) as dataframes"""
-    input_list = args["input"]
-    X_info = input_list["covariates"]
-    y_info = input_list["data"]
+    tmp_list = []
+    for file in measurement_files:
+        _x = pd.read_csv(
+            os.path.join(base_dir, file),
+            sep="\t",
+            skiprows=[0],
+            header=None,
+            index_col=0,
+        ).transpose()
+        _x.insert(loc=0, column=index_name, value=file)
+        tmp_list.append(_x)
 
-    X_data = X_info[0][0]
-    X_labels = X_info[1]
+    measurement_df = pd.concat(tmp_list)
+    measurement_df.set_index(index_name, inplace=True)
 
-    X_df = pd.DataFrame.from_records(X_data)
+    # merge covariates and measurements into features_df
+    features_df = features_df.merge(
+        measurement_df, how="inner", left_index=True, right_index=True
+    )
 
-    X_df.columns = X_df.iloc[0]
-    X_df = X_df.reindex(X_df.index.drop(0))
-    X_df.set_index(X_df.columns[0], inplace=True)
+    # separate features_df to get features matrix and labels matrix
+    # Note:
+    #     if a categorical class is read in as int or as numerical
+    #     string, e.g.,'1', then you should manually set this class
+    #     as categorical type before calling pd.get_dummies():
+    #         df['A'] = df['A'].astype('category')
+    #     Otherwise, pd.to_numeric converts is to int/float.
+    label_name = input["label"]
+    labels_df = features_df.pop(label_name)
 
-    X = X_df[X_labels]
-    X = X.apply(pd.to_numeric, errors='ignore')
-    X = pd.get_dummies(X, drop_first=True)
-    X = X * 1
+    # process categorical classes, then convert dataframes to numpy arrays
+    features_df = features_df.apply(pd.to_numeric, errors="ignore")
+    features_df = pd.get_dummies(features_df, drop_first=True)
+    features_df = features_df * 1  # True -> 1, False -> 0
+    features_df = features_df.apply(
+        pd.to_numeric, errors="ignore"
+    )  # object 0, 1 -> int
 
-    y_files = y_info[0]
-    y_labels = y_info[2]
+    labels_df = labels_df.apply(pd.to_numeric, errors="ignore")
+    labels_df = pd.get_dummies(labels_df, drop_first=True, dtype=np.int8)
+    labels_df = labels_df * 1
+    labels_df = labels_df.apply(pd.to_numeric, errors="ignore")
+    labels_df.replace(
+        0, -1, inplace=True
+    )  # binary label [0, 1] -> [-1, 1] for LR and SVM
 
-    y = parse_for_y(args, y_files, y_labels)
+    features_np = features_df.to_numpy()
+    labels_np = labels_df.to_numpy().flatten()
 
-    X = X.reindex(sorted(X.columns), axis=1)
+    # normalize features to ensure ||x_i|| <= 1
+    max_norm = np.amax(np.linalg.norm(features_np, axis=1))
+    features_np = features_np / max_norm
 
-    ixs = X.index.intersection(y.index)
-
-    if ixs.empty:
-        raise Exception('No common X and y files at ' +
-                        args["state"]["clientId"])
-    else:
-        X = X.loc[ixs]
-        y = y.loc[ixs]
-
-    return (X, y)
+    return (features_np, labels_np)

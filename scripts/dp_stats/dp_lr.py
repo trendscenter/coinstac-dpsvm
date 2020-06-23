@@ -1,111 +1,218 @@
+"""Differentially private regularized logistic regression (lr).
+
+This module exports functions to train a non-private / differentially private 
+regularized binary lr classifier. For the differentially private version, 
+output or objective perturbation can be used. 
+
+Usage example:
+    w = dp_lr(
+        X, y, 
+        is_private=True,
+        perturb_method='objective',
+        lambda_=0.01, 
+        epsilon=0.1
+    )
+
+    w (ndarray of shape (n_feature,)): Weights in w'x in lr classifier.
+"""
 import numpy as np
 from scipy.optimize import minimize
 
-def noisevector( scale, Length ):
+from .general_funcs import noisevector
 
-    r1 = np.random.normal(0, 1, Length)#standard normal distribution
-    n1 = np.linalg.norm( r1, 2 )#get the norm of this random vector
-    r2 = r1 / n1#the norm of r2 is 1
-    normn = np.random.gamma( Length, 1/scale, 1 )#Generate the norm of noise according to gamma distribution
-    res = r2 * normn#get the result noise vector
-    return res
 
-def lr( z ):
+def lrloss(z):
+    """Returns normal lr loss (float) for a sample. 
 
-    logr = np.log( 1 + np.exp( -z ) )
-    return logr
+    Args:
+        z (float): x_i (1, n_feature) * y_i (int: -/+1) * w (n_feature, 1).
+    """
+    return np.log(1 + np.exp(-z))
 
-def lr_output_train( data, labels, epsilon, Lambda ):
 
-    L = len( labels )
-    l = len( data[0] )#length of a data point
-    scale = L * Lambda * epsilon / 2#chaudhuri2011differentially corollary 11, part 1
-    noise = noisevector( scale )
-    x0 = np.zeros( l )#starting point with same length as any data point
+def eval_lr(weights, XY, num, lambda_, b):
+    """Evaluates differentially private regularized lr loss for a data set. 
 
-    def obj_func(x):
-        jfd = lr( labels[0] * np.dot( data[0] , x ) )
-        for i in range( 1, L ):
-            jfd = jfd + lr( labels[i] * np.dot( data[i], x ) )
-        f = (1/L) * jfd + (1/2) * Lambda * ( np.linalg.norm(x)**2 )
-        return f
+    Args:
+        weights (ndarray of shape (n_feature,)): Weights in w'x in classifier.
+        XY (ndarray of shape (n_sample, n_feature)): 
+            each row x_i (1, n_feature) * label y_i (int: -/+1).
+        num (int): n_sample.
+        lambda_ (float): Regularization parameter. 
+        b (ndarray of shape (n_feature,)): Noise vector. If b is a zero vector,
+            returns non-private regularized lr loss.
+    
+    Returns:
+        fw (float): Differentially private regularized lr loss.
+    """
+    # add logistic loss from all samples
+    XYW = np.matmul(XY, weights)
+    fw = np.mean(lrloss(XYW), dtype=np.float64)
+    # add regularization term (1/2 * lambda * |w|^2) and b term (1/n * b'w)
+    fw += 0.5 * lambda_ * weights.dot(weights) + 1.0 / num * b.dot(weights)
+    return fw
 
-    #minimization procedure
-    f = minimize( obj_func, x0, method='Nelder-Mead').x#empirical risk minimization using scipy.optimize minimize function
-    fpriv = f + noise
-    return fpriv
 
-def lr_objective_train(data, labels, epsilon, Lambda ):
+def train_lr_nonpriv(XY, num, dim, lambda_):
+    """Trains a non-private regularized lr classifier. 
 
-    #parameters in objective perturbation method
-    c = 1 / 4#chaudhuri2011differentially corollary 11, part 2
-    L = len( labels )#number of data points in the data set
-    l = len( data[0] )#length of a data point
-    x0 = np.zeros( l )#starting point with same length as any data point
-    Epsilonp = epsilon - 2 * np.log( 1 + c / ( Lambda * L ) )
-    if Epsilonp > 0:
-        Delta = 0
+    Args:
+        XY (ndarray of shape (n_sample, n_feature)): 
+            each row x_i (1, n_feature) * label y_i (int: -/+1).
+        num (int): n_sample.
+        dim (int): Dimension of x_i, i.e., n_feature.
+        lambda_ (float): Regularization parameter. 
+    
+    Returns:
+        w_nonpriv (ndarray of shape (n_feature,)): 
+            Weights in w'x in lr classifier.
+
+    Raises:
+        Exception: If the optimizer exits unsuccessfully.
+    """
+    w0 = np.zeros(dim)  # w starting point
+    b = np.zeros(dim)  # zero noise vector
+    res = minimize(
+        eval_lr, w0, args=(XY, num, lambda_, b), method="L-BFGS-B", bounds=None
+    )
+    if not res.success:
+        raise Exception(res.message)
+    w_nonpriv = res.x
+    return w_nonpriv
+
+
+def train_lr_outputperturb(XY, num, dim, lambda_, epsilon):
+    """Trains a private regularized lr classifier by output perturbation. 
+
+    First, train a non-private lr classifier to get weights w_nonpriv, 
+    then add noise to w_nonpriv to get w_priv.
+
+    Args:
+        XY (ndarray of shape (n_sample, n_feature)): 
+            each row x_i (1, n_feature) * label y_i (int: -/+1).
+        num (int): n_sample.
+        dim (int): Dimension of x_i, i.e., n_feature.
+        lambda_ (float): Regularization parameter. 
+        epsilon (float): Privacy parameter.
+    
+    Returns:
+        w_priv (ndarray of shape (n_feature,)): 
+            Weights in w'x in lr classifier.
+    
+    References:
+        chaudhuri2011differentially: Algorithm 1 output perturbation.
+    """
+    w_nonpriv = train_lr_nonpriv(XY=XY, num=num, dim=dim, lambda_=lambda_)
+    beta = num * lambda_ * epsilon / 2
+    noise = noisevector(dim, beta)
+    w_priv = w_nonpriv + noise
+    return w_priv
+
+
+def train_lr_objectiveperturb(XY, num, dim, lambda_, epsilon):
+    """Trains a private regularized lr classifier by objective perturbation. 
+
+    Add noise to the objective (loss function).
+
+    Args:
+        XY (ndarray of shape (n_sample, n_feature)): 
+            each row x_i (1, n_feature) * label y_i (int: -/+1).
+        num (int): n_sample.
+        dim (int): Dimension of x_i, i.e., n_feature.
+        lambda_ (float): Regularization parameter. 
+        epsilon (float): Privacy parameter.
+    
+    Returns:
+        w_priv (ndarray of shape (n_feature,)): 
+            Weights in w'x in lr classifier.
+
+    Raises:
+        Exception: If epsilon_p < 1e-4, where epsilon_p is calculated from 
+            n_sample, lambda_ and epsilon.
+        Exception: If the optimizer exits unsuccessfully.
+    
+    References:
+        chaudhuri2011differentially: Algorithm 2 objective perturbation.
+        http://cseweb.ucsd.edu/~kamalika/code/dperm/documentation.pdf
+    """
+    c = 0.25  # value for lr
+    tmp = c / (num * lambda_)
+    epsilon_p = epsilon - np.log(1.0 + 2 * tmp + tmp * tmp)
+    if epsilon_p < 1e-4:
+        raise Exception(
+            "Error: Cannot run algorithm"
+            + "for this n_sample, lambda and epsilon value"
+        )
+
+    w0 = np.zeros(dim)
+    beta = epsilon_p / 2
+    b = noisevector(dim, beta)
+    res = minimize(
+        eval_lr, w0, args=(XY, num, lambda_, b), method="L-BFGS-B", bounds=None
+    )
+    if not res.success:
+        raise Exception(res.message)
+    w_priv = res.x
+    return w_priv
+
+
+def dp_lr(
+    features,
+    labels,
+    is_private=True,
+    perturb_method="objective",
+    lambda_=0.01,
+    epsilon=0.1,
+):
+    """Trains a non-private or differentially private lr classifier. 
+
+    Args:
+        features (ndarray of shape (n_sample, n_feature)): X.
+        labels (ndarray of shape (n_sample,)): y.
+        is_private (bool): Run private version or not. Defaults to True.
+        perturb_method (str): Use output perturbation for 'output', objective 
+            perturbation otherwise. Defaults to 'objective'.
+        lambda_ (float): Regularization parameter. Defaults to 0.01.
+        epsilon (float): Privacy parameter. Defaults to 0.1.
+
+    Returns:
+        w_nonpriv / w_priv (ndarray of shape (n_feature,)): 
+            Weights in w'x in lr classifier.
+
+    Raises:
+        Exception: If lambda_ < 0 for non-private version. If lambda_ < 0 or 
+            epsilon < 0 for private version.
+
+    References:
+        [1] K. Chaudhuri, C. Monteleoni, and A. D. Sarwate, 
+        “Differentially  private empirical risk minimization,” 
+        Journal of Machine Learning Research, vol. 12,no. Mar, 
+        pp. 1069–1109, 2011.
+        [2] ——, “Documentation for regularized lr and regularized svm 
+        code,” Available at 
+        http://cseweb.ucsd.edu/kamalika/code/dperm/documentation.pdf.
+    """
+    num = features.shape[0]  # number of samples
+    dim = features.shape[1]  # dimension of a sample vector x_i
+    # lr function only needs [vector x_i * label y_i]
+    XY = features * labels[:, np.newaxis]
+
+    # non-private version
+    if not is_private:
+        if lambda_ < 0.0:
+            raise Exception("ERROR: Lambda should be positive.")
+        w_nonpriv = train_lr_nonpriv(XY=XY, num=num, dim=dim, lambda_=lambda_)
+        return w_nonpriv
+    # private version
+    if lambda_ < 0.0 or epsilon < 0.0:
+        raise Exception("ERROR: Lambda and Epsilon should all be positive.")
+
+    if perturb_method == "output":
+        w_priv = train_lr_outputperturb(
+            XY=XY, num=num, dim=dim, lambda_=lambda_, epsilon=epsilon
+        )
     else:
-        Delta = c / ( L * ( np.exp( epsilon / 4 ) - 1 ) ) - Lambda
-        Epsilonp = epsilon / 2
-    scale = Epsilonp / 2
-    noise = noisevector( scale, l )
-
-    def obj_func( x ):
-        jfd = lr( labels[0] * np.dot( data[0], x ) )
-        for i in range( 1, L ):
-            jfd = jfd + lr( labels[i] * np.dot( data[i], x ) )
-        f = (1/L) * jfd + (1/2) * Lambda * ( np.linalg.norm(x)**2 ) + (1/L) * np.dot(noise, x) + (1/2) * Delta * (np.linalg.norm(x)**2)
-        return f
-
-    #minimization procedure
-    fpriv = minimize(obj_func, x0, method='Nelder-Mead').x#empirical risk minimization using scipy.optimize minimize function
-    return fpriv
-
-def dp_lr(data, labels, method='obj', epsilon=0.1, Lambda = 0.01 ):
-    '''
-    This function provides a differentially-private estimate of the logistic regression classifier according to
-    Sarwate et al. 2011, "Differentially Private Empirical Risk Minimization" paper.
-
-    Input:
-
-      data = data matrix, samples are in rows
-      labels = labels of the data samples
-      method = 'obj' (for objective perturbation) or 'out' (for output perturbation)
-      epsilon = privacy parameter, default 1.0
-      Lambda = regularization parameter
-
-    Output:
-
-      fpriv = (\epsilon)-differentially-private estimate of the svm classifier
-
-    Example:
-
-      >>> import numpy as np
-      >>> import dp_stats as dps
-
-      >>> X = np.random.normal(1.0, 1.0, (n,d));
-      >>> Y = np.random.normal(-1.0, 1.0, (n,d));
-      >>> labelX = 1.0 * np.ones(n);
-      >>> labelY = -1.0 * np.ones(n);
-
-      >>> data = np.vstack((X,Y));
-      >>> labels = np.hstack((labelX,labelY));
-
-      >>> fpriv = dps.classification.dp_svm (data, labels, 'obj', 0.1, 0.01, 0.5)
-      [ 1.45343603  6.59613827  3.39968451  0.56048388  0.69090816  1.7477234
-       -1.50873385 -2.06471724 -1.55284441  4.03065254]
-
-    '''
-
-    if epsilon < 0.0:
-        print('ERROR: Epsilon should be positive.')
-        return
-    else:
-
-        if method == 'obj':
-            fpriv = lr_objective_train(data, labels, epsilon, Lambda )
-        else:
-            fpriv = lr_output_train( data, labels, epsilon, Lambda )
-
-        return fpriv
+        w_priv = train_lr_objectiveperturb(
+            XY=XY, num=num, dim=dim, lambda_=lambda_, epsilon=epsilon
+        )
+    return w_priv
