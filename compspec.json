@@ -25,7 +25,7 @@
       "covariates":   
       {
         "label": "Covariates",
-        "description": "Files containing features other than brain region measurements (e.g., isControl, sex, age) and the binary label to predict.",    
+        "description": "Demographic or medical features (e.g., isControl, sex, age)",    
         "type": "array",
         "items": ["boolean", "number"],
         "order": 1
