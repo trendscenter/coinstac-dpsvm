@@ -19,7 +19,7 @@ For the theoretical foundation and the algorithms of the differentially private 
 
 **Note**: To use the differetially private version, n_sample, <img src="https://render.githubusercontent.com/render/math?math=\lambda">, <img src="https://render.githubusercontent.com/render/math?math=\epsilon_{p}"> and <img src="https://render.githubusercontent.com/render/math?math=h"> must satisfy the following criterion:
 
-<img src="https://render.githubusercontent.com/render/math?math={\epsilon_{p}}^{\prime}={\epsilon_{p}}-2log(1+\frac{c}{n\lambda})">, where <img src="https://render.githubusercontent.com/render/math?math=c=0.25"> for LR and <img src="https://render.githubusercontent.com/render/math?math=c=\frac{1}{2h}"> for SVM.
+![equation](https://latex.codecogs.com/gif.latex?{\epsilon_{p}}^{\prime}={\epsilon_{p}}-2log(1&plus;\frac{c}{n\lambda})), where <img src="https://render.githubusercontent.com/render/math?math=c=0.25"> for LR and <img src="https://render.githubusercontent.com/render/math?math=c=\frac{1}{2h}"> for SVM.
 
 If <img src="https://render.githubusercontent.com/render/math?math={\epsilon_{p}}^{\prime} < 10^{-4}">, an exception will be raised [[2]](#2).
 
@@ -33,5 +33,4 @@ The following diagram shows the framework implemented in [local.py](scripts/loca
  K.  Chaudhuri,  C.  Monteleoni,  and  A.  D.  Sarwate,  “Differentially  privateempirical risk minimization,” Journal of Machine Learning Research, vol. 12,no. Mar, pp. 1069–1109, 2011.
 
 <a id="2">[2]</a> 
- ——, “Documentation for regularized lr and regularized svm code,” Available at http://cseweb.ucsd.edu/kamalika/code/dperm/documentation.pdf.
-       
+ ——, “Documentation for regularized lr and regularized svm code,” Available at http://cseweb.ucsd.edu/kamalika/code/dperm/documentation.pdf.      
