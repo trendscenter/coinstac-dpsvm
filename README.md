@@ -17,6 +17,11 @@ For the theoretical foundation and the algorithms of the differentially private 
 
 **Privacy parameter <img src="https://render.githubusercontent.com/render/math?math=\epsilon_{p}">**: Try values from 0.1 to 1.5. Depending on the problem you may need to go higher. Larger value means lower privacy.
 
+**Note**: To use the differetially private version, n_sample, <img src="https://render.githubusercontent.com/render/math?math=\lambda">, <img src="https://render.githubusercontent.com/render/math?math=\epsilon_{p}"> and <img src="https://render.githubusercontent.com/render/math?math=h"> must satisfy the following criterion:
+
+<img src="https://render.githubusercontent.com/render/math?math={\epsilon_{p}}^{\prime}={\epsilon_{p}}-2log(1+\frac{c}{n\lambda})">, where <img src="https://render.githubusercontent.com/render/math?math=c=0.25"> for LR and <img src="https://render.githubusercontent.com/render/math?math=c=\frac{1}{2h}"> for SVM.
+
+If <img src="https://render.githubusercontent.com/render/math?math={\epsilon_{p}}^{\prime} < 10^{-4}">, an exception will be raised [[2]](#2).
 
 ### 3. Code
 The following diagram shows the framework implemented in [local.py](scripts/local.py) and [remote.py](scripts/remote.py).

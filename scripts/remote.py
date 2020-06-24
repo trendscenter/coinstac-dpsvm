@@ -65,14 +65,14 @@ def remote_1(args):
 
     # combine w_owner and W_locals
     output_dict = {
-        "w_owner": owner_dict.get("w_owner"),
-        "W_locals": locals_dict.get("W_locals"),
-        "num_sample_owner": owner_dict.get("num_sample_owner"),
-        "num_sample_locals": locals_dict.get("num_sample_locals"),
-        "cm_owner": owner_dict.get("cm_owner"),
-        "cm_owner_normalized": owner_dict.get("cm_owner_normalized"),
-        "cm_train_owner": owner_dict.get("cm_train_owner"),
-        "CM_train_locals": locals_dict.get("CM_train_locals"),
+        "w_owner": [owner_dict.get("w_owner"), "array"],
+        "W_locals": [locals_dict.get("W_locals"), "array"],
+        "num_sample_owner": [owner_dict.get("num_sample_owner"), "number"],
+        "num_sample_locals": [locals_dict.get("num_sample_locals"), "number"],
+        "cm_owner": [owner_dict.get("cm_owner"), "table"],
+        "cm_owner_normalized": [owner_dict.get("cm_owner_normalized"), "table"],
+        "cm_train_owner": [owner_dict.get("cm_train_owner"), "table"],
+        "CM_train_locals": [locals_dict.get("CM_train_locals"), "table"],
     }
 
     result_dict = {"output": output_dict, "success": True}

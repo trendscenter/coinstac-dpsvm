@@ -164,7 +164,7 @@ def train_svm_objectiveperturb(XY, num, dim, lambda_, epsilon, huberconst):
     if epsilon_p < 1e-4:
         raise Exception(
             "Error: Cannot run algorithm"
-            + "for this n_sample, lambda and epsilon value"
+            + "for this n_sample, lambda, epsilon and huberconst value"
         )
 
     w0 = np.zeros(dim)
