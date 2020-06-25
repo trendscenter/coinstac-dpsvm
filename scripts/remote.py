@@ -68,11 +68,11 @@ def remote_1(args):
         "w_owner": [owner_dict.get("w_owner"), "array"],
         "W_locals": [locals_dict.get("W_locals"), "array"],
         "num_sample_owner": [owner_dict.get("num_sample_owner"), "number"],
-        "num_sample_locals": [locals_dict.get("num_sample_locals"), "number"],
+        "num_sample_locals": [locals_dict.get("num_sample_locals"), "array"],
         "cm_owner": [owner_dict.get("cm_owner"), "table"],
         "cm_owner_normalized": [owner_dict.get("cm_owner_normalized"), "table"],
         "cm_train_owner": [owner_dict.get("cm_train_owner"), "table"],
-        "CM_train_locals": [locals_dict.get("CM_train_locals"), "table"],
+        "CM_train_locals": [locals_dict.get("CM_train_locals"), "tables"],
     }
 
     result_dict = {"output": output_dict, "success": True}
