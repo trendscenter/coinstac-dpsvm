@@ -2,8 +2,9 @@
 
 At iteration 0, run remote_0(): Aggregates classifiers from local sites, saves 
     and sends them to the owner site.
-At iteration 1, run remote_1(): Receives a classifier from the owner site and
-    outputs classifiers and confusion matrix from both owner and local sites.
+At iteration 1, run remote_1(): Receives an aggregator classifier from the 
+    owner site and outputs classifiers and perfomance metrics of both owner 
+    and local sites.
 
 Raises:
     Exception: If neither 'local_0' nor 'local_1' is in sys.stdin.
@@ -33,7 +34,7 @@ def remote_0(args):
             for site, site_dict in input.items()
             if "intercept_local" in site_dict
         ]
-    )    
+    )
 
     cm_train_locals = np.array(
         [
@@ -49,7 +50,7 @@ def remote_0(args):
             for site, site_dict in input.items()
             if "err_train_local" in site_dict
         ]
-    )    
+    )
 
     n_samples_locals = np.array(
         [
@@ -57,17 +58,17 @@ def remote_0(args):
             for site, site_dict in input.items()
             if "n_samples_local" in site_dict
         ]
-    )    
+    )
 
     # dicts
     output_dict = {
-        "w_locals": w_locals.tolist(), 
-        "intercept_locals": intercept_locals.tolist(), 
-        "phase": "remote_0"
+        "w_locals": w_locals.tolist(),
+        "intercept_locals": intercept_locals.tolist(),
+        "phase": "remote_0",
     }
 
     cache_dict = output_dict.copy()
-    cache_dict["cm_train_locals"] = cm_train_locals.tolist()    
+    cache_dict["cm_train_locals"] = cm_train_locals.tolist()
     cache_dict["err_train_locals"] = err_train_locals.tolist()
     cache_dict["n_samples_locals"] = n_samples_locals.tolist()
 
@@ -89,16 +90,25 @@ def remote_1(args):
         "intercept_owner": [dict_owner.get("intercept_owner"), "number"],
         "intercept_locals": [dict_locals.get("intercept_locals"), "array"],
         "cm_test_owner": [dict_owner.get("cm_test_owner"), "table"],
-        "cm_test_owner_normalized": [dict_owner.get("cm_test_owner_normalized"), "table"],
+        "cm_test_owner_normalized": [
+            dict_owner.get("cm_test_owner_normalized"),
+            "table",
+        ],
         "cm_train_owner": [dict_owner.get("cm_train_owner"), "table"],
         "cm_test_locals": [dict_owner.get("cm_test_locals"), "tables"],
-        "cm_train_locals": [dict_locals.get("cm_train_locals"), "tables"],    
+        "cm_train_locals": [dict_locals.get("cm_train_locals"), "tables"],
         "err_test_owner": [dict_owner.get("err_test_owner"), "number"],
         "err_train_owner": [dict_owner.get("err_train_owner"), "number"],
-        "err_test_locals": [dict_owner.get("err_test_locals"), "array"], 
-        "err_train_locals": [dict_locals.get("err_train_locals"), "array"],             
-        "n_samples_owner_train": [dict_owner.get("n_samples_owner_train"), "number"],
-        "n_samples_owner_test": [dict_owner.get("n_samples_owner_test"), "number"],
+        "err_test_locals": [dict_owner.get("err_test_locals"), "array"],
+        "err_train_locals": [dict_locals.get("err_train_locals"), "array"],
+        "n_samples_owner_train": [
+            dict_owner.get("n_samples_owner_train"),
+            "number",
+        ],
+        "n_samples_owner_test": [
+            dict_owner.get("n_samples_owner_test"),
+            "number",
+        ],
         "n_samples_locals": [dict_locals.get("n_samples_locals"), "array"],
     }
 
