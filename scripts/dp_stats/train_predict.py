@@ -53,14 +53,16 @@ def train_model(X, y, input, site="local"):
     return w
 
 
-def predict_linearmodel(weights, X):
+def predict_linearmodel(weights, intercept, X):
     """Returns predicted labels for feature matrix X.
 
     Args:
-        weights (ndarray of shape (n_feature,)): Weights in w'x.
+        weights (ndarray of shape (n_feature,)): Weights in w'x + intercept.
+        intercept: float, intercept in the model y = w'x + intercept, 
+            for unpreprocessed raw data.
         X (ndarray of shape (n_sample, n_feature)):  Features.
 
     Returns:
         int ndarray of shape (n_sample,): Predicted labels (-/+1).
     """
-    return np.where(np.matmul(X, weights) >= 0, 1, -1)
+    return np.where((np.matmul(X, weights) + intercept) >= 0, 1, -1)

@@ -18,8 +18,8 @@ from common_functions import list_recursive
 
 def remote_0(args):
     input = args["input"]
-    # aggregate w_local and num_sample_local from local sites
-    W_locals = np.array(
+    # aggregate from local sites
+    w_locals = np.array(
         [
             site_dict["w_local"]
             for site, site_dict in input.items()
@@ -27,52 +27,79 @@ def remote_0(args):
         ]
     ).T
 
-    num_sample_locals = np.array(
+    intercept_locals = np.array(
         [
-            site_dict["num_sample_local"]
+            site_dict["intercept_local"]
             for site, site_dict in input.items()
-            if "num_sample_local" in site_dict
+            if "intercept_local" in site_dict
+        ]
+    )    
+
+    cm_train_locals = np.array(
+        [
+            site_dict["cm_train_local"]
+            for site, site_dict in input.items()
+            if "cm_train_local" in site_dict
         ]
     )
 
-    CM_train_locals = np.array(
+    err_train_locals = np.array(
         [
-            site_dict["cm_local"]
+            site_dict["err_train_local"]
             for site, site_dict in input.items()
-            if "cm_local" in site_dict
+            if "err_train_local" in site_dict
         ]
-    )
+    )    
 
-    output_dict = {"W_locals": W_locals.tolist(), "phase": "remote_0"}
+    n_samples_locals = np.array(
+        [
+            site_dict["n_samples_local"]
+            for site, site_dict in input.items()
+            if "n_samples_local" in site_dict
+        ]
+    )    
+
+    # dicts
+    output_dict = {
+        "w_locals": w_locals.tolist(), 
+        "intercept_locals": intercept_locals.tolist(), 
+        "phase": "remote_0"
+    }
 
     cache_dict = output_dict.copy()
-    cache_dict["num_sample_locals"] = num_sample_locals.tolist()
-    cache_dict["CM_train_locals"] = CM_train_locals.tolist()
+    cache_dict["cm_train_locals"] = cm_train_locals.tolist()    
+    cache_dict["err_train_locals"] = err_train_locals.tolist()
+    cache_dict["n_samples_locals"] = n_samples_locals.tolist()
 
-    # save a copy in cache
     result_dict = {"output": output_dict, "cache": cache_dict}
     return json.dumps(result_dict)
 
 
 def remote_1(args):
     input = args["input"]
-    locals_dict = args["cache"]
-    # extract w_owner and num_sample_owner from the owner site
-    for site, site_dict in input.items():
-        if site_dict:
-            owner_dict = site_dict
-            break
+    state = args["state"]
+    owner = state["owner"] if "owner" in state else "local0"
+    dict_owner = input[owner]
+    dict_locals = args["cache"]
 
-    # combine w_owner and W_locals
+    # combine owner and locals
     output_dict = {
-        "w_owner": [owner_dict.get("w_owner"), "array"],
-        "W_locals": [locals_dict.get("W_locals"), "array"],
-        "num_sample_owner": [owner_dict.get("num_sample_owner"), "number"],
-        "num_sample_locals": [locals_dict.get("num_sample_locals"), "array"],
-        "cm_owner": [owner_dict.get("cm_owner"), "table"],
-        "cm_owner_normalized": [owner_dict.get("cm_owner_normalized"), "table"],
-        "cm_train_owner": [owner_dict.get("cm_train_owner"), "table"],
-        "CM_train_locals": [locals_dict.get("CM_train_locals"), "tables"],
+        "w_owner": [dict_owner.get("w_owner"), "array"],
+        "w_locals": [dict_locals.get("w_locals"), "arrays"],
+        "intercept_owner": [dict_owner.get("intercept_owner"), "number"],
+        "intercept_locals": [dict_locals.get("intercept_locals"), "array"],
+        "cm_test_owner": [dict_owner.get("cm_test_owner"), "table"],
+        "cm_test_owner_normalized": [dict_owner.get("cm_test_owner_normalized"), "table"],
+        "cm_train_owner": [dict_owner.get("cm_train_owner"), "table"],
+        "cm_test_locals": [dict_owner.get("cm_test_locals"), "tables"],
+        "cm_train_locals": [dict_locals.get("cm_train_locals"), "tables"],    
+        "err_test_owner": [dict_owner.get("err_test_owner"), "number"],
+        "err_train_owner": [dict_owner.get("err_train_owner"), "number"],
+        "err_test_locals": [dict_owner.get("err_test_locals"), "array"], 
+        "err_train_locals": [dict_locals.get("err_train_locals"), "array"],             
+        "n_samples_owner_train": [dict_owner.get("n_samples_owner_train"), "number"],
+        "n_samples_owner_test": [dict_owner.get("n_samples_owner_test"), "number"],
+        "n_samples_locals": [dict_locals.get("n_samples_locals"), "array"],
     }
 
     result_dict = {"output": output_dict, "success": True}

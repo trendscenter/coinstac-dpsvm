@@ -13,9 +13,10 @@ Raises:
 import os
 import sys
 
+import copy
 import numpy as np
 import ujson as json
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.model_selection import train_test_split
 
 from dp_stats.train_predict import train_model, predict_linearmodel
@@ -43,20 +44,47 @@ def local_0(args):
             "lambda_owner": input["lambda_owner"],
             "epsilon_owner": input["epsilon_owner"],
             "huberconst_owner": input["huberconst_owner"],
+            "fit_intercept_owner": input["fit_intercept_owner"],
+            "intercept_scaling_owner": input["intercept_scaling_owner"],
             "train_split": input["train_split"],
+            "shuffle": input["shuffle"],
             "X_filename": "X.npy",
             "y_filename": "y.npy",
         }
         output_dict = {"phase": "local_0"}
     else:
-        w_local = train_model(X, y, input, "local")
-        y_pred = predict_linearmodel(w_local, X)
-        cm_local = confusion_matrix(y, y_pred, normalize=None)
+        n_samples_local = X.shape[0]
+        # prerprocess training data
+        if input["fit_intercept_local"]:
+            # add synthetic feature
+            synthetic = input["intercept_scaling_local"] * np.ones((n_samples_local, 1))
+            X_scaled = np.concatenate((X, synthetic), axis=1)
+        else:
+            X_scaled = copy.deepcopy(X)
+        # required by dp: each training sample vector ||x_i|| <= 1
+        scale = np.amax(np.linalg.norm(X_scaled, axis=1))
+        X_scaled = X_scaled / scale
+
+        # train local model
+        w_local = (1 / scale) * train_model(X_scaled, y, input, "local")
+
+        if input["fit_intercept_local"]:
+            intercept_local = w_local[-1]
+            w_local = w_local[:-1]
+        else:
+            intercept_local = 0.0
+        
+        # predict on training data, calculate confusion matrix and error rate
+        y_train_pred = predict_linearmodel(w_local, intercept_local, X)
+        cm_train_local = confusion_matrix(y, y_train_pred, normalize=None)
+        err_train_local = 1 - accuracy_score(y, y_train_pred, normalize=True)
         cache_dict = {}
         output_dict = {
-            "cm_local": cm_local.tolist(),
             "w_local": w_local.tolist(),
-            "num_sample_local": y.shape[0],
+            "intercept_local": float(intercept_local),
+            "cm_train_local": cm_train_local.tolist(),
+            "err_train_local": float(err_train_local),
+            "n_samples_local": n_samples_local,
             "phase": "local_0",
         }
 
@@ -73,48 +101,86 @@ def local_1(args):
         cache = args["cache"]
         cache_dir = state["cacheDirectory"]
 
-        # get X, y, W_locals, then calculate soft prediction u = w'x
         X_file = os.path.join(cache_dir, cache.get("X_filename", ""))
         y_file = os.path.join(cache_dir, cache.get("y_filename", ""))
         with open(X_file, "rb") as fp:
             X = np.load(fp)
         with open(y_file, "rb") as fp:
             y = np.load(fp)
-        W_locals = np.array(input["W_locals"])
-        U = np.matmul(X, W_locals)
+        w_locals = np.array(input["w_locals"])
+        intercept_locals = np.array(input["intercept_locals"])
 
-        # split train - test data
+        # split train/test data
         train_split = cache["train_split"] if "train_split" in cache else 0.8
-        U_train, U_test, y_train, y_test = train_test_split(
-            U, y, train_size=train_split, random_state=42, shuffle=True
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, train_size=train_split, shuffle=cache["shuffle"]
         )
 
-        # train model, then predict on train and test data,
-        # show the results by confusion matrix (cm)
-        # cm: 2D array (n_classes, n_classes)
+        # calculate soft predictions u = w'x + intercept based on local classifiers
+        # X_train (n_samples, n_features), w_locals(n_features, n_locals), intercept_locals(n_locals,) will be broadcast
+        U_train = np.matmul(X_train, w_locals) + intercept_locals
+        U_test = np.matmul(X_test, w_locals) + intercept_locals
+        
+        # prerprocess U_train
+        n_samples_owner = U_train.shape[0]
+        if cache["fit_intercept_owner"]:
+            # add synthetic feature
+            synthetic = cache["intercept_scaling_owner"] * np.ones((n_samples_owner, 1))
+            U_train_scaled = np.concatenate((U_train, synthetic), axis=1)
+        else:
+            U_train_scaled = copy.deepcopy(U_train)
+        # required by dp: each training sample vector ||x_i|| <= 1
+        scale = np.amax(np.linalg.norm(U_train_scaled, axis=1))
+        U_train_scaled = U_train_scaled / scale
+
+        # train aggregator model 
+        w_owner = (1 / scale) * train_model(U_train_scaled, y_train, cache, "owner")
+        if cache["fit_intercept_owner"]:
+            intercept_owner = w_owner[-1]
+            w_owner = w_owner[:-1]
+        else:
+            intercept_owner = 0.0
+
+        # predict on train/test data, calculate confusion matrix and error rate
+        # confusion matrix: 2D array (n_classes, n_classes)
         # e.g.        predicted
         #               -1    1
         #    true  -1   ...   ...
         #           1   ...   ...
+        y_train_pred = predict_linearmodel(w_owner, intercept_owner, U_train)
+        cm_train_owner = confusion_matrix(y_train, y_train_pred, normalize=None)
+        err_train_owner = 1 - accuracy_score(y_train, y_train_pred, normalize=True)
 
-        w_owner = train_model(U_train, y_train, cache, "owner")
-        y_pred_train = predict_linearmodel(w_owner, U_train)
-        cm_train_owner = confusion_matrix(y_train, y_pred_train, normalize=None)
+        y_test_pred = predict_linearmodel(w_owner, intercept_owner, U_test)
+        cm_test_owner = confusion_matrix(y_test, y_test_pred, normalize=None)
+        cm_test_owner_normalized = confusion_matrix(y_test, y_test_pred, normalize="true")
+        err_test_owner = 1 - accuracy_score(y_test, y_test_pred, normalize=True)
 
-        y_pred = predict_linearmodel(w_owner, U_test)
-        cm = confusion_matrix(y_test, y_pred, normalize=None)
-        cm_normalized = confusion_matrix(y_test, y_pred, normalize="true")
+        cm_test_locals = []
+        err_test_locals = []
+        for ii in range(intercept_locals.shape[0]):
+            y_pred = predict_linearmodel(w_locals[:, ii], intercept_locals[ii], X_test) 
+            cm = confusion_matrix(y_test, y_pred, normalize=None).tolist()
+            err = 1 - accuracy_score(y_test, y_pred, normalize=True)
+            cm_test_locals.append(cm)
+            err_test_locals.append(err)
 
         output_dict = {
-            "cm_train_owner": cm_train_owner.tolist(),
-            "cm_owner": cm.tolist(),
-            "cm_owner_normalized": cm_normalized.tolist(),
             "w_owner": w_owner.tolist(),
-            "num_sample_owner": y.shape[0],
-            "phase": "local_1",
+            "intercept_owner": float(intercept_owner),
+            "cm_train_owner": cm_train_owner.tolist(),
+            "cm_test_owner": cm_test_owner.tolist(),
+            "cm_test_owner_normalized": cm_test_owner_normalized.tolist(),
+            "cm_test_locals": cm_test_locals,
+            "err_train_owner": err_train_owner,
+            "err_test_owner": err_test_owner,
+            "err_test_locals": err_test_locals,
+            "n_samples_owner_train": n_samples_owner,
+            "n_samples_owner_test": y_test.shape[0],
+            "phase": "local_1"
         }
     else:
-        output_dict = {}
+        output_dict = {"phase": "local_1"}
 
     result_dict = {"output": output_dict}
     return json.dumps(result_dict)

@@ -90,7 +90,7 @@
         "default": 1.0,
         "label": "Epsilon_local",
         "description": "Privacy parameter",
-        "max": 3,
+        "max": 100.0,
         "min": 0.1,
         "step": 0.01, 
         "type": "range",
@@ -104,6 +104,27 @@
         "description": "Constant for huber loss",
         "max": 0.5,
         "min": 0.001,
+        "step": 0.01,
+        "type": "range",
+        "source": "owner",
+        "order": 3
+      },
+      "fit_intercept_local":
+      {
+        "default": true,
+        "label": "Fit_intercept_local",
+        "description": "Whether to calculate the intercept for the local model. If set to false, intercept = 0 (i.e., local training data is already centered).",
+        "type": "boolean",
+        "source": "owner", 
+        "order": 4
+      },       
+      "intercept_scaling_local":
+      {
+        "default": 1.0,
+        "label": "Intercept_scaling_local",
+        "description": "When fit_intercept_local = true, sample vector x becomes [x, intercept_scaling], i.e., a “synthetic” feature is appended. The intercept (in y = w'x + intercept) becomes intercept_scaling * synthetic feature weight. Note the synthetic feature weight is subject to l2 regularization as all other features. To lessen the effect of regularization on synthetic feature weight (and therefore on the intercept) intercept_scaling has to be increased.",
+        "max": 1e100,
+        "min": 1e-100,
         "step": 0.01,
         "type": "range",
         "source": "owner",
@@ -153,7 +174,7 @@
         "default": 1.0,
         "label": "Epsilon_owner",
         "description": "Privacy parameter",
-        "max": 3,
+        "max": 100.0,
         "min": 0.1,
         "step": 0.01, 
         "type": "range",
@@ -172,6 +193,27 @@
         "source": "owner",
         "order": 3
       },
+      "fit_intercept_owner":
+      {
+        "default": true,
+        "label": "Fit_intercept_owner",
+        "description": "Whether to calculate the intercept for the aggregator model. If set to false, intercept = 0 (i.e., soft predictions are expected to be already centered).",
+        "type": "boolean",
+        "source": "owner", 
+        "order": 4
+      },       
+      "intercept_scaling_owner":
+      {
+        "default": 1.0,
+        "label": "Intercept_scaling_owner",
+        "description": "When fit_intercept_owner = true, soft prediction vector u becomes [u, intercept_scaling], i.e., a “synthetic” feature is appended. The intercept (in y = w'u + intercept) becomes intercept_scaling * synthetic feature weight. Note the synthetic feature weight is subject to l2 regularization as all other features. To lessen the effect of regularization on synthetic feature weight (and therefore on the intercept) intercept_scaling has to be increased.",
+        "max": 1e100,
+        "min": 1e-100,
+        "step": 0.01,
+        "type": "range",
+        "source": "owner",
+        "order": 3
+      },      
       "train_split":
       {
         "default": 0.8,
@@ -182,6 +224,15 @@
         "step": 0.1,
         "type": "number",
         "source": "owner",
+        "order": 4
+      },
+      "shuffle":
+      {
+        "default": true,
+        "label": "Shuffle",
+        "description": "Whether shuffle or not when splitting train / test dataset",
+        "type": "boolean",
+        "source": "owner", 
         "order": 4
       }
     },

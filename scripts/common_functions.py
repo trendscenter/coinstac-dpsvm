@@ -4,7 +4,7 @@ import numpy as np
 
 
 def list_recursive(d, key):
-    """Yields the first value corresponding to key in a dict d."""
+    """Yields the value corresponding to key in a dict d."""
     for k, v in d.items():
         if isinstance(v, dict):
             for found in list_recursive(v, key):
