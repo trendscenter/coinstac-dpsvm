@@ -1,0 +1,57 @@
+name: "rbm3cdd"
+data {
+  name: "hidden1_unlabelled"
+  file_pattern: "data/rbm3cdd_LAST/train/*-of-*.npy"
+  size: 302
+  dimensions: 50
+}
+data {
+  name: "hidden2_unlabelled"
+  file_pattern: "data/rbm3cdd_LAST/train/*-of-*.npy"
+  size: 302
+  dimensions: 50
+}
+data {
+  name: "hidden3_unlabelled"
+  file_pattern: "data/rbm3cdd_LAST/train/*-of-*.npy"
+  size: 302
+  dimensions: 100
+}
+data {
+  name: "hidden1_labelled"
+  file_pattern: "data/rbm3cdd_LAST/validation/*-of-*.npy"
+  size: 54
+  dimensions: 50
+}
+data {
+  name: "hidden2_labelled"
+  file_pattern: "data/rbm3cdd_LAST/validation/*-of-*.npy"
+  size: 54
+  dimensions: 50
+}
+data {
+  name: "hidden3_labelled"
+  file_pattern: "data/rbm3cdd_LAST/validation/*-of-*.npy"
+  size: 54
+  dimensions: 100
+}
+data {
+  name: "hidden1_labelled"
+  file_pattern: "data/rbm3cdd_LAST/test/*-of-*.npy"
+  size: 33
+  dimensions: 50
+}
+data {
+  name: "hidden2_labelled"
+  file_pattern: "data/rbm3cdd_LAST/test/*-of-*.npy"
+  size: 33
+  dimensions: 50
+}
+data {
+  name: "hidden3_labelled"
+  file_pattern: "data/rbm3cdd_LAST/test/*-of-*.npy"
+  size: 33
+  dimensions: 100
+}
+gpu_memory: "5G"
+main_memory: "30G"
