@@ -69,7 +69,7 @@ def local_0(args):
         X_scaled = X_scaled / scale
 
         # train local model
-        w_local = (1 / scale) * train_model(X_scaled, y, input, scale, "local")
+        w_local = (1 / scale) * train_model(X_scaled, y, input, "local")
 
         if input["fit_intercept_local"]:
             intercept_local = input["intercept_scaling_local"] * w_local[-1]
@@ -141,7 +141,7 @@ def local_1(args):
 
         # train aggregator model
         w_owner = (1 / scale) * train_model(
-            U_train_scaled, y_train, cache, scale, "owner"
+            U_train_scaled, y_train, cache, "owner"
         )
         if cache["fit_intercept_owner"]:
             intercept_owner = cache["intercept_scaling_owner"] * w_owner[-1]
