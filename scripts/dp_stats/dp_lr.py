@@ -27,7 +27,10 @@ def lrloss(z):
     Args:
         z (float): x_i (1, n_feature) * y_i (int: -/+1) * w (n_feature, 1).
     """
-    return np.log(1 + np.exp(-z))
+    # prevent overflow in exp()
+    if z >= 0:
+        return np.log(1 + np.exp(-z))
+    return -z + np.log(np.exp(z) + 1)
 
 
 def eval_lr(weights, XY, num, lambda_, b):
@@ -47,9 +50,12 @@ def eval_lr(weights, XY, num, lambda_, b):
     """
     # add logistic loss from all samples
     XYW = np.matmul(XY, weights)
-    fw = np.mean(lrloss(XYW), dtype=np.float64)
+    fw = 0
+    onebyn = 1.0 / num
+    for i in XYW:
+        fw += onebyn * lrloss(i)
     # add regularization term (1/2 * lambda * |w|^2) and b term (1/n * b'w)
-    fw += 0.5 * lambda_ * weights.dot(weights) + 1.0 / num * b.dot(weights)
+    fw += 0.5 * lambda_ * weights.dot(weights) + onebyn * b.dot(weights)
     return fw
 
 

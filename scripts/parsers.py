@@ -34,7 +34,7 @@ def fsl_parser(input, base_dir):
     features_df.set_index(index_name, inplace=True)
 
     # process measurements (fsl section)
-    measurements_raw = input.get("data", [])
+    measurements_raw = input.get("measurements", [])
     if (measurements_raw is not None) and (measurements_raw != []):
         measurement_files = measurements_raw[0]  # e.g., ['subject0.txt', ...]
 

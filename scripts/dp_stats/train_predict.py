@@ -13,7 +13,7 @@ from .dp_svm import dp_svm
 from .dp_lr import dp_lr
 
 
-def train_model(X, y, input, site="local"):
+def train_model(X, y, input, scale, site="local"):
     """Trains a model depicted in input upon feature X and label y. 
 
     Args:

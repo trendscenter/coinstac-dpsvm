@@ -69,10 +69,10 @@ def local_0(args):
         X_scaled = X_scaled / scale
 
         # train local model
-        w_local = (1 / scale) * train_model(X_scaled, y, input, "local")
+        w_local = (1 / scale) * train_model(X_scaled, y, input, scale, "local")
 
         if input["fit_intercept_local"]:
-            intercept_local = w_local[-1]
+            intercept_local = input["intercept_scaling_local"] * w_local[-1]
             w_local = w_local[:-1]
         else:
             intercept_local = 0.0
@@ -82,6 +82,7 @@ def local_0(args):
         cm_train_local = confusion_matrix(y, y_train_pred, normalize=None)
         err_train_local = 1 - accuracy_score(y, y_train_pred, normalize=True)
         cache_dict = {}
+
         output_dict = {
             "w_local": w_local.tolist(),
             "intercept_local": float(intercept_local),
@@ -140,10 +141,10 @@ def local_1(args):
 
         # train aggregator model
         w_owner = (1 / scale) * train_model(
-            U_train_scaled, y_train, cache, "owner"
+            U_train_scaled, y_train, cache, scale, "owner"
         )
         if cache["fit_intercept_owner"]:
-            intercept_owner = w_owner[-1]
+            intercept_owner = cache["intercept_scaling_owner"] * w_owner[-1]
             w_owner = w_owner[:-1]
         else:
             intercept_owner = 0.0
