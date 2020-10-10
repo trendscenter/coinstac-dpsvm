@@ -44,11 +44,19 @@ def remote_0(args):
         ]
     )
 
-    err_train_locals = np.array(
+    cm_train_locals_normalized = np.array(
         [
-            site_dict["err_train_local"]
+            site_dict["cm_train_local_normalized"]
             for site, site_dict in input.items()
-            if "err_train_local" in site_dict
+            if "cm_train_local_normalized" in site_dict
+        ]
+    )
+
+    acc_train_locals = np.array(
+        [
+            site_dict["acc_train_local"]
+            for site, site_dict in input.items()
+            if "acc_train_local" in site_dict
         ]
     )
 
@@ -69,7 +77,10 @@ def remote_0(args):
 
     cache_dict = output_dict.copy()
     cache_dict["cm_train_locals"] = cm_train_locals.tolist()
-    cache_dict["err_train_locals"] = err_train_locals.tolist()
+    cache_dict[
+        "cm_train_locals_normalized"
+    ] = cm_train_locals_normalized.tolist()
+    cache_dict["acc_train_locals"] = acc_train_locals.tolist()
     cache_dict["n_samples_locals"] = n_samples_locals.tolist()
 
     result_dict = {"output": output_dict, "cache": cache_dict}
@@ -94,13 +105,29 @@ def remote_1(args):
             dict_owner.get("cm_test_owner_normalized"),
             "table",
         ],
+        "acc_test_owner": [dict_owner.get("acc_test_owner"), "number"],
+        "f1_test_owner": [dict_owner.get("f1_test_owner"), "number"],
+        "rocauc_test_owner": [dict_owner.get("rocauc_test_owner"), "number"],
         "cm_train_owner": [dict_owner.get("cm_train_owner"), "table"],
+        "cm_train_owner_normalized": [
+            dict_owner.get("cm_train_owner_normalized"),
+            "table",
+        ],
+        "acc_train_owner": [dict_owner.get("acc_train_owner"), "number"],
         "cm_test_locals": [dict_owner.get("cm_test_locals"), "tables"],
+        "cm_test_locals_normalized": [
+            dict_owner.get("cm_test_locals_normalized"),
+            "tables",
+        ],
+        "acc_test_locals": [dict_owner.get("acc_test_locals"), "array"],
+        "f1_test_locals": [dict_owner.get("f1_test_locals"), "array"],
+        "rocauc_test_locals": [dict_owner.get("rocauc_test_locals"), "array"],
         "cm_train_locals": [dict_locals.get("cm_train_locals"), "tables"],
-        "err_test_owner": [dict_owner.get("err_test_owner"), "number"],
-        "err_train_owner": [dict_owner.get("err_train_owner"), "number"],
-        "err_test_locals": [dict_owner.get("err_test_locals"), "array"],
-        "err_train_locals": [dict_locals.get("err_train_locals"), "array"],
+        "cm_train_locals_normalized": [
+            dict_locals.get("cm_train_locals_normalized"),
+            "tables",
+        ],
+        "acc_train_locals": [dict_locals.get("acc_train_locals"), "array"],
         "n_samples_owner_train": [
             dict_owner.get("n_samples_owner_train"),
             "number",

@@ -17,10 +17,20 @@ import sys
 import copy
 import numpy as np
 import ujson as json
-from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.metrics import (
+    confusion_matrix,
+    accuracy_score,
+    f1_score,
+    roc_auc_score,
+)
 from sklearn.model_selection import train_test_split
 
-from dp_stats.train_predict import train_model, predict_linearmodel
+from dp_stats.train_predict import (
+    train_model,
+    predict_linearmodel,
+    predict_proba_lr,
+    predict_decision_svmhuber,
+)
 from common_functions import list_recursive
 from parsers import fsl_parser
 
@@ -39,6 +49,7 @@ def local_0(args):
         np.save(os.path.join(cache_dir, "y.npy"), y)
 
         cache_dict = {
+            "model_local": input["model_local"],
             "model_owner": input["model_owner"],
             "is_private_owner": input["is_private_owner"],
             "perturb_method_owner": input["perturb_method_owner"],
@@ -55,7 +66,7 @@ def local_0(args):
         output_dict = {"phase": "local_0"}
     else:
         n_samples_local = X.shape[0]
-        # prerprocess training data
+        # preprocess training data
         if input["fit_intercept_local"]:
             # add synthetic feature
             synthetic = input["intercept_scaling_local"] * np.ones(
@@ -77,17 +88,21 @@ def local_0(args):
         else:
             intercept_local = 0.0
 
-        # predict on training data, calculate confusion matrix and error rate
+        # predict on training data, calculate confusion matrix and accuracy
         y_train_pred = predict_linearmodel(w_local, intercept_local, X)
         cm_train_local = confusion_matrix(y, y_train_pred, normalize=None)
-        err_train_local = 1 - accuracy_score(y, y_train_pred, normalize=True)
+        cm_train_local_normalized = confusion_matrix(
+            y, y_train_pred, normalize="true"
+        )
+        acc_train_local = accuracy_score(y, y_train_pred, normalize=True)
         cache_dict = {}
 
         output_dict = {
             "w_local": w_local.tolist(),
             "intercept_local": float(intercept_local),
             "cm_train_local": cm_train_local.tolist(),
-            "err_train_local": float(err_train_local),
+            "cm_train_local_normalized": cm_train_local_normalized.tolist(),
+            "acc_train_local": float(acc_train_local),
             "n_samples_local": n_samples_local,
             "phase": "local_0",
         }
@@ -125,7 +140,7 @@ def local_1(args):
         U_train = np.matmul(X_train, w_locals) + intercept_locals
         U_test = np.matmul(X_test, w_locals) + intercept_locals
 
-        # prerprocess U_train
+        # preprocess U_train
         n_samples_owner = U_train.shape[0]
         if cache["fit_intercept_owner"]:
             # add synthetic feature
@@ -149,7 +164,8 @@ def local_1(args):
         else:
             intercept_owner = 0.0
 
-        # predict on train/test data, calculate confusion matrix and error rate
+        # predict on train/test data, get metrics:
+        #   confusion matrix, accuracy, f1-score, ROC AUC
         # confusion matrix: 2D array (n_classes, n_classes)
         # e.g.        predicted
         #               -1    1
@@ -157,38 +173,72 @@ def local_1(args):
         #           1   ...   ...
         y_train_pred = predict_linearmodel(w_owner, intercept_owner, U_train)
         cm_train_owner = confusion_matrix(y_train, y_train_pred, normalize=None)
-        err_train_owner = 1 - accuracy_score(
-            y_train, y_train_pred, normalize=True
+        cm_train_owner_normalized = confusion_matrix(
+            y_train, y_train_pred, normalize="true"
         )
+        acc_train_owner = accuracy_score(y_train, y_train_pred, normalize=True)
 
         y_test_pred = predict_linearmodel(w_owner, intercept_owner, U_test)
         cm_test_owner = confusion_matrix(y_test, y_test_pred, normalize=None)
         cm_test_owner_normalized = confusion_matrix(
             y_test, y_test_pred, normalize="true"
         )
-        err_test_owner = 1 - accuracy_score(y_test, y_test_pred, normalize=True)
+        acc_test_owner = accuracy_score(y_test, y_test_pred, normalize=True)
+        f1_test_owner = f1_score(y_test, y_test_pred)
+        if cache["model_owner"] == "LR":
+            y_test_proba = predict_proba_lr(w_owner, intercept_owner, U_test)
+        else:  # svm with huber loss
+            y_test_proba = predict_decision_svmhuber(
+                w_owner, intercept_owner, U_test
+            )
+        rocauc_test_owner = roc_auc_score(y_test, y_test_proba)
 
         cm_test_locals = []
-        err_test_locals = []
+        cm_test_locals_normalized = []
+        acc_test_locals = []
+        f1_test_locals = []
+        rocauc_test_locals = []
         for ii in range(intercept_locals.shape[0]):
             y_pred = predict_linearmodel(
                 w_locals[:, ii], intercept_locals[ii], X_test
             )
             cm = confusion_matrix(y_test, y_pred, normalize=None).tolist()
-            err = 1 - accuracy_score(y_test, y_pred, normalize=True)
+            cm_normalized = confusion_matrix(
+                y_test, y_pred, normalize="true"
+            ).tolist()
+            acc = accuracy_score(y_test, y_pred, normalize=True)
+            f1 = f1_score(y_test, y_pred)
+            if cache["model_local"] == "LR":
+                y_proba = predict_proba_lr(
+                    w_locals[:, ii], intercept_locals[ii], X_test
+                )
+            else:  # svm with huber loss
+                y_proba = predict_decision_svmhuber(
+                    w_locals[:, ii], intercept_locals[ii], X_test
+                )
+            rocauc = roc_auc_score(y_test, y_proba)
             cm_test_locals.append(cm)
-            err_test_locals.append(err)
+            cm_test_locals_normalized.append(cm_normalized)
+            acc_test_locals.append(acc)
+            f1_test_locals.append(f1)
+            rocauc_test_locals.append(rocauc)
 
         output_dict = {
             "w_owner": w_owner.tolist(),
             "intercept_owner": float(intercept_owner),
             "cm_train_owner": cm_train_owner.tolist(),
+            "cm_train_owner_normalized": cm_train_owner_normalized.tolist(),
+            "acc_train_owner": float(acc_train_owner),
             "cm_test_owner": cm_test_owner.tolist(),
             "cm_test_owner_normalized": cm_test_owner_normalized.tolist(),
+            "acc_test_owner": float(acc_test_owner),
+            "f1_test_owner": float(f1_test_owner),
+            "rocauc_test_owner": float(rocauc_test_owner),
             "cm_test_locals": cm_test_locals,
-            "err_train_owner": err_train_owner,
-            "err_test_owner": err_test_owner,
-            "err_test_locals": err_test_locals,
+            "cm_test_locals_normalized": cm_test_locals_normalized,
+            "acc_test_locals": acc_test_locals,
+            "f1_test_locals": f1_test_locals,
+            "rocauc_test_locals": rocauc_test_locals,
             "n_samples_owner_train": n_samples_owner,
             "n_samples_owner_test": y_test.shape[0],
             "phase": "local_1",

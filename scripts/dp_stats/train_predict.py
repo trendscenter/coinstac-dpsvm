@@ -66,3 +66,45 @@ def predict_linearmodel(weights, intercept, X):
         int ndarray of shape (n_sample,): Predicted labels (-/+1).
     """
     return np.where((np.matmul(X, weights) + intercept) >= 0, 1, -1)
+
+
+def predict_proba_lr(weights, intercept, X):
+    """Returns predicted probability for feature matrix X by logistic regression.
+
+    Args:
+        weights (ndarray of shape (n_feature,)): Weights in w'x + intercept.
+        intercept: float, intercept in the model y = w'x + intercept, 
+            for unpreprocessed raw data.
+        X (ndarray of shape (n_sample, n_feature)): Features.
+
+    Returns:
+        float ndarray of shape (n_sample,): predicted probalility 
+            by logistic regression, 1 / (1 + exp(-w'X)), range [0, 1].
+    """
+    n_sample = X.shape[0]
+    wX = np.matmul(X, weights) + intercept * np.ones((n_sample,))  # w'X
+    proba = np.zeros((n_sample,))
+    # prevent overflow in exp()
+    for i in range(n_sample):
+        z = wX[i]
+        if z >= 0:
+            proba[i] = 1 / (1 + np.exp(-z))
+        else:
+            proba[i] = np.exp(z) / (np.exp(z) + 1)
+    return proba
+
+
+def predict_decision_svmhuber(weights, intercept, X):
+    """Returns decision values for feature matrix X by SVM with huber loss.
+
+    Args:
+        weights (ndarray of shape (n_feature,)): Weights in w'x + intercept.
+        intercept: float, intercept in the model y = w'x + intercept, 
+            for unpreprocessed raw data.
+        X (ndarray of shape (n_sample, n_feature)): Features.
+
+    Returns:
+        float ndarray of shape (n_sample,): w'x + intercept. 
+        Used as y_score in sklearn.metrics.roc_auc_score.
+    """
+    return np.matmul(X, weights) + intercept
