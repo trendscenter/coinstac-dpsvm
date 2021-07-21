@@ -1,18 +1,18 @@
 """Differentially private regularized support vector machine (svm).
 
-This module exports functions to train a non-private / differentially private 
-regularized binary svm classifier. For the differentially private version, 
-output or objective perturbation can be used. 
+This module exports functions to train a non-private / differentially private
+regularized binary svm classifier. For the differentially private version,
+output or objective perturbation can be used.
 
 Usage example:
     w = dp_svm(
-        X, y, 
+        X, y,
         is_private=False,
         perturb_method='output',
-        lambda_=0.01, 
-        epsilon=0.1, 
+        lambda_=0.01,
+        epsilon=0.1,
         huberconst=0.5
-    )    
+    )
 
     w (ndarray of shape (n_feature,)): Weights in w'x in svm classifier.
 """
@@ -23,11 +23,11 @@ from .general_funcs import noisevector
 
 
 def huberloss(z, huberconst):
-    """Returns normal Huber loss (float) for a sample. 
+    """Returns normal Huber loss (float) for a sample.
 
     Args:
         z (float): x_i (1, n_feature) * y_i (int: -/+1) * w (n_feature, 1).
-        huberconst (float): Huber loss parameter.        
+        huberconst (float): Huber loss parameter.
 
     References:
         chaudhuri2011differentially: equation 7 & corollary 13
@@ -42,18 +42,18 @@ def huberloss(z, huberconst):
 
 
 def eval_svm(weights, XY, num, lambda_, b, huberconst):
-    """Evaluates differentially private regularized svm loss for a data set. 
+    """Evaluates differentially private regularized svm loss for a data set.
 
     Args:
         weights (ndarray of shape (n_feature,)): Weights in w'x in classifier.
-        XY (ndarray of shape (n_sample, n_feature)): 
+        XY (ndarray of shape (n_sample, n_feature)):
             each row x_i (1, n_feature) * label y_i (int: -/+1).
         num (int): n_sample.
-        lambda_ (float): Regularization parameter. 
+        lambda_ (float): Regularization parameter.
         b (ndarray of shape (n_feature,)): Noise vector. If b is a zero vector,
             returns non-private regularized svm loss.
         huberconst (float): Huber loss parameter.
-    
+
     Returns:
         fw (float): Differentially private regularized svm loss.
     """
@@ -68,18 +68,18 @@ def eval_svm(weights, XY, num, lambda_, b, huberconst):
 
 
 def train_svm_nonpriv(XY, num, dim, lambda_, huberconst):
-    """Trains a non-private regularized svm classifier. 
+    """Trains a non-private regularized svm classifier.
 
     Args:
-        XY (ndarray of shape (n_sample, n_feature)): 
+        XY (ndarray of shape (n_sample, n_feature)):
             each row x_i (1, n_feature) * label y_i (int: -/+1).
         num (int): n_sample.
         dim (int): Dimension of x_i, i.e., n_feature.
-        lambda_ (float): Regularization parameter. 
+        lambda_ (float): Regularization parameter.
         huberconst (float): Huber loss parameter.
-    
+
     Returns:
-        w_nonpriv (ndarray of shape (n_feature,)): 
+        w_nonpriv (ndarray of shape (n_feature,)):
             Weights in w'x in svm classifier.
 
     Raises:
@@ -101,24 +101,24 @@ def train_svm_nonpriv(XY, num, dim, lambda_, huberconst):
 
 
 def train_svm_outputperturb(XY, num, dim, lambda_, epsilon, huberconst):
-    """Trains a private regularized svm classifier by output perturbation. 
+    """Trains a private regularized svm classifier by output perturbation.
 
-    First, train a non-private svm classifier to get weights w_nonpriv, 
+    First, train a non-private svm classifier to get weights w_nonpriv,
     then add noise to w_nonpriv to get w_priv.
 
     Args:
-        XY (ndarray of shape (n_sample, n_feature)): 
+        XY (ndarray of shape (n_sample, n_feature)):
             each row x_i (1, n_feature) * label y_i (int: -/+1).
         num (int): n_sample.
         dim (int): Dimension of x_i, i.e., n_feature.
-        lambda_ (float): Regularization parameter. 
+        lambda_ (float): Regularization parameter.
         epsilon (float): Privacy parameter.
         huberconst (float): Huber loss parameter.
-    
+
     Returns:
-        w_priv (ndarray of shape (n_feature,)): 
+        w_priv (ndarray of shape (n_feature,)):
             Weights in w'x in svm classifier.
-    
+
     References:
         chaudhuri2011differentially: Algorithm 1 output perturbation.
     """
@@ -132,28 +132,28 @@ def train_svm_outputperturb(XY, num, dim, lambda_, epsilon, huberconst):
 
 
 def train_svm_objectiveperturb(XY, num, dim, lambda_, epsilon, huberconst):
-    """Trains a private regularized svm classifier by objective perturbation. 
+    """Trains a private regularized svm classifier by objective perturbation.
 
     Add noise to the objective (loss function).
 
     Args:
-        XY (ndarray of shape (n_sample, n_feature)): 
+        XY (ndarray of shape (n_sample, n_feature)):
             each row x_i (1, n_feature) * label y_i (int: -/+1).
         num (int): n_sample.
         dim (int): Dimension of x_i, i.e., n_feature.
-        lambda_ (float): Regularization parameter. 
+        lambda_ (float): Regularization parameter.
         epsilon (float): Privacy parameter.
         huberconst (float): Huber loss parameter.
-    
+
     Returns:
-        w_priv (ndarray of shape (n_feature,)): 
+        w_priv (ndarray of shape (n_feature,)):
             Weights in w'x in svm classifier.
 
     Raises:
-        Exception: If epsilon_p < 1e-4, where epsilon_p is calculated from 
+        Exception: If epsilon_p < 1e-4, where epsilon_p is calculated from
             n_sample, lambda_ and epsilon.
         Exception: If the optimizer exits unsuccessfully.
-    
+
     References:
         chaudhuri2011differentially: Algorithm 2 objective perturbation.
         http://cseweb.ucsd.edu/~kamalika/code/dperm/documentation.pdf
@@ -192,33 +192,33 @@ def dp_svm(
     epsilon=0.1,
     huberconst=0.5,
 ):
-    """Trains a non-private or differentially private svm classifier. 
+    """Trains a non-private or differentially private svm classifier.
 
     Args:
         features (ndarray of shape (n_sample, n_feature)): X.
         labels (ndarray of shape (n_sample,)): y.
         is_private (bool): run private version or not. Defaults to True.
-        perturb_method (str): Use output perturbation for 'output', objective 
+        perturb_method (str): Use output perturbation for 'output', objective
             perturbation otherwise. Defaults to 'objective'.
         lambda_ (float): Regularization parameter. Defaults to 0.01.
         epsilon (float): Privacy parameter. Defaults to 0.1.
         huberconst (float): Huber loss parameter. Defaults to 0.5.
 
     Returns:
-        w_nonpriv / w_priv (ndarray of shape (n_feature,)): 
+        w_nonpriv / w_priv (ndarray of shape (n_feature,)):
             Weights in w'x in svm classifier.
 
     Raises:
-        Exception: If lambda_ < 0 or huberconst < 0 for non-private version. If 
+        Exception: If lambda_ < 0 or huberconst < 0 for non-private version. If
             lambda_ < 0 or huberconst < 0 or epsilon < 0 for private version.
 
     References:
-        [1] K. Chaudhuri, C. Monteleoni, and A. D. Sarwate, 
-        “Differentially  privateempirical risk minimization,” 
-        Journal of Machine Learning Research, vol. 12,no. Mar, 
+        [1] K. Chaudhuri, C. Monteleoni, and A. D. Sarwate,
+        “Differentially  privateempirical risk minimization,”
+        Journal of Machine Learning Research, vol. 12,no. Mar,
         pp. 1069–1109, 2011.
-        [2] ——, “Documentation for regularized lr and regularized svm 
-        code,” Available at 
+        [2] ——, “Documentation for regularized lr and regularized svm
+        code,” Available at
         http://cseweb.ucsd.edu/kamalika/code/dperm/documentation.pdf.
     """
     num = features.shape[0]  # number of samples

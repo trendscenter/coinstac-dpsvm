@@ -14,7 +14,6 @@ import os
 import sys
 
 import numpy as np
-import pandas as pd
 import ujson as json
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
@@ -82,7 +81,7 @@ def local_1(args):
         with open(y_file, "rb") as fp:
             y = np.load(fp)
         W_locals = np.array(input["W_locals"])
-
+        #raise Exception(X, W_locals)
         U = np.dot(X, W_locals)
 
         # split train - test data

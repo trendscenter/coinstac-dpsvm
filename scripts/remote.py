@@ -1,6 +1,6 @@
 """Script run at the remote site.
 
-At iteration 0, run remote_0(): Aggregates classifiers from local sites, saves 
+At iteration 0, run remote_0(): Aggregates classifiers from local sites, saves
     and sends them to the owner site.
 At iteration 1, run remote_1(): Receives a classifier from the owner site and
     outputs classifiers and confusion matrix from both owner and local sites.
@@ -19,6 +19,7 @@ from common_functions import list_recursive
 def remote_0(args):
     input = args["input"]
     # aggregate w_local and num_sample_local from local sites
+
     W_locals = np.array(
         [
             site_dict["w_local"]

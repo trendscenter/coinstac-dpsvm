@@ -18,39 +18,21 @@ def fsl_parser(input, base_dir):
         labels_np (ndarray of shape (n_sample,)): y.
     """
     # process covariates
-    # covariates_raw = input["covariates"]
-    # covariates = covariates_raw[0][0][
-    #     1:
-    # ]  # e.g., [[subject0.txt, true, 47], ...]
-    # covariate_names = covariates_raw[0][0][
-    #     0
-    # ]  # e.g., freesurferfile, isControl, age
-    # index_name = covariates_raw[0][0][0][0]  # e.g., freesurferfile
-    #
-    index_name = 'freesurferfile'
+    covariates_raw = input["covariates"]
+    covariates = covariates_raw[0][0][
+        1:
+    ]  # e.g., [[subject0.txt, true, 47], ...]
+    covariate_names = covariates_raw[0][0][
+        0
+    ]  # e.g., freesurferfile, isControl, age
+    index_name = covariates_raw[0][0][0][0]  # e.g., freesurferfile
 
-    X_info = input["covariates"]
-    y_info = input["data"]
-
-    X_df = pd.DataFrame(X_info).T
-    # X_df = pd.DataFrame.from_dict(X_info).T
-    #
-    X_df = pd.DataFrame(X_df, columns = X_df.columns, index = X_df.index)
-    X_df.reset_index(inplace=True)
-    X_df = X_df.rename(columns = {'index':index_name})
-
-    X = X_df.apply(pd.to_numeric, errors='ignore')
-    X = pd.get_dummies(X, drop_first=True)
-    X = X * 1
-
-    y_labels = y_info[0]["value"]
-    y_files = X.index
-
-    #X_df = pd.DataFrame.from_records(covariates, columns=covariate_names)
-    #X_df.set_index(index_name, inplace=True)
+    features_df = pd.DataFrame.from_records(covariates, columns=covariate_names)
+    features_df.set_index(index_name, inplace=True)
 
     # process measurements (data)
-    measurement_files = X_df[index_name].tolist()  # e.g., ['subject0.txt', ...]
+    measurements_raw = input["data"]
+    measurement_files = measurements_raw[0]  # e.g., ['subject0.txt', ...]
 
     tmp_list = []
     for file in measurement_files:
@@ -64,17 +46,20 @@ def fsl_parser(input, base_dir):
         _x.insert(loc=0, column=index_name, value=file)
         tmp_list.append(_x)
 
-    Y_df = pd.concat(tmp_list)
-    Y_df = pd.DataFrame(Y_df)
-    Y_df.set_index(index_name, inplace=True)
+    measurement_df = pd.concat(tmp_list)
+    measurement_df.set_index(index_name, inplace=True)
 
-    #merge covariates and measurements into X_df
-    X_df = pd.merge(
-        Y_df, X_df, on=index_name, how='inner', validate='one_to_one'
+    # merge covariates and measurements into features_df
+    features_df = features_df.merge(
+        measurement_df, how="inner", left_index=True, right_index=True
     )
-    X_df.set_index(index_name, inplace=True)
 
-    # separate X_df to get features matrix and labels matrix
+    features_df.dropna(axis=0, how='any', inplace=True)
+
+
+    raise Exception(measurement_df, features_df)
+
+    # separate features_df to get features matrix and labels matrix
     # Note:
     #     if a categorical class is read in as int or as numerical
     #     string, e.g.,'1', then you should manually set this class
@@ -82,13 +67,13 @@ def fsl_parser(input, base_dir):
     #         df['A'] = df['A'].astype('category')
     #     Otherwise, pd.to_numeric converts is to int/float.
     label_name = input["label"]
-    labels_df = X_df.pop(label_name)
+    labels_df = features_df.pop(label_name)
 
     # process categorical classes, then convert dataframes to numpy arrays
-    X_df = X_df.apply(pd.to_numeric, errors="ignore")
-    X_df = pd.get_dummies(X_df, drop_first=True)
-    X_df = X_df * 1  # True -> 1, False -> 0
-    X_df = X_df.apply(
+    features_df = features_df.apply(pd.to_numeric, errors="ignore")
+    features_df = pd.get_dummies(features_df, drop_first=True)
+    features_df = features_df * 1  # True -> 1, False -> 0
+    features_df = features_df.apply(
         pd.to_numeric, errors="ignore"
     )  # object 0, 1 -> int
 
@@ -100,7 +85,7 @@ def fsl_parser(input, base_dir):
         0, -1, inplace=True
     )  # binary label [0, 1] -> [-1, 1] for LR and SVM
 
-    features_np = X_df.to_numpy()
+    features_np = features_df.to_numpy()
     labels_np = labels_df.to_numpy().flatten()
 
     # normalize features to ensure ||x_i|| <= 1

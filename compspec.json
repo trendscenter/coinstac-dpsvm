@@ -8,44 +8,44 @@
   },
   "computation": {
     "type": "docker",
-    "dockerImage": "coinstacteam/dpsvm",
+    "dockerImage": "dpsvm",
     "command": [
       "python",
       "\/computation\/scripts\/local.py"
     ],
     "remote": {
       "type": "docker",
-      "dockerImage": "coinstacteam/dpsvm",
+      "dockerImage": "dpsvm",
       "command": [
         "python",
         "\/computation\/scripts\/remote.py"
       ]
     },
     "input": {
-      "covariates":   
+      "covariates":
       {
         "label": "Covariates",
-        "description": "Demographic or medical features (e.g., isControl, sex, age)",    
+        "description": "Demographic or medical features (e.g., isControl, sex, age)",
         "type": "array",
         "items": ["boolean", "number"],
         "order": 1
-      },    
-      "data": 
+      },
+      "data":
       {
         "label": "Measurements",
-        "description": "Files containing brain region measurements (e.g., FreeSurfer files)", 
+        "description": "Files containing brain region measurements (e.g., FreeSurfer files)",
         "items": ["FreeSurfer"],
         "extensions": [["csv", "txt"]],
         "order": 0
       },
-      "label":   
+      "label":
       {
-        "label": "Label", 
-        "description": "The binary label to predict",  
+        "label": "Label",
+        "description": "The binary label to predict",
         "type": "string",
         "source": "owner",
         "order": 1
-      },    
+      },
       "model_local":
       {
         "default": "SVM",
@@ -54,16 +54,16 @@
         "type": "string",
         "source": "owner",
         "order": 4
-      },   
+      },
       "is_private_local":
       {
         "default": true,
         "label": "Is_private_local",
         "description": "Private or public version of model",
         "type": "boolean",
-        "source": "owner", 
+        "source": "owner",
         "order": 4
-      },   
+      },
       "perturb_method_local":
       {
         "default": "objective",
@@ -72,14 +72,14 @@
         "type": "string",
         "source": "owner",
         "order": 4
-      },         
+      },
       "lambda_local":
       {
         "default": 0.01,
         "label": "Lambda_local",
         "description": "Regularization parameter",
-        "max": 100, 
-        "min": 0, 
+        "max": 100,
+        "min": 0,
         "step": "logrithmic",
         "type": "range",
         "source": "owner",
@@ -92,7 +92,7 @@
         "description": "Privacy parameter",
         "max": 3,
         "min": 0.1,
-        "step": 0.01, 
+        "step": 0.01,
         "type": "range",
         "source": "owner",
         "order": 3
@@ -117,16 +117,16 @@
         "type": "string",
         "source": "owner",
         "order": 4
-      },   
+      },
       "is_private_owner":
       {
         "default": true,
         "label": "Is_private_owner",
         "description": "Private or public version of model",
         "type": "boolean",
-        "source": "owner", 
+        "source": "owner",
         "order": 4
-      },   
+      },
       "perturb_method_owner":
       {
         "default": "objective",
@@ -135,14 +135,14 @@
         "type": "string",
         "source": "owner",
         "order": 4
-      },         
+      },
       "lambda_owner":
       {
         "default": 0.01,
         "label": "Lambda_owner",
         "description": "Regularization parameter",
-        "max": 100, 
-        "min": 0, 
+        "max": 100,
+        "min": 0,
         "step": "logrithmic",
         "type": "range",
         "source": "owner",
@@ -155,7 +155,7 @@
         "description": "Privacy parameter",
         "max": 3,
         "min": 0.1,
-        "step": 0.01, 
+        "step": 0.01,
         "type": "range",
         "source": "owner",
         "order": 3
@@ -185,7 +185,7 @@
         "order": 4
       }
     },
-    "output": {  
+    "output": {
       "regressions": {
         "label": "Regressions",
         "type": "array",
@@ -249,7 +249,7 @@
         }
       }
     },
-    "display": [ 
+    "display": [
       {
         "type": "string",
         "tables": [

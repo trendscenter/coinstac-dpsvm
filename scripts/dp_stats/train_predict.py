@@ -1,11 +1,11 @@
-""" Train a classifier model and predict using a model. 
+""" Train a classifier model and predict using a model.
 
 This module contains the following functions:
     train_model(): An interface to train a binary linear classifier model based
-        on user's choices (e.g. use lr or svm algorithm, run private or 
-        non-private version). 
-    predict_linearmodel(): Predict labels y for the input features X using the 
-        input binary linear classifier.  
+        on user's choices (e.g. use lr or svm algorithm, run private or
+        non-private version).
+    predict_linearmodel(): Predict labels y for the input features X using the
+        input binary linear classifier.
 """
 import numpy as np
 
@@ -14,7 +14,7 @@ from .dp_lr import dp_lr
 
 
 def train_model(X, y, input, site="local"):
-    """Trains a model depicted in input upon feature X and label y. 
+    """Trains a model depicted in input upon feature X and label y.
 
     Args:
         X (ndarray of shape (n_sample, n_feature)): Features.
@@ -28,6 +28,7 @@ def train_model(X, y, input, site="local"):
     Raises:
         Exception: If site is neither 'owner' nor 'local'.
     """
+
     if site != "owner" and site != "local":
         raise Exception("Error in train_model: wrong site name")
 
