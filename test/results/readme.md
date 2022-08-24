@@ -526,4 +526,4 @@ The full result is displayed in the UI as an object string:
 
 As shown here:
 
-![Results View](https://github.com/trendscenter/coinstac-dpsvm/tree/hiuwen-working-version/test/results/results.png "Results View")
+![Results View](https://raw.githubusercontent.com/trendscenter/coinstac-dpsvm/hiuwen-working-version/test/results/results.png "Results View")
