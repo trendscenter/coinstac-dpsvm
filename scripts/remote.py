@@ -96,10 +96,10 @@ def remote_1(args):
 
     # combine owner and locals
     output_dict = {
-        "w_owner": [dict_owner.get("w_owner"), "array"],
-        "w_locals": [dict_locals.get("w_locals"), "arrays"],
-        "intercept_owner": [dict_owner.get("intercept_owner"), "number"],
-        "intercept_locals": [dict_locals.get("intercept_locals"), "array"],
+        #"w_owner": [dict_owner.get("w_owner"), "array"],
+        #"w_locals": [dict_locals.get("w_locals"), "arrays"],
+        #"intercept_owner": [dict_owner.get("intercept_owner"), "number"],
+        #"intercept_locals": [dict_locals.get("intercept_locals"), "array"],
         "cm_test_owner": [dict_owner.get("cm_test_owner"), "table"],
         "cm_test_owner_normalized": [
             dict_owner.get("cm_test_owner_normalized"),

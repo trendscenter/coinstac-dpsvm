@@ -1,3325 +1,2484 @@
 [
-  {
-    "covariates": {
-      "value": [
-        [
-          [
-            [
-              "freesurferfile",
-              "isControl",
-              "age"
-            ],
-            [
-              "subject0_aseg_stats.txt",
-              false,
-              22
-            ],
-            [
-              "subject1_aseg_stats.txt",
-              true,
-              47
-            ],
-            [
-              "subject2_aseg_stats.txt",
-              false,
-              56
-            ],
-            [
-              "subject3_aseg_stats.txt",
-              true,
-              73
-            ],
-            [
-              "subject4_aseg_stats.txt",
-              false,
-              58
-            ],
-            [
-              "subject5_aseg_stats.txt",
-              false,
-              67
-            ],
-            [
-              "subject6_aseg_stats.txt",
-              false,
-              40
-            ],
-            [
-              "subject7_aseg_stats.txt",
-              true,
-              25
-            ],
-            [
-              "subject8_aseg_stats.txt",
-              true,
-              51
-            ],
-            [
-              "subject9_aseg_stats.txt",
-              false,
-              37
-            ],
-            [
-              "subject10_aseg_stats.txt",
-              false,
-              35
-            ],
-            [
-              "subject11_aseg_stats.txt",
-              false,
-              29
-            ],
-            [
-              "subject12_aseg_stats.txt",
-              false,
-              33
-            ],
-            [
-              "subject13_aseg_stats.txt",
-              false,
-              21
-            ],
-            [
-              "subject14_aseg_stats.txt",
-              false,
-              40
-            ],
-            [
-              "subject15_aseg_stats.txt",
-              true,
-              25
-            ],
-            [
-              "subject16_aseg_stats.txt",
-              false,
-              23
-            ],
-            [
-              "subject17_aseg_stats.txt",
-              true,
-              60
-            ],
-            [
-              "subject18_aseg_stats.txt",
-              false,
-              31
-            ],
-            [
-              "subject19_aseg_stats.txt",
-              false,
-              60
-            ],
-            [
-              "subject20_aseg_stats.txt",
-              false,
-              71
-            ],
-            [
-              "subject21_aseg_stats.txt",
-              true,
-              57
-            ],
-            [
-              "subject22_aseg_stats.txt",
-              true,
-              38
-            ],
-            [
-              "subject23_aseg_stats.txt",
-              true,
-              46
-            ],
-            [
-              "subject24_aseg_stats.txt",
-              true,
-              25
-            ],
-            [
-              "subject25_aseg_stats.txt",
-              true,
-              40
-            ],
-            [
-              "subject26_aseg_stats.txt",
-              false,
-              65
-            ],
-            [
-              "subject27_aseg_stats.txt",
-              false,
-              33
-            ],
-            [
-              "subject28_aseg_stats.txt",
-              false,
-              49
-            ],
-            [
-              "subject29_aseg_stats.txt",
-              true,
-              30
-            ],
-            [
-              "subject30_aseg_stats.txt",
-              true,
-              23
-            ],
-            [
-              "subject31_aseg_stats.txt",
-              false,
-              29
-            ],
-            [
-              "subject32_aseg_stats.txt",
-              true,
-              77
-            ],
-            [
-              "subject33_aseg_stats.txt",
-              true,
-              44
-            ],
-            [
-              "subject34_aseg_stats.txt",
-              true,
-              28
-            ],
-            [
-              "subject35_aseg_stats.txt",
-              true,
-              73
-            ],
-            [
-              "subject36_aseg_stats.txt",
-              false,
-              35
-            ],
-            [
-              "subject37_aseg_stats.txt",
-              true,
-              79
-            ],
-            [
-              "subject38_aseg_stats.txt",
-              true,
-              31
-            ],
-            [
-              "subject39_aseg_stats.txt",
-              true,
-              80
-            ],
-            [
-              "subject40_aseg_stats.txt",
-              false,
-              25
-            ],
-            [
-              "subject41_aseg_stats.txt",
-              true,
-              22
-            ],
-            [
-              "subject42_aseg_stats.txt",
-              true,
-              49
-            ],
-            [
-              "subject43_aseg_stats.txt",
-              false,
-              30
-            ],
-            [
-              "subject44_aseg_stats.txt",
-              true,
-              23
-            ],
-            [
-              "subject45_aseg_stats.txt",
-              true,
-              27
-            ],
-            [
-              "subject46_aseg_stats.txt",
-              false,
-              67
-            ],
-            [
-              "subject47_aseg_stats.txt",
-              false,
-              73
-            ],
-            [
-              "subject48_aseg_stats.txt",
-              false,
-              38
-            ],
-            [
-              "subject49_aseg_stats.txt",
-              false,
-              69
-            ],
-            [
-              "subject50_aseg_stats.txt",
-              false,
-              26
-            ],
-            [
-              "subject51_aseg_stats.txt",
-              true,
-              33
-            ],
-            [
-              "subject52_aseg_stats.txt",
-              false,
-              48
-            ],
-            [
-              "subject53_aseg_stats.txt",
-              true,
-              46
-            ],
-            [
-              "subject54_aseg_stats.txt",
-              true,
-              70
-            ],
-            [
-              "subject55_aseg_stats.txt",
-              true,
-              32
-            ],
-            [
-              "subject56_aseg_stats.txt",
-              false,
-              45
-            ],
-            [
-              "subject57_aseg_stats.txt",
-              false,
-              33
-            ],
-            [
-              "subject58_aseg_stats.txt",
-              false,
-              78
-            ],
-            [
-              "subject59_aseg_stats.txt",
-              true,
-              50
-            ],
-            [
-              "subject60_aseg_stats.txt",
-              false,
-              33
-            ],
-            [
-              "subject61_aseg_stats.txt",
-              false,
-              73
-            ],
-            [
-              "subject62_aseg_stats.txt",
-              true,
-              69
-            ],
-            [
-              "subject63_aseg_stats.txt",
-              false,
-              31
-            ],
-            [
-              "subject64_aseg_stats.txt",
-              true,
-              74
-            ],
-            [
-              "subject65_aseg_stats.txt",
-              true,
-              53
-            ],
-            [
-              "subject66_aseg_stats.txt",
-              true,
-              43
-            ],
-            [
-              "subject67_aseg_stats.txt",
-              true,
-              25
-            ],
-            [
-              "subject68_aseg_stats.txt",
-              false,
-              61
-            ],
-            [
-              "subject69_aseg_stats.txt",
-              true,
-              74
-            ],
-            [
-              "subject70_aseg_stats.txt",
-              false,
-              68
-            ],
-            [
-              "subject71_aseg_stats.txt",
-              true,
-              54
-            ],
-            [
-              "subject72_aseg_stats.txt",
-              false,
-              74
+    {
+        "covariates": {
+            "value": {
+                "subject0_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 22
+                },
+                "subject1_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 47
+                },
+                "subject2_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 56
+                },
+                "subject3_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 73
+                },
+                "subject4_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 58
+                },
+                "subject5_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 67
+                },
+                "subject6_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 40
+                },
+                "subject7_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 25
+                },
+                "subject8_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 51
+                },
+                "subject9_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 37
+                },
+                "subject10_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 35
+                },
+                "subject11_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 29
+                },
+                "subject12_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 33
+                },
+                "subject13_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 21
+                },
+                "subject14_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 40
+                },
+                "subject15_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 25
+                },
+                "subject16_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 23
+                },
+                "subject17_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 60
+                },
+                "subject18_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 31
+                },
+                "subject19_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 60
+                },
+                "subject20_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 71
+                },
+                "subject21_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 57
+                },
+                "subject22_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 38
+                },
+                "subject23_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 46
+                },
+                "subject24_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 25
+                },
+                "subject25_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 40
+                },
+                "subject26_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 65
+                },
+                "subject27_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 33
+                },
+                "subject28_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 49
+                },
+                "subject29_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 30
+                },
+                "subject30_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 23
+                },
+                "subject31_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 29
+                },
+                "subject32_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 77
+                },
+                "subject33_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 44
+                },
+                "subject34_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 28
+                },
+                "subject35_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 73
+                },
+                "subject36_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 35
+                },
+                "subject37_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 79
+                },
+                "subject38_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 31
+                },
+                "subject39_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 80
+                },
+                "subject40_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 25
+                },
+                "subject41_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 22
+                },
+                "subject42_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 49
+                },
+                "subject43_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 30
+                },
+                "subject44_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 23
+                },
+                "subject45_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 27
+                },
+                "subject46_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 67
+                },
+                "subject47_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 73
+                },
+                "subject48_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 38
+                },
+                "subject49_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 69
+                },
+                "subject50_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 26
+                },
+                "subject51_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 33
+                },
+                "subject52_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 48
+                },
+                "subject53_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 46
+                },
+                "subject54_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 70
+                },
+                "subject55_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 32
+                },
+                "subject56_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 45
+                },
+                "subject57_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 33
+                },
+                "subject58_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 78
+                },
+                "subject59_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 50
+                },
+                "subject60_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 33
+                },
+                "subject61_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 73
+                },
+                "subject62_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 69
+                },
+                "subject63_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 31
+                },
+                "subject64_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 74
+                },
+                "subject65_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 53
+                },
+                "subject66_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 43
+                },
+                "subject67_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 25
+                },
+                "subject68_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 61
+                },
+                "subject69_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 74
+                },
+                "subject70_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 68
+                },
+                "subject71_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 54
+                },
+                "subject72_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 74
+                }
+            }
+        },
+        "data": {
+            "fulfilled": true,
+            "value": [
+                {
+                    "type": "FreeSurfer",
+                    "value": [
+                        "Left-Lateral-Ventricle",
+                        "Left-Inf-Lat-Vent",
+                        "Left-Cerebellum-White-Matter",
+                        "Left-Cerebellum-Cortex",
+                        "Left-Thalamus-Proper",
+                        "Left-Caudate",
+                        "Left-Putamen",
+                        "Left-Pallidum",
+                        "3rd-Ventricle",
+                        "4th-Ventricle",
+                        "Brain-Stem",
+                        "Left-Hippocampus",
+                        "Left-Amygdala",
+                        "CSF",
+                        "Left-Accumbens-area",
+                        "Left-VentralDC",
+                        "Left-vessel",
+                        "Left-choroid-plexus",
+                        "Right-Lateral-Ventricle",
+                        "Right-Inf-Lat-Vent",
+                        "Right-Cerebellum-White-Matter",
+                        "Right-Cerebellum-Cortex",
+                        "Right-Thalamus-Proper",
+                        "Right-Caudate",
+                        "Right-Putamen",
+                        "Right-Pallidum",
+                        "Right-Hippocampus",
+                        "Right-Amygdala",
+                        "Right-Accumbens-area",
+                        "Right-VentralDC",
+                        "Right-vessel",
+                        "Right-choroid-plexus",
+                        "5th-Ventricle",
+                        "WM-hypointensities",
+                        "Left-WM-hypointensities",
+                        "Right-WM-hypointensities",
+                        "non-WM-hypointensities",
+                        "Left-non-WM-hypointensities",
+                        "Right-non-WM-hypointensities",
+                        "Optic-Chiasm",
+                        "CC_Posterior",
+                        "CC_Mid_Posterior",
+                        "CC_Central",
+                        "CC_Mid_Anterior",
+                        "CC_Anterior",
+                        "BrainSegVol",
+                        "BrainSegVolNotVent",
+                        "BrainSegVolNotVentSurf",
+                        "lhCortexVol",
+                        "rhCortexVol",
+                        "CortexVol",
+                        "lhCorticalWhiteMatterVol",
+                        "rhCorticalWhiteMatterVol",
+                        "CorticalWhiteMatterVol",
+                        "SubCortGrayVol",
+                        "TotalGrayVol",
+                        "SupraTentorialVol",
+                        "SupraTentorialVolNotVent",
+                        "SupraTentorialVolNotVentVox",
+                        "MaskVol",
+                        "BrainSegVol-to-eTIV",
+                        "MaskVol-to-eTIV",
+                        "lhSurfaceHoles",
+                        "rhSurfaceHoles",
+                        "SurfaceHoles",
+                        "EstimatedTotalIntraCranialVol"
+                    ]
+                }
             ]
-          ]
-        ],
-        [
-          "isControl",
-          "age"
-        ],
-        [
-          "boolean",
-          "number"
-        ]
-      ]
+        },
+        "label": {
+            "fulfilled": true,
+            "value": "isControl"
+        },
+        "model_local": {
+            "fulfilled": true,
+            "value": "SVM"
+        },
+        "is_private_local": {
+            "fulfilled": true,
+            "value": true
+        },
+        "perturb_method_local": {
+            "fulfilled": true,
+            "value": "objective"
+        },
+        "lambda_local": {
+            "fulfilled": true,
+            "value": 0.0001
+        },
+        "epsilon_local": {
+            "fulfilled": true,
+            "value": 30
+        },
+        "huberconst_local": {
+            "fulfilled": true,
+            "value": 0.5
+        },
+        "fit_intercept_local": {
+            "fulfilled": true,
+            "value": true
+        },
+        "intercept_scaling_local": {
+            "fulfilled": true,
+            "value": 1.0
+        },
+        "model_owner": {
+            "fulfilled": true,
+            "value": "SVM"
+        },
+        "is_private_owner": {
+            "fulfilled": true,
+            "value": true
+        },
+        "perturb_method_owner": {
+            "fulfilled": true,
+            "value": "objective"
+        },
+        "lambda_owner": {
+            "fulfilled": true,
+            "value": 1e-05
+        },
+        "epsilon_owner": {
+            "fulfilled": true,
+            "value": 30
+        },
+        "huberconst_owner": {
+            "fulfilled": true,
+            "value": 0.5
+        },
+        "fit_intercept_owner": {
+            "fulfilled": true,
+            "value": true
+        },
+        "intercept_scaling_owner": {
+            "fulfilled": true,
+            "value": 1.0
+        },
+        "train_split": {
+            "fulfilled": true,
+            "value": 0.8
+        },
+        "shuffle": {
+            "fulfilled": true,
+            "value": true
+        }
     },
-    "measurements": {
-      "value": [
-        [
-          "subject0_aseg_stats.txt",
-          "subject1_aseg_stats.txt",
-          "subject2_aseg_stats.txt",
-          "subject3_aseg_stats.txt",
-          "subject4_aseg_stats.txt",
-          "subject5_aseg_stats.txt",
-          "subject6_aseg_stats.txt",
-          "subject7_aseg_stats.txt",
-          "subject8_aseg_stats.txt",
-          "subject9_aseg_stats.txt",
-          "subject10_aseg_stats.txt",
-          "subject11_aseg_stats.txt",
-          "subject12_aseg_stats.txt",
-          "subject13_aseg_stats.txt",
-          "subject14_aseg_stats.txt",
-          "subject15_aseg_stats.txt",
-          "subject16_aseg_stats.txt",
-          "subject17_aseg_stats.txt",
-          "subject18_aseg_stats.txt",
-          "subject19_aseg_stats.txt",
-          "subject20_aseg_stats.txt",
-          "subject21_aseg_stats.txt",
-          "subject22_aseg_stats.txt",
-          "subject23_aseg_stats.txt",
-          "subject24_aseg_stats.txt",
-          "subject25_aseg_stats.txt",
-          "subject26_aseg_stats.txt",
-          "subject27_aseg_stats.txt",
-          "subject28_aseg_stats.txt",
-          "subject29_aseg_stats.txt",
-          "subject30_aseg_stats.txt",
-          "subject31_aseg_stats.txt",
-          "subject32_aseg_stats.txt",
-          "subject33_aseg_stats.txt",
-          "subject34_aseg_stats.txt",
-          "subject35_aseg_stats.txt",
-          "subject36_aseg_stats.txt",
-          "subject37_aseg_stats.txt",
-          "subject38_aseg_stats.txt",
-          "subject39_aseg_stats.txt",
-          "subject40_aseg_stats.txt",
-          "subject41_aseg_stats.txt",
-          "subject42_aseg_stats.txt",
-          "subject43_aseg_stats.txt",
-          "subject44_aseg_stats.txt",
-          "subject45_aseg_stats.txt",
-          "subject46_aseg_stats.txt",
-          "subject47_aseg_stats.txt",
-          "subject48_aseg_stats.txt",
-          "subject49_aseg_stats.txt",
-          "subject50_aseg_stats.txt",
-          "subject51_aseg_stats.txt",
-          "subject52_aseg_stats.txt",
-          "subject53_aseg_stats.txt",
-          "subject54_aseg_stats.txt",
-          "subject55_aseg_stats.txt",
-          "subject56_aseg_stats.txt",
-          "subject57_aseg_stats.txt",
-          "subject58_aseg_stats.txt",
-          "subject59_aseg_stats.txt",
-          "subject60_aseg_stats.txt",
-          "subject61_aseg_stats.txt",
-          "subject62_aseg_stats.txt",
-          "subject63_aseg_stats.txt",
-          "subject64_aseg_stats.txt",
-          "subject65_aseg_stats.txt",
-          "subject66_aseg_stats.txt",
-          "subject67_aseg_stats.txt",
-          "subject68_aseg_stats.txt",
-          "subject69_aseg_stats.txt",
-          "subject70_aseg_stats.txt",
-          "subject71_aseg_stats.txt",
-          "subject72_aseg_stats.txt"
-        ],
-        [
-          "freesurferfile"
-        ],
-        [
-          "Left-Lateral-Ventricle",
-          "Left-Inf-Lat-Vent",
-          "Left-Cerebellum-White-Matter",
-          "Left-Cerebellum-Cortex",
-          "Left-Thalamus-Proper",
-          "Left-Caudate",
-          "Left-Putamen",
-          "Left-Pallidum",
-          "3rd-Ventricle",
-          "4th-Ventricle",
-          "Brain-Stem",
-          "Left-Hippocampus",
-          "Left-Amygdala",
-          "CSF",
-          "Left-Accumbens-area",
-          "Left-VentralDC",
-          "Left-vessel",
-          "Left-choroid-plexus",
-          "Right-Lateral-Ventricle",
-          "Right-Inf-Lat-Vent",
-          "Right-Cerebellum-White-Matter",
-          "Right-Cerebellum-Cortex",
-          "Right-Thalamus-Proper",
-          "Right-Caudate",
-          "Right-Putamen",
-          "Right-Pallidum",
-          "Right-Hippocampus",
-          "Right-Amygdala",
-          "Right-Accumbens-area",
-          "Right-VentralDC",
-          "Right-vessel",
-          "Right-choroid-plexus",
-          "5th-Ventricle",
-          "WM-hypointensities",
-          "Left-WM-hypointensities",
-          "Right-WM-hypointensities",
-          "non-WM-hypointensities",
-          "Left-non-WM-hypointensities",
-          "Right-non-WM-hypointensities",
-          "Optic-Chiasm",
-          "CC_Posterior",
-          "CC_Mid_Posterior",
-          "CC_Central",
-          "CC_Mid_Anterior",
-          "CC_Anterior",
-          "BrainSegVol",
-          "BrainSegVolNotVent",
-          "BrainSegVolNotVentSurf",
-          "lhCortexVol",
-          "rhCortexVol",
-          "CortexVol",
-          "lhCorticalWhiteMatterVol",
-          "rhCorticalWhiteMatterVol",
-          "CorticalWhiteMatterVol",
-          "SubCortGrayVol",
-          "TotalGrayVol",
-          "SupraTentorialVol",
-          "SupraTentorialVolNotVent",
-          "SupraTentorialVolNotVentVox",
-          "MaskVol",
-          "BrainSegVol-to-eTIV",
-          "MaskVol-to-eTIV",
-          "lhSurfaceHoles",
-          "rhSurfaceHoles",
-          "SurfaceHoles",
-          "EstimatedTotalIntraCranialVol"
-        ]
-      ]
-    },
-    "label": {
-      "value": "isControl"
-    }, 
-    "model_local": {
-      "value": "SVM"
-    },
-    "is_private_local": {
-      "value": true
-    },
-    "perturb_method_local": {
-      "value": "objective"
-    },
-    "lambda_local": {
-     "value": 1e-4
-    },
-    "epsilon_local": {
-      "value": 30
-    },
-    "huberconst_local": {
-      "value": 0.5
-    },    
-    "fit_intercept_local": {
-      "value": true
-    },
-    "intercept_scaling_local": {
-      "value": 1.0
-    },    
-    "model_owner": {
-      "value":  "SVM"
-    },
-    "is_private_owner": {
-     "value": true
-    },
-    "perturb_method_owner": {
-      "value": "objective"
-    },
-    "lambda_owner": {
-      "value": 1e-5
-    },
-    "epsilon_owner": {
-      "value": 30
-    },
-    "huberconst_owner": {
-      "value": 0.5
-    },   
-    "fit_intercept_owner": {
-      "value": true
-    },
-    "intercept_scaling_owner": {
-      "value": 1.0
-    },     
-    "train_split": {
-      "value": 0.8
-    },
-    "shuffle": {
-      "value": true
-    }    
-  },
-  {
-    "covariates": {
-      "value": [
-        [
-          [
-            [
-              "freesurferfile",
-              "isControl",
-              "age"
-            ],
-            [
-              "subject0_aseg_stats.txt",
-              true,
-              53
-            ],
-            [
-              "subject1_aseg_stats.txt",
-              false,
-              21
-            ],
-            [
-              "subject2_aseg_stats.txt",
-              true,
-              38
-            ],
-            [
-              "subject3_aseg_stats.txt",
-              true,
-              49
-            ],
-            [
-              "subject4_aseg_stats.txt",
-              false,
-              41
-            ],
-            [
-              "subject5_aseg_stats.txt",
-              false,
-              52
-            ],
-            [
-              "subject6_aseg_stats.txt",
-              false,
-              39
-            ],
-            [
-              "subject7_aseg_stats.txt",
-              true,
-              23
-            ],
-            [
-              "subject8_aseg_stats.txt",
-              true,
-              66
-            ],
-            [
-              "subject9_aseg_stats.txt",
-              false,
-              47
-            ],
-            [
-              "subject10_aseg_stats.txt",
-              true,
-              26
-            ],
-            [
-              "subject11_aseg_stats.txt",
-              false,
-              74
-            ],
-            [
-              "subject12_aseg_stats.txt",
-              false,
-              43
-            ],
-            [
-              "subject13_aseg_stats.txt",
-              true,
-              59
-            ],
-            [
-              "subject14_aseg_stats.txt",
-              true,
-              37
-            ],
-            [
-              "subject15_aseg_stats.txt",
-              true,
-              78
-            ],
-            [
-              "subject16_aseg_stats.txt",
-              true,
-              68
-            ],
-            [
-              "subject17_aseg_stats.txt",
-              false,
-              52
-            ],
-            [
-              "subject18_aseg_stats.txt",
-              true,
-              38
-            ],
-            [
-              "subject19_aseg_stats.txt",
-              true,
-              30
-            ],
-            [
-              "subject20_aseg_stats.txt",
-              true,
-              63
-            ],
-            [
-              "subject21_aseg_stats.txt",
-              false,
-              70
-            ],
-            [
-              "subject22_aseg_stats.txt",
-              true,
-              24
-            ],
-            [
-              "subject23_aseg_stats.txt",
-              false,
-              23
-            ],
-            [
-              "subject24_aseg_stats.txt",
-              false,
-              71
-            ],
-            [
-              "subject25_aseg_stats.txt",
-              false,
-              27
-            ],
-            [
-              "subject26_aseg_stats.txt",
-              false,
-              47
-            ],
-            [
-              "subject27_aseg_stats.txt",
-              true,
-              38
-            ],
-            [
-              "subject28_aseg_stats.txt",
-              true,
-              32
-            ],
-            [
-              "subject29_aseg_stats.txt",
-              true,
-              80
-            ],
-            [
-              "subject30_aseg_stats.txt",
-              false,
-              34
-            ],
-            [
-              "subject31_aseg_stats.txt",
-              true,
-              74
-            ],
-            [
-              "subject32_aseg_stats.txt",
-              false,
-              27
-            ],
-            [
-              "subject33_aseg_stats.txt",
-              true,
-              69
-            ],
-            [
-              "subject34_aseg_stats.txt",
-              false,
-              38
-            ],
-            [
-              "subject35_aseg_stats.txt",
-              false,
-              62
-            ],
-            [
-              "subject36_aseg_stats.txt",
-              false,
-              46
-            ],
-            [
-              "subject37_aseg_stats.txt",
-              false,
-              31
-            ],
-            [
-              "subject38_aseg_stats.txt",
-              false,
-              26
-            ],
-            [
-              "subject39_aseg_stats.txt",
-              true,
-              48
-            ],
-            [
-              "subject40_aseg_stats.txt",
-              true,
-              50
-            ],
-            [
-              "subject41_aseg_stats.txt",
-              true,
-              70
-            ],
-            [
-              "subject42_aseg_stats.txt",
-              false,
-              39
-            ],
-            [
-              "subject43_aseg_stats.txt",
-              true,
-              28
-            ],
-            [
-              "subject44_aseg_stats.txt",
-              true,
-              42
-            ],
-            [
-              "subject45_aseg_stats.txt",
-              true,
-              37
-            ],
-            [
-              "subject46_aseg_stats.txt",
-              true,
-              64
-            ],
-            [
-              "subject47_aseg_stats.txt",
-              false,
-              38
-            ],
-            [
-              "subject48_aseg_stats.txt",
-              true,
-              29
-            ],
-            [
-              "subject49_aseg_stats.txt",
-              true,
-              32
+    {
+        "covariates": {
+            "value": {
+                "subject0_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 53
+                },
+                "subject1_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 21
+                },
+                "subject2_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 38
+                },
+                "subject3_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 49
+                },
+                "subject4_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 41
+                },
+                "subject5_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 52
+                },
+                "subject6_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 39
+                },
+                "subject7_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 23
+                },
+                "subject8_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 66
+                },
+                "subject9_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 47
+                },
+                "subject10_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 26
+                },
+                "subject11_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 74
+                },
+                "subject12_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 43
+                },
+                "subject13_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 59
+                },
+                "subject14_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 37
+                },
+                "subject15_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 78
+                },
+                "subject16_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 68
+                },
+                "subject17_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 52
+                },
+                "subject18_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 38
+                },
+                "subject19_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 30
+                },
+                "subject20_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 63
+                },
+                "subject21_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 70
+                },
+                "subject22_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 24
+                },
+                "subject23_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 23
+                },
+                "subject24_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 71
+                },
+                "subject25_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 27
+                },
+                "subject26_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 47
+                },
+                "subject27_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 38
+                },
+                "subject28_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 32
+                },
+                "subject29_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 80
+                },
+                "subject30_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 34
+                },
+                "subject31_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 74
+                },
+                "subject32_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 27
+                },
+                "subject33_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 69
+                },
+                "subject34_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 38
+                },
+                "subject35_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 62
+                },
+                "subject36_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 46
+                },
+                "subject37_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 31
+                },
+                "subject38_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 26
+                },
+                "subject39_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 48
+                },
+                "subject40_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 50
+                },
+                "subject41_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 70
+                },
+                "subject42_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 39
+                },
+                "subject43_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 28
+                },
+                "subject44_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 42
+                },
+                "subject45_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 37
+                },
+                "subject46_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 64
+                },
+                "subject47_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 38
+                },
+                "subject48_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 29
+                },
+                "subject49_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 32
+                }
+            }
+        },
+        "data": {
+            "fulfilled": true,
+            "value": [
+                {
+                    "type": "FreeSurfer",
+                    "value": [
+                        "Left-Lateral-Ventricle",
+                        "Left-Inf-Lat-Vent",
+                        "Left-Cerebellum-White-Matter",
+                        "Left-Cerebellum-Cortex",
+                        "Left-Thalamus-Proper",
+                        "Left-Caudate",
+                        "Left-Putamen",
+                        "Left-Pallidum",
+                        "3rd-Ventricle",
+                        "4th-Ventricle",
+                        "Brain-Stem",
+                        "Left-Hippocampus",
+                        "Left-Amygdala",
+                        "CSF",
+                        "Left-Accumbens-area",
+                        "Left-VentralDC",
+                        "Left-vessel",
+                        "Left-choroid-plexus",
+                        "Right-Lateral-Ventricle",
+                        "Right-Inf-Lat-Vent",
+                        "Right-Cerebellum-White-Matter",
+                        "Right-Cerebellum-Cortex",
+                        "Right-Thalamus-Proper",
+                        "Right-Caudate",
+                        "Right-Putamen",
+                        "Right-Pallidum",
+                        "Right-Hippocampus",
+                        "Right-Amygdala",
+                        "Right-Accumbens-area",
+                        "Right-VentralDC",
+                        "Right-vessel",
+                        "Right-choroid-plexus",
+                        "5th-Ventricle",
+                        "WM-hypointensities",
+                        "Left-WM-hypointensities",
+                        "Right-WM-hypointensities",
+                        "non-WM-hypointensities",
+                        "Left-non-WM-hypointensities",
+                        "Right-non-WM-hypointensities",
+                        "Optic-Chiasm",
+                        "CC_Posterior",
+                        "CC_Mid_Posterior",
+                        "CC_Central",
+                        "CC_Mid_Anterior",
+                        "CC_Anterior",
+                        "BrainSegVol",
+                        "BrainSegVolNotVent",
+                        "BrainSegVolNotVentSurf",
+                        "lhCortexVol",
+                        "rhCortexVol",
+                        "CortexVol",
+                        "lhCorticalWhiteMatterVol",
+                        "rhCorticalWhiteMatterVol",
+                        "CorticalWhiteMatterVol",
+                        "SubCortGrayVol",
+                        "TotalGrayVol",
+                        "SupraTentorialVol",
+                        "SupraTentorialVolNotVent",
+                        "SupraTentorialVolNotVentVox",
+                        "MaskVol",
+                        "BrainSegVol-to-eTIV",
+                        "MaskVol-to-eTIV",
+                        "lhSurfaceHoles",
+                        "rhSurfaceHoles",
+                        "SurfaceHoles",
+                        "EstimatedTotalIntraCranialVol"
+                    ]
+                }
             ]
-          ]
-        ],
-        [
-          "isControl",
-          "age"
-        ],
-        [
-          "boolean",
-          "number"
-        ]
-      ]
+        },
+        "label": {
+            "fulfilled": true,
+            "value": "isControl"
+        },
+        "model_local": {
+            "fulfilled": true,
+            "value": "SVM"
+        },
+        "is_private_local": {
+            "fulfilled": true,
+            "value": true
+        },
+        "perturb_method_local": {
+            "fulfilled": true,
+            "value": "objective"
+        },
+        "lambda_local": {
+            "fulfilled": true,
+            "value": 0.0001
+        },
+        "epsilon_local": {
+            "fulfilled": true,
+            "value": 30
+        },
+        "huberconst_local": {
+            "fulfilled": true,
+            "value": 0.5
+        },
+        "fit_intercept_local": {
+            "fulfilled": true,
+            "value": true
+        },
+        "intercept_scaling_local": {
+            "fulfilled": true,
+            "value": 1.0
+        },
+        "model_owner": {
+            "fulfilled": true,
+            "value": "SVM"
+        },
+        "is_private_owner": {
+            "fulfilled": true,
+            "value": true
+        },
+        "perturb_method_owner": {
+            "fulfilled": true,
+            "value": "objective"
+        },
+        "lambda_owner": {
+            "fulfilled": true,
+            "value": 1e-05
+        },
+        "epsilon_owner": {
+            "fulfilled": true,
+            "value": 30
+        },
+        "huberconst_owner": {
+            "fulfilled": true,
+            "value": 0.5
+        },
+        "fit_intercept_owner": {
+            "fulfilled": true,
+            "value": true
+        },
+        "intercept_scaling_owner": {
+            "fulfilled": true,
+            "value": 1.0
+        },
+        "train_split": {
+            "fulfilled": true,
+            "value": 0.8
+        },
+        "shuffle": {
+            "fulfilled": true,
+            "value": true
+        }
     },
-    "measurements": {
-      "value": [
-        [
-          "subject0_aseg_stats.txt",
-          "subject1_aseg_stats.txt",
-          "subject2_aseg_stats.txt",
-          "subject3_aseg_stats.txt",
-          "subject4_aseg_stats.txt",
-          "subject5_aseg_stats.txt",
-          "subject6_aseg_stats.txt",
-          "subject7_aseg_stats.txt",
-          "subject8_aseg_stats.txt",
-          "subject9_aseg_stats.txt",
-          "subject10_aseg_stats.txt",
-          "subject11_aseg_stats.txt",
-          "subject12_aseg_stats.txt",
-          "subject13_aseg_stats.txt",
-          "subject14_aseg_stats.txt",
-          "subject15_aseg_stats.txt",
-          "subject16_aseg_stats.txt",
-          "subject17_aseg_stats.txt",
-          "subject18_aseg_stats.txt",
-          "subject19_aseg_stats.txt",
-          "subject20_aseg_stats.txt",
-          "subject21_aseg_stats.txt",
-          "subject22_aseg_stats.txt",
-          "subject23_aseg_stats.txt",
-          "subject24_aseg_stats.txt",
-          "subject25_aseg_stats.txt",
-          "subject26_aseg_stats.txt",
-          "subject27_aseg_stats.txt",
-          "subject28_aseg_stats.txt",
-          "subject29_aseg_stats.txt",
-          "subject30_aseg_stats.txt",
-          "subject31_aseg_stats.txt",
-          "subject32_aseg_stats.txt",
-          "subject33_aseg_stats.txt",
-          "subject34_aseg_stats.txt",
-          "subject35_aseg_stats.txt",
-          "subject36_aseg_stats.txt",
-          "subject37_aseg_stats.txt",
-          "subject38_aseg_stats.txt",
-          "subject39_aseg_stats.txt",
-          "subject40_aseg_stats.txt",
-          "subject41_aseg_stats.txt",
-          "subject42_aseg_stats.txt",
-          "subject43_aseg_stats.txt",
-          "subject44_aseg_stats.txt",
-          "subject45_aseg_stats.txt",
-          "subject46_aseg_stats.txt",
-          "subject47_aseg_stats.txt",
-          "subject48_aseg_stats.txt",
-          "subject49_aseg_stats.txt"
-        ],
-        [
-          "freesurferfile"
-        ],
-        [
-          "Left-Lateral-Ventricle",
-          "Left-Inf-Lat-Vent",
-          "Left-Cerebellum-White-Matter",
-          "Left-Cerebellum-Cortex",
-          "Left-Thalamus-Proper",
-          "Left-Caudate",
-          "Left-Putamen",
-          "Left-Pallidum",
-          "3rd-Ventricle",
-          "4th-Ventricle",
-          "Brain-Stem",
-          "Left-Hippocampus",
-          "Left-Amygdala",
-          "CSF",
-          "Left-Accumbens-area",
-          "Left-VentralDC",
-          "Left-vessel",
-          "Left-choroid-plexus",
-          "Right-Lateral-Ventricle",
-          "Right-Inf-Lat-Vent",
-          "Right-Cerebellum-White-Matter",
-          "Right-Cerebellum-Cortex",
-          "Right-Thalamus-Proper",
-          "Right-Caudate",
-          "Right-Putamen",
-          "Right-Pallidum",
-          "Right-Hippocampus",
-          "Right-Amygdala",
-          "Right-Accumbens-area",
-          "Right-VentralDC",
-          "Right-vessel",
-          "Right-choroid-plexus",
-          "5th-Ventricle",
-          "WM-hypointensities",
-          "Left-WM-hypointensities",
-          "Right-WM-hypointensities",
-          "non-WM-hypointensities",
-          "Left-non-WM-hypointensities",
-          "Right-non-WM-hypointensities",
-          "Optic-Chiasm",
-          "CC_Posterior",
-          "CC_Mid_Posterior",
-          "CC_Central",
-          "CC_Mid_Anterior",
-          "CC_Anterior",
-          "BrainSegVol",
-          "BrainSegVolNotVent",
-          "BrainSegVolNotVentSurf",
-          "lhCortexVol",
-          "rhCortexVol",
-          "CortexVol",
-          "lhCorticalWhiteMatterVol",
-          "rhCorticalWhiteMatterVol",
-          "CorticalWhiteMatterVol",
-          "SubCortGrayVol",
-          "TotalGrayVol",
-          "SupraTentorialVol",
-          "SupraTentorialVolNotVent",
-          "SupraTentorialVolNotVentVox",
-          "MaskVol",
-          "BrainSegVol-to-eTIV",
-          "MaskVol-to-eTIV",
-          "lhSurfaceHoles",
-          "rhSurfaceHoles",
-          "SurfaceHoles",
-          "EstimatedTotalIntraCranialVol"
-        ]
-      ]
-    },
-    "label": {
-      "value": "isControl"
-    }, 
-    "model_local": {
-      "value": "SVM"
-    },
-    "is_private_local": {
-      "value": true
-    },
-    "perturb_method_local": {
-      "value": "objective"
-    },
-    "lambda_local": {
-     "value": 1e-4
-    },
-    "epsilon_local": {
-      "value": 30
-    },
-    "huberconst_local": {
-      "value": 0.5
-    },    
-    "fit_intercept_local": {
-      "value": true
-    },
-    "intercept_scaling_local": {
-      "value": 1.0
-    },    
-    "model_owner": {
-      "value":  "SVM"
-    },
-    "is_private_owner": {
-     "value": true
-    },
-    "perturb_method_owner": {
-      "value": "objective"
-    },
-    "lambda_owner": {
-      "value": 1e-5
-    },
-    "epsilon_owner": {
-      "value": 30
-    },
-    "huberconst_owner": {
-      "value": 0.5
-    },   
-    "fit_intercept_owner": {
-      "value": true
-    },
-    "intercept_scaling_owner": {
-      "value": 1.0
-    },     
-    "train_split": {
-      "value": 0.8
-    },
-    "shuffle": {
-      "value": true
-    }    
-  },
-  {
-    "covariates": {
-      "value": [
-        [
-          [
-            [
-              "freesurferfile",
-              "isControl",
-              "age"
-            ],
-            [
-              "subject0_aseg_stats.txt",
-              true,
-              65
-            ],
-            [
-              "subject1_aseg_stats.txt",
-              true,
-              59
-            ],
-            [
-              "subject2_aseg_stats.txt",
-              false,
-              39
-            ],
-            [
-              "subject3_aseg_stats.txt",
-              false,
-              45
-            ],
-            [
-              "subject4_aseg_stats.txt",
-              false,
-              27
-            ],
-            [
-              "subject5_aseg_stats.txt",
-              true,
-              65
-            ],
-            [
-              "subject6_aseg_stats.txt",
-              false,
-              62
-            ],
-            [
-              "subject7_aseg_stats.txt",
-              true,
-              62
-            ],
-            [
-              "subject8_aseg_stats.txt",
-              false,
-              49
-            ],
-            [
-              "subject9_aseg_stats.txt",
-              true,
-              66
-            ],
-            [
-              "subject10_aseg_stats.txt",
-              false,
-              52
-            ],
-            [
-              "subject11_aseg_stats.txt",
-              false,
-              72
-            ],
-            [
-              "subject12_aseg_stats.txt",
-              false,
-              45
-            ],
-            [
-              "subject13_aseg_stats.txt",
-              false,
-              67
-            ],
-            [
-              "subject14_aseg_stats.txt",
-              true,
-              76
-            ],
-            [
-              "subject15_aseg_stats.txt",
-              false,
-              67
-            ],
-            [
-              "subject16_aseg_stats.txt",
-              true,
-              37
-            ],
-            [
-              "subject17_aseg_stats.txt",
-              true,
-              59
-            ],
-            [
-              "subject18_aseg_stats.txt",
-              false,
-              52
-            ],
-            [
-              "subject19_aseg_stats.txt",
-              true,
-              66
-            ],
-            [
-              "subject20_aseg_stats.txt",
-              true,
-              38
-            ],
-            [
-              "subject21_aseg_stats.txt",
-              true,
-              59
-            ],
-            [
-              "subject22_aseg_stats.txt",
-              false,
-              66
-            ],
-            [
-              "subject23_aseg_stats.txt",
-              true,
-              34
-            ],
-            [
-              "subject24_aseg_stats.txt",
-              false,
-              44
-            ],
-            [
-              "subject25_aseg_stats.txt",
-              false,
-              33
-            ],
-            [
-              "subject26_aseg_stats.txt",
-              false,
-              43
-            ],
-            [
-              "subject27_aseg_stats.txt",
-              false,
-              50
-            ],
-            [
-              "subject28_aseg_stats.txt",
-              false,
-              72
-            ],
-            [
-              "subject29_aseg_stats.txt",
-              false,
-              72
-            ],
-            [
-              "subject30_aseg_stats.txt",
-              true,
-              68
-            ],
-            [
-              "subject31_aseg_stats.txt",
-              true,
-              49
-            ],
-            [
-              "subject32_aseg_stats.txt",
-              true,
-              71
-            ],
-            [
-              "subject33_aseg_stats.txt",
-              true,
-              45
-            ],
-            [
-              "subject34_aseg_stats.txt",
-              true,
-              52
-            ],
-            [
-              "subject35_aseg_stats.txt",
-              true,
-              46
-            ],
-            [
-              "subject36_aseg_stats.txt",
-              false,
-              62
-            ],
-            [
-              "subject37_aseg_stats.txt",
-              true,
-              52
-            ],
-            [
-              "subject38_aseg_stats.txt",
-              true,
-              22
-            ],
-            [
-              "subject39_aseg_stats.txt",
-              true,
-              46
-            ],
-            [
-              "subject40_aseg_stats.txt",
-              true,
-              23
-            ],
-            [
-              "subject41_aseg_stats.txt",
-              true,
-              60
-            ],
-            [
-              "subject42_aseg_stats.txt",
-              false,
-              27
-            ],
-            [
-              "subject43_aseg_stats.txt",
-              false,
-              73
-            ],
-            [
-              "subject44_aseg_stats.txt",
-              true,
-              39
-            ],
-            [
-              "subject45_aseg_stats.txt",
-              false,
-              68
-            ],
-            [
-              "subject46_aseg_stats.txt",
-              true,
-              71
-            ],
-            [
-              "subject47_aseg_stats.txt",
-              false,
-              44
-            ],
-            [
-              "subject48_aseg_stats.txt",
-              true,
-              44
-            ],
-            [
-              "subject49_aseg_stats.txt",
-              true,
-              73
-            ],
-            [
-              "subject50_aseg_stats.txt",
-              false,
-              76
-            ],
-            [
-              "subject51_aseg_stats.txt",
-              true,
-              44
-            ],
-            [
-              "subject52_aseg_stats.txt",
-              true,
-              37
-            ],
-            [
-              "subject53_aseg_stats.txt",
-              false,
-              61
-            ],
-            [
-              "subject54_aseg_stats.txt",
-              false,
-              41
-            ],
-            [
-              "subject55_aseg_stats.txt",
-              true,
-              62
-            ],
-            [
-              "subject56_aseg_stats.txt",
-              true,
-              80
-            ],
-            [
-              "subject57_aseg_stats.txt",
-              true,
-              48
-            ],
-            [
-              "subject58_aseg_stats.txt",
-              true,
-              72
-            ],
-            [
-              "subject59_aseg_stats.txt",
-              true,
-              57
-            ],
-            [
-              "subject60_aseg_stats.txt",
-              true,
-              74
-            ],
-            [
-              "subject61_aseg_stats.txt",
-              true,
-              42
-            ],
-            [
-              "subject62_aseg_stats.txt",
-              true,
-              70
-            ],
-            [
-              "subject63_aseg_stats.txt",
-              true,
-              33
-            ],
-            [
-              "subject64_aseg_stats.txt",
-              false,
-              58
-            ],
-            [
-              "subject65_aseg_stats.txt",
-              false,
-              22
-            ],
-            [
-              "subject66_aseg_stats.txt",
-              true,
-              24
-            ],
-            [
-              "subject67_aseg_stats.txt",
-              true,
-              59
-            ],
-            [
-              "subject68_aseg_stats.txt",
-              true,
-              55
-            ],
-            [
-              "subject69_aseg_stats.txt",
-              false,
-              21
-            ],
-            [
-              "subject70_aseg_stats.txt",
-              true,
-              28
-            ],
-            [
-              "subject71_aseg_stats.txt",
-              false,
-              69
-            ],
-            [
-              "subject72_aseg_stats.txt",
-              true,
-              77
-            ],
-            [
-              "subject73_aseg_stats.txt",
-              true,
-              60
-            ],
-            [
-              "subject74_aseg_stats.txt",
-              true,
-              74
-            ],
-            [
-              "subject75_aseg_stats.txt",
-              false,
-              22
-            ],
-            [
-              "subject76_aseg_stats.txt",
-              true,
-              28
-            ],
-            [
-              "subject77_aseg_stats.txt",
-              false,
-              73
-            ],
-            [
-              "subject78_aseg_stats.txt",
-              false,
-              50
-            ],
-            [
-              "subject79_aseg_stats.txt",
-              true,
-              20
-            ],
-            [
-              "subject80_aseg_stats.txt",
-              true,
-              77
-            ],
-            [
-              "subject81_aseg_stats.txt",
-              false,
-              52
-            ],
-            [
-              "subject82_aseg_stats.txt",
-              false,
-              62
-            ],
-            [
-              "subject83_aseg_stats.txt",
-              true,
-              42
-            ],
-            [
-              "subject84_aseg_stats.txt",
-              false,
-              47
-            ],
-            [
-              "subject85_aseg_stats.txt",
-              true,
-              54
-            ],
-            [
-              "subject86_aseg_stats.txt",
-              false,
-              44
-            ],
-            [
-              "subject87_aseg_stats.txt",
-              false,
-              23
-            ],
-            [
-              "subject88_aseg_stats.txt",
-              true,
-              58
-            ],
-            [
-              "subject89_aseg_stats.txt",
-              true,
-              58
-            ],
-            [
-              "subject90_aseg_stats.txt",
-              true,
-              21
-            ],
-            [
-              "subject91_aseg_stats.txt",
-              true,
-              42
-            ],
-            [
-              "subject92_aseg_stats.txt",
-              true,
-              20
-            ],
-            [
-              "subject93_aseg_stats.txt",
-              false,
-              27
-            ],
-            [
-              "subject94_aseg_stats.txt",
-              true,
-              42
-            ],
-            [
-              "subject95_aseg_stats.txt",
-              false,
-              47
-            ],
-            [
-              "subject96_aseg_stats.txt",
-              true,
-              50
-            ],
-            [
-              "subject97_aseg_stats.txt",
-              false,
-              28
-            ],
-            [
-              "subject98_aseg_stats.txt",
-              false,
-              65
-            ],
-            [
-              "subject99_aseg_stats.txt",
-              true,
-              40
+    {
+        "covariates": {
+            "value": {
+                "subject0_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 65
+                },
+                "subject1_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 59
+                },
+                "subject2_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 39
+                },
+                "subject3_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 45
+                },
+                "subject4_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 27
+                },
+                "subject5_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 65
+                },
+                "subject6_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 62
+                },
+                "subject7_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 62
+                },
+                "subject8_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 49
+                },
+                "subject9_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 66
+                },
+                "subject10_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 52
+                },
+                "subject11_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 72
+                },
+                "subject12_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 45
+                },
+                "subject13_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 67
+                },
+                "subject14_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 76
+                },
+                "subject15_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 67
+                },
+                "subject16_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 37
+                },
+                "subject17_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 59
+                },
+                "subject18_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 52
+                },
+                "subject19_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 66
+                },
+                "subject20_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 38
+                },
+                "subject21_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 59
+                },
+                "subject22_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 66
+                },
+                "subject23_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 34
+                },
+                "subject24_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 44
+                },
+                "subject25_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 33
+                },
+                "subject26_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 43
+                },
+                "subject27_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 50
+                },
+                "subject28_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 72
+                },
+                "subject29_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 72
+                },
+                "subject30_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 68
+                },
+                "subject31_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 49
+                },
+                "subject32_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 71
+                },
+                "subject33_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 45
+                },
+                "subject34_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 52
+                },
+                "subject35_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 46
+                },
+                "subject36_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 62
+                },
+                "subject37_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 52
+                },
+                "subject38_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 22
+                },
+                "subject39_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 46
+                },
+                "subject40_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 23
+                },
+                "subject41_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 60
+                },
+                "subject42_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 27
+                },
+                "subject43_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 73
+                },
+                "subject44_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 39
+                },
+                "subject45_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 68
+                },
+                "subject46_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 71
+                },
+                "subject47_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 44
+                },
+                "subject48_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 44
+                },
+                "subject49_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 73
+                },
+                "subject50_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 76
+                },
+                "subject51_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 44
+                },
+                "subject52_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 37
+                },
+                "subject53_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 61
+                },
+                "subject54_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 41
+                },
+                "subject55_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 62
+                },
+                "subject56_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 80
+                },
+                "subject57_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 48
+                },
+                "subject58_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 72
+                },
+                "subject59_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 57
+                },
+                "subject60_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 74
+                },
+                "subject61_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 42
+                },
+                "subject62_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 70
+                },
+                "subject63_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 33
+                },
+                "subject64_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 58
+                },
+                "subject65_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 22
+                },
+                "subject66_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 24
+                },
+                "subject67_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 59
+                },
+                "subject68_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 55
+                },
+                "subject69_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 21
+                },
+                "subject70_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 28
+                },
+                "subject71_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 69
+                },
+                "subject72_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 77
+                },
+                "subject73_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 60
+                },
+                "subject74_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 74
+                },
+                "subject75_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 22
+                },
+                "subject76_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 28
+                },
+                "subject77_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 73
+                },
+                "subject78_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 50
+                },
+                "subject79_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 20
+                },
+                "subject80_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 77
+                },
+                "subject81_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 52
+                },
+                "subject82_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 62
+                },
+                "subject83_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 42
+                },
+                "subject84_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 47
+                },
+                "subject85_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 54
+                },
+                "subject86_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 44
+                },
+                "subject87_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 23
+                },
+                "subject88_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 58
+                },
+                "subject89_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 58
+                },
+                "subject90_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 21
+                },
+                "subject91_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 42
+                },
+                "subject92_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 20
+                },
+                "subject93_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 27
+                },
+                "subject94_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 42
+                },
+                "subject95_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 47
+                },
+                "subject96_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 50
+                },
+                "subject97_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 28
+                },
+                "subject98_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 65
+                },
+                "subject99_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 40
+                }
+            }
+        },
+        "data": {
+            "fulfilled": true,
+            "value": [
+                {
+                    "type": "FreeSurfer",
+                    "value": [
+                        "Left-Lateral-Ventricle",
+                        "Left-Inf-Lat-Vent",
+                        "Left-Cerebellum-White-Matter",
+                        "Left-Cerebellum-Cortex",
+                        "Left-Thalamus-Proper",
+                        "Left-Caudate",
+                        "Left-Putamen",
+                        "Left-Pallidum",
+                        "3rd-Ventricle",
+                        "4th-Ventricle",
+                        "Brain-Stem",
+                        "Left-Hippocampus",
+                        "Left-Amygdala",
+                        "CSF",
+                        "Left-Accumbens-area",
+                        "Left-VentralDC",
+                        "Left-vessel",
+                        "Left-choroid-plexus",
+                        "Right-Lateral-Ventricle",
+                        "Right-Inf-Lat-Vent",
+                        "Right-Cerebellum-White-Matter",
+                        "Right-Cerebellum-Cortex",
+                        "Right-Thalamus-Proper",
+                        "Right-Caudate",
+                        "Right-Putamen",
+                        "Right-Pallidum",
+                        "Right-Hippocampus",
+                        "Right-Amygdala",
+                        "Right-Accumbens-area",
+                        "Right-VentralDC",
+                        "Right-vessel",
+                        "Right-choroid-plexus",
+                        "5th-Ventricle",
+                        "WM-hypointensities",
+                        "Left-WM-hypointensities",
+                        "Right-WM-hypointensities",
+                        "non-WM-hypointensities",
+                        "Left-non-WM-hypointensities",
+                        "Right-non-WM-hypointensities",
+                        "Optic-Chiasm",
+                        "CC_Posterior",
+                        "CC_Mid_Posterior",
+                        "CC_Central",
+                        "CC_Mid_Anterior",
+                        "CC_Anterior",
+                        "BrainSegVol",
+                        "BrainSegVolNotVent",
+                        "BrainSegVolNotVentSurf",
+                        "lhCortexVol",
+                        "rhCortexVol",
+                        "CortexVol",
+                        "lhCorticalWhiteMatterVol",
+                        "rhCorticalWhiteMatterVol",
+                        "CorticalWhiteMatterVol",
+                        "SubCortGrayVol",
+                        "TotalGrayVol",
+                        "SupraTentorialVol",
+                        "SupraTentorialVolNotVent",
+                        "SupraTentorialVolNotVentVox",
+                        "MaskVol",
+                        "BrainSegVol-to-eTIV",
+                        "MaskVol-to-eTIV",
+                        "lhSurfaceHoles",
+                        "rhSurfaceHoles",
+                        "SurfaceHoles",
+                        "EstimatedTotalIntraCranialVol"
+                    ]
+                }
             ]
-          ]
-        ],
-        [
-          "isControl",
-          "age"
-        ],
-        [
-          "boolean",
-          "number"
-        ]
-      ]
+        },
+        "label": {
+            "fulfilled": true,
+            "value": "isControl"
+        },
+        "model_local": {
+            "fulfilled": true,
+            "value": "SVM"
+        },
+        "is_private_local": {
+            "fulfilled": true,
+            "value": true
+        },
+        "perturb_method_local": {
+            "fulfilled": true,
+            "value": "objective"
+        },
+        "lambda_local": {
+            "fulfilled": true,
+            "value": 0.0001
+        },
+        "epsilon_local": {
+            "fulfilled": true,
+            "value": 30
+        },
+        "huberconst_local": {
+            "fulfilled": true,
+            "value": 0.5
+        },
+        "fit_intercept_local": {
+            "fulfilled": true,
+            "value": true
+        },
+        "intercept_scaling_local": {
+            "fulfilled": true,
+            "value": 1.0
+        },
+        "model_owner": {
+            "fulfilled": true,
+            "value": "SVM"
+        },
+        "is_private_owner": {
+            "fulfilled": true,
+            "value": true
+        },
+        "perturb_method_owner": {
+            "fulfilled": true,
+            "value": "objective"
+        },
+        "lambda_owner": {
+            "fulfilled": true,
+            "value": 1e-05
+        },
+        "epsilon_owner": {
+            "fulfilled": true,
+            "value": 30
+        },
+        "huberconst_owner": {
+            "fulfilled": true,
+            "value": 0.5
+        },
+        "fit_intercept_owner": {
+            "fulfilled": true,
+            "value": true
+        },
+        "intercept_scaling_owner": {
+            "fulfilled": true,
+            "value": 1.0
+        },
+        "train_split": {
+            "fulfilled": true,
+            "value": 0.8
+        },
+        "shuffle": {
+            "fulfilled": true,
+            "value": true
+        }
     },
-    "measurements": {
-      "value": [
-        [
-          "subject0_aseg_stats.txt",
-          "subject1_aseg_stats.txt",
-          "subject2_aseg_stats.txt",
-          "subject3_aseg_stats.txt",
-          "subject4_aseg_stats.txt",
-          "subject5_aseg_stats.txt",
-          "subject6_aseg_stats.txt",
-          "subject7_aseg_stats.txt",
-          "subject8_aseg_stats.txt",
-          "subject9_aseg_stats.txt",
-          "subject10_aseg_stats.txt",
-          "subject11_aseg_stats.txt",
-          "subject12_aseg_stats.txt",
-          "subject13_aseg_stats.txt",
-          "subject14_aseg_stats.txt",
-          "subject15_aseg_stats.txt",
-          "subject16_aseg_stats.txt",
-          "subject17_aseg_stats.txt",
-          "subject18_aseg_stats.txt",
-          "subject19_aseg_stats.txt",
-          "subject20_aseg_stats.txt",
-          "subject21_aseg_stats.txt",
-          "subject22_aseg_stats.txt",
-          "subject23_aseg_stats.txt",
-          "subject24_aseg_stats.txt",
-          "subject25_aseg_stats.txt",
-          "subject26_aseg_stats.txt",
-          "subject27_aseg_stats.txt",
-          "subject28_aseg_stats.txt",
-          "subject29_aseg_stats.txt",
-          "subject30_aseg_stats.txt",
-          "subject31_aseg_stats.txt",
-          "subject32_aseg_stats.txt",
-          "subject33_aseg_stats.txt",
-          "subject34_aseg_stats.txt",
-          "subject35_aseg_stats.txt",
-          "subject36_aseg_stats.txt",
-          "subject37_aseg_stats.txt",
-          "subject38_aseg_stats.txt",
-          "subject39_aseg_stats.txt",
-          "subject40_aseg_stats.txt",
-          "subject41_aseg_stats.txt",
-          "subject42_aseg_stats.txt",
-          "subject43_aseg_stats.txt",
-          "subject44_aseg_stats.txt",
-          "subject45_aseg_stats.txt",
-          "subject46_aseg_stats.txt",
-          "subject47_aseg_stats.txt",
-          "subject48_aseg_stats.txt",
-          "subject49_aseg_stats.txt",
-          "subject50_aseg_stats.txt",
-          "subject51_aseg_stats.txt",
-          "subject52_aseg_stats.txt",
-          "subject53_aseg_stats.txt",
-          "subject54_aseg_stats.txt",
-          "subject55_aseg_stats.txt",
-          "subject56_aseg_stats.txt",
-          "subject57_aseg_stats.txt",
-          "subject58_aseg_stats.txt",
-          "subject59_aseg_stats.txt",
-          "subject60_aseg_stats.txt",
-          "subject61_aseg_stats.txt",
-          "subject62_aseg_stats.txt",
-          "subject63_aseg_stats.txt",
-          "subject64_aseg_stats.txt",
-          "subject65_aseg_stats.txt",
-          "subject66_aseg_stats.txt",
-          "subject67_aseg_stats.txt",
-          "subject68_aseg_stats.txt",
-          "subject69_aseg_stats.txt",
-          "subject70_aseg_stats.txt",
-          "subject71_aseg_stats.txt",
-          "subject72_aseg_stats.txt",
-          "subject73_aseg_stats.txt",
-          "subject74_aseg_stats.txt",
-          "subject75_aseg_stats.txt",
-          "subject76_aseg_stats.txt",
-          "subject77_aseg_stats.txt",
-          "subject78_aseg_stats.txt",
-          "subject79_aseg_stats.txt",
-          "subject80_aseg_stats.txt",
-          "subject81_aseg_stats.txt",
-          "subject82_aseg_stats.txt",
-          "subject83_aseg_stats.txt",
-          "subject84_aseg_stats.txt",
-          "subject85_aseg_stats.txt",
-          "subject86_aseg_stats.txt",
-          "subject87_aseg_stats.txt",
-          "subject88_aseg_stats.txt",
-          "subject89_aseg_stats.txt",
-          "subject90_aseg_stats.txt",
-          "subject91_aseg_stats.txt",
-          "subject92_aseg_stats.txt",
-          "subject93_aseg_stats.txt",
-          "subject94_aseg_stats.txt",
-          "subject95_aseg_stats.txt",
-          "subject96_aseg_stats.txt",
-          "subject97_aseg_stats.txt",
-          "subject98_aseg_stats.txt",
-          "subject99_aseg_stats.txt"
-        ],
-        [
-          "freesurferfile"
-        ],
-        [
-          "Left-Lateral-Ventricle",
-          "Left-Inf-Lat-Vent",
-          "Left-Cerebellum-White-Matter",
-          "Left-Cerebellum-Cortex",
-          "Left-Thalamus-Proper",
-          "Left-Caudate",
-          "Left-Putamen",
-          "Left-Pallidum",
-          "3rd-Ventricle",
-          "4th-Ventricle",
-          "Brain-Stem",
-          "Left-Hippocampus",
-          "Left-Amygdala",
-          "CSF",
-          "Left-Accumbens-area",
-          "Left-VentralDC",
-          "Left-vessel",
-          "Left-choroid-plexus",
-          "Right-Lateral-Ventricle",
-          "Right-Inf-Lat-Vent",
-          "Right-Cerebellum-White-Matter",
-          "Right-Cerebellum-Cortex",
-          "Right-Thalamus-Proper",
-          "Right-Caudate",
-          "Right-Putamen",
-          "Right-Pallidum",
-          "Right-Hippocampus",
-          "Right-Amygdala",
-          "Right-Accumbens-area",
-          "Right-VentralDC",
-          "Right-vessel",
-          "Right-choroid-plexus",
-          "5th-Ventricle",
-          "WM-hypointensities",
-          "Left-WM-hypointensities",
-          "Right-WM-hypointensities",
-          "non-WM-hypointensities",
-          "Left-non-WM-hypointensities",
-          "Right-non-WM-hypointensities",
-          "Optic-Chiasm",
-          "CC_Posterior",
-          "CC_Mid_Posterior",
-          "CC_Central",
-          "CC_Mid_Anterior",
-          "CC_Anterior",
-          "BrainSegVol",
-          "BrainSegVolNotVent",
-          "BrainSegVolNotVentSurf",
-          "lhCortexVol",
-          "rhCortexVol",
-          "CortexVol",
-          "lhCorticalWhiteMatterVol",
-          "rhCorticalWhiteMatterVol",
-          "CorticalWhiteMatterVol",
-          "SubCortGrayVol",
-          "TotalGrayVol",
-          "SupraTentorialVol",
-          "SupraTentorialVolNotVent",
-          "SupraTentorialVolNotVentVox",
-          "MaskVol",
-          "BrainSegVol-to-eTIV",
-          "MaskVol-to-eTIV",
-          "lhSurfaceHoles",
-          "rhSurfaceHoles",
-          "SurfaceHoles",
-          "EstimatedTotalIntraCranialVol"
-        ]
-      ]
-    },
-    "label": {
-      "value": "isControl"
-    }, 
-    "model_local": {
-      "value": "SVM"
-    },
-    "is_private_local": {
-      "value": true
-    },
-    "perturb_method_local": {
-      "value": "objective"
-    },
-    "lambda_local": {
-     "value": 1e-4
-    },
-    "epsilon_local": {
-      "value": 30
-    },
-    "huberconst_local": {
-      "value": 0.5
-    },    
-    "fit_intercept_local": {
-      "value": true
-    },
-    "intercept_scaling_local": {
-      "value": 1.0
-    },    
-    "model_owner": {
-      "value":  "SVM"
-    },
-    "is_private_owner": {
-     "value": true
-    },
-    "perturb_method_owner": {
-      "value": "objective"
-    },
-    "lambda_owner": {
-      "value": 1e-5
-    },
-    "epsilon_owner": {
-      "value": 30
-    },
-    "huberconst_owner": {
-      "value": 0.5
-    },   
-    "fit_intercept_owner": {
-      "value": true
-    },
-    "intercept_scaling_owner": {
-      "value": 1.0
-    },     
-    "train_split": {
-      "value": 0.8
-    },
-    "shuffle": {
-      "value": true
-    }    
-  },
-  {
-    "covariates": {
-      "value": [
-        [
-          [
-            [
-              "freesurferfile",
-              "isControl",
-              "age"
-            ],
-            [
-              "subject0_aseg_stats.txt",
-              true,
-              36
-            ],
-            [
-              "subject1_aseg_stats.txt",
-              false,
-              65
-            ],
-            [
-              "subject2_aseg_stats.txt",
-              true,
-              45
-            ],
-            [
-              "subject3_aseg_stats.txt",
-              true,
-              50
-            ],
-            [
-              "subject4_aseg_stats.txt",
-              false,
-              21
-            ],
-            [
-              "subject5_aseg_stats.txt",
-              false,
-              67
-            ],
-            [
-              "subject6_aseg_stats.txt",
-              false,
-              48
-            ],
-            [
-              "subject7_aseg_stats.txt",
-              false,
-              28
-            ],
-            [
-              "subject8_aseg_stats.txt",
-              true,
-              42
-            ],
-            [
-              "subject9_aseg_stats.txt",
-              false,
-              78
-            ],
-            [
-              "subject10_aseg_stats.txt",
-              false,
-              67
-            ],
-            [
-              "subject11_aseg_stats.txt",
-              false,
-              71
-            ],
-            [
-              "subject12_aseg_stats.txt",
-              true,
-              60
-            ],
-            [
-              "subject13_aseg_stats.txt",
-              true,
-              78
-            ],
-            [
-              "subject14_aseg_stats.txt",
-              true,
-              26
-            ],
-            [
-              "subject15_aseg_stats.txt",
-              true,
-              22
-            ],
-            [
-              "subject16_aseg_stats.txt",
-              true,
-              66
-            ],
-            [
-              "subject17_aseg_stats.txt",
-              true,
-              52
-            ],
-            [
-              "subject18_aseg_stats.txt",
-              true,
-              59
-            ],
-            [
-              "subject19_aseg_stats.txt",
-              true,
-              28
-            ],
-            [
-              "subject20_aseg_stats.txt",
-              false,
-              68
-            ],
-            [
-              "subject21_aseg_stats.txt",
-              true,
-              44
-            ],
-            [
-              "subject22_aseg_stats.txt",
-              false,
-              75
-            ],
-            [
-              "subject23_aseg_stats.txt",
-              false,
-              51
-            ],
-            [
-              "subject24_aseg_stats.txt",
-              true,
-              66
-            ],
-            [
-              "subject25_aseg_stats.txt",
-              true,
-              26
-            ],
-            [
-              "subject26_aseg_stats.txt",
-              true,
-              52
-            ],
-            [
-              "subject27_aseg_stats.txt",
-              true,
-              53
-            ],
-            [
-              "subject28_aseg_stats.txt",
-              true,
-              71
-            ],
-            [
-              "subject29_aseg_stats.txt",
-              true,
-              53
-            ],
-            [
-              "subject30_aseg_stats.txt",
-              false,
-              72
-            ],
-            [
-              "subject31_aseg_stats.txt",
-              false,
-              29
-            ],
-            [
-              "subject32_aseg_stats.txt",
-              false,
-              61
-            ],
-            [
-              "subject33_aseg_stats.txt",
-              true,
-              40
-            ],
-            [
-              "subject34_aseg_stats.txt",
-              true,
-              56
-            ],
-            [
-              "subject35_aseg_stats.txt",
-              false,
-              65
-            ],
-            [
-              "subject36_aseg_stats.txt",
-              false,
-              30
-            ],
-            [
-              "subject37_aseg_stats.txt",
-              false,
-              53
-            ],
-            [
-              "subject38_aseg_stats.txt",
-              false,
-              64
-            ],
-            [
-              "subject39_aseg_stats.txt",
-              false,
-              29
-            ],
-            [
-              "subject40_aseg_stats.txt",
-              true,
-              74
-            ],
-            [
-              "subject41_aseg_stats.txt",
-              false,
-              33
-            ],
-            [
-              "subject42_aseg_stats.txt",
-              false,
-              41
-            ],
-            [
-              "subject43_aseg_stats.txt",
-              true,
-              20
-            ],
-            [
-              "subject44_aseg_stats.txt",
-              true,
-              34
-            ],
-            [
-              "subject45_aseg_stats.txt",
-              true,
-              47
-            ],
-            [
-              "subject46_aseg_stats.txt",
-              false,
-              76
-            ],
-            [
-              "subject47_aseg_stats.txt",
-              false,
-              40
-            ],
-            [
-              "subject48_aseg_stats.txt",
-              false,
-              67
-            ],
-            [
-              "subject49_aseg_stats.txt",
-              false,
-              58
-            ],
-            [
-              "subject50_aseg_stats.txt",
-              true,
-              56
-            ],
-            [
-              "subject51_aseg_stats.txt",
-              false,
-              67
-            ],
-            [
-              "subject52_aseg_stats.txt",
-              true,
-              30
-            ],
-            [
-              "subject53_aseg_stats.txt",
-              true,
-              64
-            ],
-            [
-              "subject54_aseg_stats.txt",
-              false,
-              22
-            ],
-            [
-              "subject55_aseg_stats.txt",
-              false,
-              39
-            ],
-            [
-              "subject56_aseg_stats.txt",
-              true,
-              44
-            ],
-            [
-              "subject57_aseg_stats.txt",
-              true,
-              65
-            ],
-            [
-              "subject58_aseg_stats.txt",
-              true,
-              80
-            ],
-            [
-              "subject59_aseg_stats.txt",
-              false,
-              30
-            ],
-            [
-              "subject60_aseg_stats.txt",
-              true,
-              33
-            ],
-            [
-              "subject61_aseg_stats.txt",
-              true,
-              26
-            ],
-            [
-              "subject62_aseg_stats.txt",
-              false,
-              34
-            ],
-            [
-              "subject63_aseg_stats.txt",
-              true,
-              78
-            ],
-            [
-              "subject64_aseg_stats.txt",
-              true,
-              29
-            ],
-            [
-              "subject65_aseg_stats.txt",
-              false,
-              37
-            ],
-            [
-              "subject66_aseg_stats.txt",
-              true,
-              75
-            ],
-            [
-              "subject67_aseg_stats.txt",
-              false,
-              45
-            ],
-            [
-              "subject68_aseg_stats.txt",
-              true,
-              23
-            ],
-            [
-              "subject69_aseg_stats.txt",
-              false,
-              34
-            ],
-            [
-              "subject70_aseg_stats.txt",
-              true,
-              39
-            ],
-            [
-              "subject71_aseg_stats.txt",
-              true,
-              39
-            ],
-            [
-              "subject72_aseg_stats.txt",
-              false,
-              53
-            ],
-            [
-              "subject73_aseg_stats.txt",
-              false,
-              40
-            ],
-            [
-              "subject74_aseg_stats.txt",
-              false,
-              62
-            ],
-            [
-              "subject75_aseg_stats.txt",
-              true,
-              54
-            ],
-            [
-              "subject76_aseg_stats.txt",
-              false,
-              39
-            ],
-            [
-              "subject77_aseg_stats.txt",
-              false,
-              57
-            ],
-            [
-              "subject78_aseg_stats.txt",
-              false,
-              67
-            ],
-            [
-              "subject79_aseg_stats.txt",
-              true,
-              50
+    {
+        "covariates": {
+            "value": {
+                "subject0_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 36
+                },
+                "subject1_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 65
+                },
+                "subject2_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 45
+                },
+                "subject3_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 50
+                },
+                "subject4_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 21
+                },
+                "subject5_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 67
+                },
+                "subject6_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 48
+                },
+                "subject7_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 28
+                },
+                "subject8_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 42
+                },
+                "subject9_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 78
+                },
+                "subject10_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 67
+                },
+                "subject11_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 71
+                },
+                "subject12_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 60
+                },
+                "subject13_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 78
+                },
+                "subject14_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 26
+                },
+                "subject15_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 22
+                },
+                "subject16_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 66
+                },
+                "subject17_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 52
+                },
+                "subject18_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 59
+                },
+                "subject19_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 28
+                },
+                "subject20_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 68
+                },
+                "subject21_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 44
+                },
+                "subject22_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 75
+                },
+                "subject23_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 51
+                },
+                "subject24_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 66
+                },
+                "subject25_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 26
+                },
+                "subject26_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 52
+                },
+                "subject27_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 53
+                },
+                "subject28_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 71
+                },
+                "subject29_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 53
+                },
+                "subject30_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 72
+                },
+                "subject31_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 29
+                },
+                "subject32_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 61
+                },
+                "subject33_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 40
+                },
+                "subject34_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 56
+                },
+                "subject35_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 65
+                },
+                "subject36_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 30
+                },
+                "subject37_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 53
+                },
+                "subject38_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 64
+                },
+                "subject39_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 29
+                },
+                "subject40_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 74
+                },
+                "subject41_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 33
+                },
+                "subject42_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 41
+                },
+                "subject43_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 20
+                },
+                "subject44_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 34
+                },
+                "subject45_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 47
+                },
+                "subject46_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 76
+                },
+                "subject47_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 40
+                },
+                "subject48_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 67
+                },
+                "subject49_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 58
+                },
+                "subject50_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 56
+                },
+                "subject51_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 67
+                },
+                "subject52_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 30
+                },
+                "subject53_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 64
+                },
+                "subject54_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 22
+                },
+                "subject55_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 39
+                },
+                "subject56_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 44
+                },
+                "subject57_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 65
+                },
+                "subject58_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 80
+                },
+                "subject59_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 30
+                },
+                "subject60_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 33
+                },
+                "subject61_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 26
+                },
+                "subject62_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 34
+                },
+                "subject63_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 78
+                },
+                "subject64_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 29
+                },
+                "subject65_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 37
+                },
+                "subject66_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 75
+                },
+                "subject67_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 45
+                },
+                "subject68_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 23
+                },
+                "subject69_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 34
+                },
+                "subject70_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 39
+                },
+                "subject71_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 39
+                },
+                "subject72_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 53
+                },
+                "subject73_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 40
+                },
+                "subject74_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 62
+                },
+                "subject75_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 54
+                },
+                "subject76_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 39
+                },
+                "subject77_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 57
+                },
+                "subject78_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 67
+                },
+                "subject79_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 50
+                }
+            }
+        },
+        "data": {
+            "fulfilled": true,
+            "value": [
+                {
+                    "type": "FreeSurfer",
+                    "value": [
+                        "Left-Lateral-Ventricle",
+                        "Left-Inf-Lat-Vent",
+                        "Left-Cerebellum-White-Matter",
+                        "Left-Cerebellum-Cortex",
+                        "Left-Thalamus-Proper",
+                        "Left-Caudate",
+                        "Left-Putamen",
+                        "Left-Pallidum",
+                        "3rd-Ventricle",
+                        "4th-Ventricle",
+                        "Brain-Stem",
+                        "Left-Hippocampus",
+                        "Left-Amygdala",
+                        "CSF",
+                        "Left-Accumbens-area",
+                        "Left-VentralDC",
+                        "Left-vessel",
+                        "Left-choroid-plexus",
+                        "Right-Lateral-Ventricle",
+                        "Right-Inf-Lat-Vent",
+                        "Right-Cerebellum-White-Matter",
+                        "Right-Cerebellum-Cortex",
+                        "Right-Thalamus-Proper",
+                        "Right-Caudate",
+                        "Right-Putamen",
+                        "Right-Pallidum",
+                        "Right-Hippocampus",
+                        "Right-Amygdala",
+                        "Right-Accumbens-area",
+                        "Right-VentralDC",
+                        "Right-vessel",
+                        "Right-choroid-plexus",
+                        "5th-Ventricle",
+                        "WM-hypointensities",
+                        "Left-WM-hypointensities",
+                        "Right-WM-hypointensities",
+                        "non-WM-hypointensities",
+                        "Left-non-WM-hypointensities",
+                        "Right-non-WM-hypointensities",
+                        "Optic-Chiasm",
+                        "CC_Posterior",
+                        "CC_Mid_Posterior",
+                        "CC_Central",
+                        "CC_Mid_Anterior",
+                        "CC_Anterior",
+                        "BrainSegVol",
+                        "BrainSegVolNotVent",
+                        "BrainSegVolNotVentSurf",
+                        "lhCortexVol",
+                        "rhCortexVol",
+                        "CortexVol",
+                        "lhCorticalWhiteMatterVol",
+                        "rhCorticalWhiteMatterVol",
+                        "CorticalWhiteMatterVol",
+                        "SubCortGrayVol",
+                        "TotalGrayVol",
+                        "SupraTentorialVol",
+                        "SupraTentorialVolNotVent",
+                        "SupraTentorialVolNotVentVox",
+                        "MaskVol",
+                        "BrainSegVol-to-eTIV",
+                        "MaskVol-to-eTIV",
+                        "lhSurfaceHoles",
+                        "rhSurfaceHoles",
+                        "SurfaceHoles",
+                        "EstimatedTotalIntraCranialVol"
+                    ]
+                }
             ]
-          ]
-        ],
-        [
-          "isControl",
-          "age"
-        ],
-        [
-          "boolean",
-          "number"
-        ]
-      ]
+        },
+        "label": {
+            "fulfilled": true,
+            "value": "isControl"
+        },
+        "model_local": {
+            "fulfilled": true,
+            "value": "SVM"
+        },
+        "is_private_local": {
+            "fulfilled": true,
+            "value": true
+        },
+        "perturb_method_local": {
+            "fulfilled": true,
+            "value": "objective"
+        },
+        "lambda_local": {
+            "fulfilled": true,
+            "value": 0.0001
+        },
+        "epsilon_local": {
+            "fulfilled": true,
+            "value": 30
+        },
+        "huberconst_local": {
+            "fulfilled": true,
+            "value": 0.5
+        },
+        "fit_intercept_local": {
+            "fulfilled": true,
+            "value": true
+        },
+        "intercept_scaling_local": {
+            "fulfilled": true,
+            "value": 1.0
+        },
+        "model_owner": {
+            "fulfilled": true,
+            "value": "SVM"
+        },
+        "is_private_owner": {
+            "fulfilled": true,
+            "value": true
+        },
+        "perturb_method_owner": {
+            "fulfilled": true,
+            "value": "objective"
+        },
+        "lambda_owner": {
+            "fulfilled": true,
+            "value": 1e-05
+        },
+        "epsilon_owner": {
+            "fulfilled": true,
+            "value": 30
+        },
+        "huberconst_owner": {
+            "fulfilled": true,
+            "value": 0.5
+        },
+        "fit_intercept_owner": {
+            "fulfilled": true,
+            "value": true
+        },
+        "intercept_scaling_owner": {
+            "fulfilled": true,
+            "value": 1.0
+        },
+        "train_split": {
+            "fulfilled": true,
+            "value": 0.8
+        },
+        "shuffle": {
+            "fulfilled": true,
+            "value": true
+        }
     },
-    "measurements": {
-      "value": [
-        [
-          "subject0_aseg_stats.txt",
-          "subject1_aseg_stats.txt",
-          "subject2_aseg_stats.txt",
-          "subject3_aseg_stats.txt",
-          "subject4_aseg_stats.txt",
-          "subject5_aseg_stats.txt",
-          "subject6_aseg_stats.txt",
-          "subject7_aseg_stats.txt",
-          "subject8_aseg_stats.txt",
-          "subject9_aseg_stats.txt",
-          "subject10_aseg_stats.txt",
-          "subject11_aseg_stats.txt",
-          "subject12_aseg_stats.txt",
-          "subject13_aseg_stats.txt",
-          "subject14_aseg_stats.txt",
-          "subject15_aseg_stats.txt",
-          "subject16_aseg_stats.txt",
-          "subject17_aseg_stats.txt",
-          "subject18_aseg_stats.txt",
-          "subject19_aseg_stats.txt",
-          "subject20_aseg_stats.txt",
-          "subject21_aseg_stats.txt",
-          "subject22_aseg_stats.txt",
-          "subject23_aseg_stats.txt",
-          "subject24_aseg_stats.txt",
-          "subject25_aseg_stats.txt",
-          "subject26_aseg_stats.txt",
-          "subject27_aseg_stats.txt",
-          "subject28_aseg_stats.txt",
-          "subject29_aseg_stats.txt",
-          "subject30_aseg_stats.txt",
-          "subject31_aseg_stats.txt",
-          "subject32_aseg_stats.txt",
-          "subject33_aseg_stats.txt",
-          "subject34_aseg_stats.txt",
-          "subject35_aseg_stats.txt",
-          "subject36_aseg_stats.txt",
-          "subject37_aseg_stats.txt",
-          "subject38_aseg_stats.txt",
-          "subject39_aseg_stats.txt",
-          "subject40_aseg_stats.txt",
-          "subject41_aseg_stats.txt",
-          "subject42_aseg_stats.txt",
-          "subject43_aseg_stats.txt",
-          "subject44_aseg_stats.txt",
-          "subject45_aseg_stats.txt",
-          "subject46_aseg_stats.txt",
-          "subject47_aseg_stats.txt",
-          "subject48_aseg_stats.txt",
-          "subject49_aseg_stats.txt",
-          "subject50_aseg_stats.txt",
-          "subject51_aseg_stats.txt",
-          "subject52_aseg_stats.txt",
-          "subject53_aseg_stats.txt",
-          "subject54_aseg_stats.txt",
-          "subject55_aseg_stats.txt",
-          "subject56_aseg_stats.txt",
-          "subject57_aseg_stats.txt",
-          "subject58_aseg_stats.txt",
-          "subject59_aseg_stats.txt",
-          "subject60_aseg_stats.txt",
-          "subject61_aseg_stats.txt",
-          "subject62_aseg_stats.txt",
-          "subject63_aseg_stats.txt",
-          "subject64_aseg_stats.txt",
-          "subject65_aseg_stats.txt",
-          "subject66_aseg_stats.txt",
-          "subject67_aseg_stats.txt",
-          "subject68_aseg_stats.txt",
-          "subject69_aseg_stats.txt",
-          "subject70_aseg_stats.txt",
-          "subject71_aseg_stats.txt",
-          "subject72_aseg_stats.txt",
-          "subject73_aseg_stats.txt",
-          "subject74_aseg_stats.txt",
-          "subject75_aseg_stats.txt",
-          "subject76_aseg_stats.txt",
-          "subject77_aseg_stats.txt",
-          "subject78_aseg_stats.txt",
-          "subject79_aseg_stats.txt"
-        ],
-        [
-          "freesurferfile"
-        ],
-        [
-          "Left-Lateral-Ventricle",
-          "Left-Inf-Lat-Vent",
-          "Left-Cerebellum-White-Matter",
-          "Left-Cerebellum-Cortex",
-          "Left-Thalamus-Proper",
-          "Left-Caudate",
-          "Left-Putamen",
-          "Left-Pallidum",
-          "3rd-Ventricle",
-          "4th-Ventricle",
-          "Brain-Stem",
-          "Left-Hippocampus",
-          "Left-Amygdala",
-          "CSF",
-          "Left-Accumbens-area",
-          "Left-VentralDC",
-          "Left-vessel",
-          "Left-choroid-plexus",
-          "Right-Lateral-Ventricle",
-          "Right-Inf-Lat-Vent",
-          "Right-Cerebellum-White-Matter",
-          "Right-Cerebellum-Cortex",
-          "Right-Thalamus-Proper",
-          "Right-Caudate",
-          "Right-Putamen",
-          "Right-Pallidum",
-          "Right-Hippocampus",
-          "Right-Amygdala",
-          "Right-Accumbens-area",
-          "Right-VentralDC",
-          "Right-vessel",
-          "Right-choroid-plexus",
-          "5th-Ventricle",
-          "WM-hypointensities",
-          "Left-WM-hypointensities",
-          "Right-WM-hypointensities",
-          "non-WM-hypointensities",
-          "Left-non-WM-hypointensities",
-          "Right-non-WM-hypointensities",
-          "Optic-Chiasm",
-          "CC_Posterior",
-          "CC_Mid_Posterior",
-          "CC_Central",
-          "CC_Mid_Anterior",
-          "CC_Anterior",
-          "BrainSegVol",
-          "BrainSegVolNotVent",
-          "BrainSegVolNotVentSurf",
-          "lhCortexVol",
-          "rhCortexVol",
-          "CortexVol",
-          "lhCorticalWhiteMatterVol",
-          "rhCorticalWhiteMatterVol",
-          "CorticalWhiteMatterVol",
-          "SubCortGrayVol",
-          "TotalGrayVol",
-          "SupraTentorialVol",
-          "SupraTentorialVolNotVent",
-          "SupraTentorialVolNotVentVox",
-          "MaskVol",
-          "BrainSegVol-to-eTIV",
-          "MaskVol-to-eTIV",
-          "lhSurfaceHoles",
-          "rhSurfaceHoles",
-          "SurfaceHoles",
-          "EstimatedTotalIntraCranialVol"
-        ]
-      ]
-    },
-    "label": {
-      "value": "isControl"
-    }, 
-    "model_local": {
-      "value": "SVM"
-    },
-    "is_private_local": {
-      "value": true
-    },
-    "perturb_method_local": {
-      "value": "objective"
-    },
-    "lambda_local": {
-     "value": 1e-4
-    },
-    "epsilon_local": {
-      "value": 30
-    },
-    "huberconst_local": {
-      "value": 0.5
-    },    
-    "fit_intercept_local": {
-      "value": true
-    },
-    "intercept_scaling_local": {
-      "value": 1.0
-    },    
-    "model_owner": {
-      "value":  "SVM"
-    },
-    "is_private_owner": {
-     "value": true
-    },
-    "perturb_method_owner": {
-      "value": "objective"
-    },
-    "lambda_owner": {
-      "value": 1e-5
-    },
-    "epsilon_owner": {
-      "value": 30
-    },
-    "huberconst_owner": {
-      "value": 0.5
-    },   
-    "fit_intercept_owner": {
-      "value": true
-    },
-    "intercept_scaling_owner": {
-      "value": 1.0
-    },     
-    "train_split": {
-      "value": 0.8
-    },
-    "shuffle": {
-      "value": true
-    }    
-  },
-  {
-    "covariates": {
-      "value": [
-        [
-          [
-            [
-              "freesurferfile",
-              "isControl",
-              "age"
-            ],
-            [
-              "subject0_aseg_stats.txt",
-              true,
-              66
-            ],
-            [
-              "subject1_aseg_stats.txt",
-              true,
-              60
-            ],
-            [
-              "subject2_aseg_stats.txt",
-              false,
-              48
-            ],
-            [
-              "subject3_aseg_stats.txt",
-              false,
-              27
-            ],
-            [
-              "subject4_aseg_stats.txt",
-              true,
-              60
-            ],
-            [
-              "subject5_aseg_stats.txt",
-              true,
-              76
-            ],
-            [
-              "subject6_aseg_stats.txt",
-              false,
-              20
-            ],
-            [
-              "subject7_aseg_stats.txt",
-              true,
-              72
-            ],
-            [
-              "subject8_aseg_stats.txt",
-              true,
-              49
-            ],
-            [
-              "subject9_aseg_stats.txt",
-              false,
-              44
-            ],
-            [
-              "subject10_aseg_stats.txt",
-              true,
-              62
-            ],
-            [
-              "subject11_aseg_stats.txt",
-              false,
-              30
-            ],
-            [
-              "subject12_aseg_stats.txt",
-              true,
-              28
-            ],
-            [
-              "subject13_aseg_stats.txt",
-              true,
-              44
-            ],
-            [
-              "subject14_aseg_stats.txt",
-              true,
-              38
-            ],
-            [
-              "subject15_aseg_stats.txt",
-              true,
-              68
-            ],
-            [
-              "subject16_aseg_stats.txt",
-              false,
-              65
-            ],
-            [
-              "subject17_aseg_stats.txt",
-              false,
-              55
-            ],
-            [
-              "subject18_aseg_stats.txt",
-              true,
-              44
-            ],
-            [
-              "subject19_aseg_stats.txt",
-              false,
-              60
-            ],
-            [
-              "subject20_aseg_stats.txt",
-              true,
-              72
-            ],
-            [
-              "subject21_aseg_stats.txt",
-              true,
-              36
-            ],
-            [
-              "subject22_aseg_stats.txt",
-              false,
-              25
-            ],
-            [
-              "subject23_aseg_stats.txt",
-              false,
-              33
-            ],
-            [
-              "subject24_aseg_stats.txt",
-              true,
-              60
-            ],
-            [
-              "subject25_aseg_stats.txt",
-              false,
-              31
-            ],
-            [
-              "subject26_aseg_stats.txt",
-              true,
-              80
-            ],
-            [
-              "subject27_aseg_stats.txt",
-              true,
-              44
-            ],
-            [
-              "subject28_aseg_stats.txt",
-              false,
-              69
-            ],
-            [
-              "subject29_aseg_stats.txt",
-              true,
-              79
-            ],
-            [
-              "subject30_aseg_stats.txt",
-              false,
-              58
-            ],
-            [
-              "subject31_aseg_stats.txt",
-              true,
-              44
-            ],
-            [
-              "subject32_aseg_stats.txt",
-              false,
-              27
-            ],
-            [
-              "subject33_aseg_stats.txt",
-              true,
-              38
-            ],
-            [
-              "subject34_aseg_stats.txt",
-              false,
-              69
-            ],
-            [
-              "subject35_aseg_stats.txt",
-              false,
-              29
-            ],
-            [
-              "subject36_aseg_stats.txt",
-              true,
-              58
-            ],
-            [
-              "subject37_aseg_stats.txt",
-              false,
-              64
-            ],
-            [
-              "subject38_aseg_stats.txt",
-              false,
-              38
-            ],
-            [
-              "subject39_aseg_stats.txt",
-              false,
-              53
-            ],
-            [
-              "subject40_aseg_stats.txt",
-              true,
-              43
-            ],
-            [
-              "subject41_aseg_stats.txt",
-              true,
-              33
-            ],
-            [
-              "subject42_aseg_stats.txt",
-              true,
-              49
-            ],
-            [
-              "subject43_aseg_stats.txt",
-              false,
-              56
-            ],
-            [
-              "subject44_aseg_stats.txt",
-              false,
-              60
-            ],
-            [
-              "subject45_aseg_stats.txt",
-              false,
-              37
-            ],
-            [
-              "subject46_aseg_stats.txt",
-              false,
-              80
-            ],
-            [
-              "subject47_aseg_stats.txt",
-              true,
-              66
-            ],
-            [
-              "subject48_aseg_stats.txt",
-              false,
-              63
-            ],
-            [
-              "subject49_aseg_stats.txt",
-              true,
-              70
-            ],
-            [
-              "subject50_aseg_stats.txt",
-              true,
-              75
-            ],
-            [
-              "subject51_aseg_stats.txt",
-              true,
-              61
-            ],
-            [
-              "subject52_aseg_stats.txt",
-              false,
-              64
-            ],
-            [
-              "subject53_aseg_stats.txt",
-              true,
-              65
-            ],
-            [
-              "subject54_aseg_stats.txt",
-              false,
-              73
-            ],
-            [
-              "subject55_aseg_stats.txt",
-              true,
-              28
-            ],
-            [
-              "subject56_aseg_stats.txt",
-              false,
-              34
-            ],
-            [
-              "subject57_aseg_stats.txt",
-              true,
-              52
-            ],
-            [
-              "subject58_aseg_stats.txt",
-              false,
-              32
-            ],
-            [
-              "subject59_aseg_stats.txt",
-              true,
-              49
-            ],
-            [
-              "subject60_aseg_stats.txt",
-              false,
-              58
-            ],
-            [
-              "subject61_aseg_stats.txt",
-              false,
-              68
-            ],
-            [
-              "subject62_aseg_stats.txt",
-              true,
-              24
-            ],
-            [
-              "subject63_aseg_stats.txt",
-              true,
-              70
-            ],
-            [
-              "subject64_aseg_stats.txt",
-              false,
-              73
-            ],
-            [
-              "subject65_aseg_stats.txt",
-              true,
-              21
-            ],
-            [
-              "subject66_aseg_stats.txt",
-              true,
-              66
-            ],
-            [
-              "subject67_aseg_stats.txt",
-              true,
-              72
-            ],
-            [
-              "subject68_aseg_stats.txt",
-              true,
-              22
-            ],
-            [
-              "subject69_aseg_stats.txt",
-              true,
-              45
-            ],
-            [
-              "subject70_aseg_stats.txt",
-              true,
-              38
-            ],
-            [
-              "subject71_aseg_stats.txt",
-              true,
-              77
-            ],
-            [
-              "subject72_aseg_stats.txt",
-              false,
-              54
-            ],
-            [
-              "subject73_aseg_stats.txt",
-              true,
-              39
-            ],
-            [
-              "subject74_aseg_stats.txt",
-              true,
-              61
-            ],
-            [
-              "subject75_aseg_stats.txt",
-              true,
-              74
-            ],
-            [
-              "subject76_aseg_stats.txt",
-              true,
-              60
-            ],
-            [
-              "subject77_aseg_stats.txt",
-              true,
-              79
-            ],
-            [
-              "subject78_aseg_stats.txt",
-              true,
-              28
-            ],
-            [
-              "subject79_aseg_stats.txt",
-              false,
-              80
-            ],
-            [
-              "subject80_aseg_stats.txt",
-              true,
-              58
-            ],
-            [
-              "subject81_aseg_stats.txt",
-              true,
-              52
-            ],
-            [
-              "subject82_aseg_stats.txt",
-              false,
-              24
-            ],
-            [
-              "subject83_aseg_stats.txt",
-              true,
-              44
-            ],
-            [
-              "subject84_aseg_stats.txt",
-              true,
-              62
-            ],
-            [
-              "subject85_aseg_stats.txt",
-              true,
-              36
-            ],
-            [
-              "subject86_aseg_stats.txt",
-              false,
-              61
-            ],
-            [
-              "subject87_aseg_stats.txt",
-              false,
-              53
-            ],
-            [
-              "subject88_aseg_stats.txt",
-              true,
-              30
-            ],
-            [
-              "subject89_aseg_stats.txt",
-              true,
-              77
-            ],
-            [
-              "subject90_aseg_stats.txt",
-              false,
-              74
-            ],
-            [
-              "subject91_aseg_stats.txt",
-              true,
-              65
-            ],
-            [
-              "subject92_aseg_stats.txt",
-              true,
-              26
-            ],
-            [
-              "subject93_aseg_stats.txt",
-              true,
-              38
-            ],
-            [
-              "subject94_aseg_stats.txt",
-              true,
-              20
-            ],
-            [
-              "subject95_aseg_stats.txt",
-              false,
-              30
-            ],
-            [
-              "subject96_aseg_stats.txt",
-              true,
-              31
-            ],
-            [
-              "subject97_aseg_stats.txt",
-              false,
-              57
-            ],
-            [
-              "subject98_aseg_stats.txt",
-              true,
-              25
-            ],
-            [
-              "subject99_aseg_stats.txt",
-              false,
-              80
-            ],
-            [
-              "subject100_aseg_stats.txt",
-              false,
-              36
-            ],
-            [
-              "subject101_aseg_stats.txt",
-              false,
-              21
-            ],
-            [
-              "subject102_aseg_stats.txt",
-              true,
-              45
-            ],
-            [
-              "subject103_aseg_stats.txt",
-              false,
-              65
-            ],
-            [
-              "subject104_aseg_stats.txt",
-              false,
-              51
-            ],
-            [
-              "subject105_aseg_stats.txt",
-              true,
-              78
-            ],
-            [
-              "subject106_aseg_stats.txt",
-              false,
-              36
-            ],
-            [
-              "subject107_aseg_stats.txt",
-              false,
-              28
-            ],
-            [
-              "subject108_aseg_stats.txt",
-              false,
-              42
-            ],
-            [
-              "subject109_aseg_stats.txt",
-              false,
-              32
-            ],
-            [
-              "subject110_aseg_stats.txt",
-              true,
-              33
-            ],
-            [
-              "subject111_aseg_stats.txt",
-              false,
-              32
-            ],
-            [
-              "subject112_aseg_stats.txt",
-              true,
-              23
-            ],
-            [
-              "subject113_aseg_stats.txt",
-              true,
-              71
-            ],
-            [
-              "subject114_aseg_stats.txt",
-              false,
-              37
-            ],
-            [
-              "subject115_aseg_stats.txt",
-              false,
-              46
-            ],
-            [
-              "subject116_aseg_stats.txt",
-              false,
-              27
-            ],
-            [
-              "subject117_aseg_stats.txt",
-              false,
-              71
-            ],
-            [
-              "subject118_aseg_stats.txt",
-              true,
-              24
-            ],
-            [
-              "subject119_aseg_stats.txt",
-              true,
-              57
+    {
+        "covariates": {
+            "value": {
+                "subject0_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 66
+                },
+                "subject1_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 60
+                },
+                "subject2_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 48
+                },
+                "subject3_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 27
+                },
+                "subject4_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 60
+                },
+                "subject5_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 76
+                },
+                "subject6_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 20
+                },
+                "subject7_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 72
+                },
+                "subject8_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 49
+                },
+                "subject9_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 44
+                },
+                "subject10_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 62
+                },
+                "subject11_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 30
+                },
+                "subject12_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 28
+                },
+                "subject13_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 44
+                },
+                "subject14_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 38
+                },
+                "subject15_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 68
+                },
+                "subject16_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 65
+                },
+                "subject17_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 55
+                },
+                "subject18_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 44
+                },
+                "subject19_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 60
+                },
+                "subject20_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 72
+                },
+                "subject21_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 36
+                },
+                "subject22_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 25
+                },
+                "subject23_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 33
+                },
+                "subject24_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 60
+                },
+                "subject25_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 31
+                },
+                "subject26_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 80
+                },
+                "subject27_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 44
+                },
+                "subject28_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 69
+                },
+                "subject29_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 79
+                },
+                "subject30_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 58
+                },
+                "subject31_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 44
+                },
+                "subject32_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 27
+                },
+                "subject33_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 38
+                },
+                "subject34_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 69
+                },
+                "subject35_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 29
+                },
+                "subject36_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 58
+                },
+                "subject37_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 64
+                },
+                "subject38_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 38
+                },
+                "subject39_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 53
+                },
+                "subject40_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 43
+                },
+                "subject41_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 33
+                },
+                "subject42_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 49
+                },
+                "subject43_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 56
+                },
+                "subject44_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 60
+                },
+                "subject45_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 37
+                },
+                "subject46_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 80
+                },
+                "subject47_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 66
+                },
+                "subject48_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 63
+                },
+                "subject49_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 70
+                },
+                "subject50_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 75
+                },
+                "subject51_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 61
+                },
+                "subject52_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 64
+                },
+                "subject53_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 65
+                },
+                "subject54_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 73
+                },
+                "subject55_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 28
+                },
+                "subject56_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 34
+                },
+                "subject57_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 52
+                },
+                "subject58_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 32
+                },
+                "subject59_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 49
+                },
+                "subject60_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 58
+                },
+                "subject61_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 68
+                },
+                "subject62_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 24
+                },
+                "subject63_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 70
+                },
+                "subject64_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 73
+                },
+                "subject65_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 21
+                },
+                "subject66_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 66
+                },
+                "subject67_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 72
+                },
+                "subject68_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 22
+                },
+                "subject69_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 45
+                },
+                "subject70_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 38
+                },
+                "subject71_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 77
+                },
+                "subject72_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 54
+                },
+                "subject73_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 39
+                },
+                "subject74_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 61
+                },
+                "subject75_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 74
+                },
+                "subject76_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 60
+                },
+                "subject77_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 79
+                },
+                "subject78_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 28
+                },
+                "subject79_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 80
+                },
+                "subject80_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 58
+                },
+                "subject81_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 52
+                },
+                "subject82_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 24
+                },
+                "subject83_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 44
+                },
+                "subject84_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 62
+                },
+                "subject85_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 36
+                },
+                "subject86_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 61
+                },
+                "subject87_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 53
+                },
+                "subject88_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 30
+                },
+                "subject89_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 77
+                },
+                "subject90_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 74
+                },
+                "subject91_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 65
+                },
+                "subject92_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 26
+                },
+                "subject93_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 38
+                },
+                "subject94_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 20
+                },
+                "subject95_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 30
+                },
+                "subject96_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 31
+                },
+                "subject97_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 57
+                },
+                "subject98_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 25
+                },
+                "subject99_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 80
+                },
+                "subject100_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 36
+                },
+                "subject101_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 21
+                },
+                "subject102_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 45
+                },
+                "subject103_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 65
+                },
+                "subject104_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 51
+                },
+                "subject105_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 78
+                },
+                "subject106_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 36
+                },
+                "subject107_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 28
+                },
+                "subject108_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 42
+                },
+                "subject109_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 32
+                },
+                "subject110_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 33
+                },
+                "subject111_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 32
+                },
+                "subject112_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 23
+                },
+                "subject113_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 71
+                },
+                "subject114_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 37
+                },
+                "subject115_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 46
+                },
+                "subject116_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 27
+                },
+                "subject117_aseg_stats.txt": {
+                    "isControl": false,
+                    "age": 71
+                },
+                "subject118_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 24
+                },
+                "subject119_aseg_stats.txt": {
+                    "isControl": true,
+                    "age": 57
+                }
+            }
+        },
+        "data": {
+            "fulfilled": true,
+            "value": [
+                {
+                    "type": "FreeSurfer",
+                    "value": [
+                        "Left-Lateral-Ventricle",
+                        "Left-Inf-Lat-Vent",
+                        "Left-Cerebellum-White-Matter",
+                        "Left-Cerebellum-Cortex",
+                        "Left-Thalamus-Proper",
+                        "Left-Caudate",
+                        "Left-Putamen",
+                        "Left-Pallidum",
+                        "3rd-Ventricle",
+                        "4th-Ventricle",
+                        "Brain-Stem",
+                        "Left-Hippocampus",
+                        "Left-Amygdala",
+                        "CSF",
+                        "Left-Accumbens-area",
+                        "Left-VentralDC",
+                        "Left-vessel",
+                        "Left-choroid-plexus",
+                        "Right-Lateral-Ventricle",
+                        "Right-Inf-Lat-Vent",
+                        "Right-Cerebellum-White-Matter",
+                        "Right-Cerebellum-Cortex",
+                        "Right-Thalamus-Proper",
+                        "Right-Caudate",
+                        "Right-Putamen",
+                        "Right-Pallidum",
+                        "Right-Hippocampus",
+                        "Right-Amygdala",
+                        "Right-Accumbens-area",
+                        "Right-VentralDC",
+                        "Right-vessel",
+                        "Right-choroid-plexus",
+                        "5th-Ventricle",
+                        "WM-hypointensities",
+                        "Left-WM-hypointensities",
+                        "Right-WM-hypointensities",
+                        "non-WM-hypointensities",
+                        "Left-non-WM-hypointensities",
+                        "Right-non-WM-hypointensities",
+                        "Optic-Chiasm",
+                        "CC_Posterior",
+                        "CC_Mid_Posterior",
+                        "CC_Central",
+                        "CC_Mid_Anterior",
+                        "CC_Anterior",
+                        "BrainSegVol",
+                        "BrainSegVolNotVent",
+                        "BrainSegVolNotVentSurf",
+                        "lhCortexVol",
+                        "rhCortexVol",
+                        "CortexVol",
+                        "lhCorticalWhiteMatterVol",
+                        "rhCorticalWhiteMatterVol",
+                        "CorticalWhiteMatterVol",
+                        "SubCortGrayVol",
+                        "TotalGrayVol",
+                        "SupraTentorialVol",
+                        "SupraTentorialVolNotVent",
+                        "SupraTentorialVolNotVentVox",
+                        "MaskVol",
+                        "BrainSegVol-to-eTIV",
+                        "MaskVol-to-eTIV",
+                        "lhSurfaceHoles",
+                        "rhSurfaceHoles",
+                        "SurfaceHoles",
+                        "EstimatedTotalIntraCranialVol"
+                    ]
+                }
             ]
-          ]
-        ],
-        [
-          "isControl",
-          "age"
-        ],
-        [
-          "boolean",
-          "number"
-        ]
-      ]
-    },
-    "measurements": {
-      "value": [
-        [
-          "subject0_aseg_stats.txt",
-          "subject1_aseg_stats.txt",
-          "subject2_aseg_stats.txt",
-          "subject3_aseg_stats.txt",
-          "subject4_aseg_stats.txt",
-          "subject5_aseg_stats.txt",
-          "subject6_aseg_stats.txt",
-          "subject7_aseg_stats.txt",
-          "subject8_aseg_stats.txt",
-          "subject9_aseg_stats.txt",
-          "subject10_aseg_stats.txt",
-          "subject11_aseg_stats.txt",
-          "subject12_aseg_stats.txt",
-          "subject13_aseg_stats.txt",
-          "subject14_aseg_stats.txt",
-          "subject15_aseg_stats.txt",
-          "subject16_aseg_stats.txt",
-          "subject17_aseg_stats.txt",
-          "subject18_aseg_stats.txt",
-          "subject19_aseg_stats.txt",
-          "subject20_aseg_stats.txt",
-          "subject21_aseg_stats.txt",
-          "subject22_aseg_stats.txt",
-          "subject23_aseg_stats.txt",
-          "subject24_aseg_stats.txt",
-          "subject25_aseg_stats.txt",
-          "subject26_aseg_stats.txt",
-          "subject27_aseg_stats.txt",
-          "subject28_aseg_stats.txt",
-          "subject29_aseg_stats.txt",
-          "subject30_aseg_stats.txt",
-          "subject31_aseg_stats.txt",
-          "subject32_aseg_stats.txt",
-          "subject33_aseg_stats.txt",
-          "subject34_aseg_stats.txt",
-          "subject35_aseg_stats.txt",
-          "subject36_aseg_stats.txt",
-          "subject37_aseg_stats.txt",
-          "subject38_aseg_stats.txt",
-          "subject39_aseg_stats.txt",
-          "subject40_aseg_stats.txt",
-          "subject41_aseg_stats.txt",
-          "subject42_aseg_stats.txt",
-          "subject43_aseg_stats.txt",
-          "subject44_aseg_stats.txt",
-          "subject45_aseg_stats.txt",
-          "subject46_aseg_stats.txt",
-          "subject47_aseg_stats.txt",
-          "subject48_aseg_stats.txt",
-          "subject49_aseg_stats.txt",
-          "subject50_aseg_stats.txt",
-          "subject51_aseg_stats.txt",
-          "subject52_aseg_stats.txt",
-          "subject53_aseg_stats.txt",
-          "subject54_aseg_stats.txt",
-          "subject55_aseg_stats.txt",
-          "subject56_aseg_stats.txt",
-          "subject57_aseg_stats.txt",
-          "subject58_aseg_stats.txt",
-          "subject59_aseg_stats.txt",
-          "subject60_aseg_stats.txt",
-          "subject61_aseg_stats.txt",
-          "subject62_aseg_stats.txt",
-          "subject63_aseg_stats.txt",
-          "subject64_aseg_stats.txt",
-          "subject65_aseg_stats.txt",
-          "subject66_aseg_stats.txt",
-          "subject67_aseg_stats.txt",
-          "subject68_aseg_stats.txt",
-          "subject69_aseg_stats.txt",
-          "subject70_aseg_stats.txt",
-          "subject71_aseg_stats.txt",
-          "subject72_aseg_stats.txt",
-          "subject73_aseg_stats.txt",
-          "subject74_aseg_stats.txt",
-          "subject75_aseg_stats.txt",
-          "subject76_aseg_stats.txt",
-          "subject77_aseg_stats.txt",
-          "subject78_aseg_stats.txt",
-          "subject79_aseg_stats.txt",
-          "subject80_aseg_stats.txt",
-          "subject81_aseg_stats.txt",
-          "subject82_aseg_stats.txt",
-          "subject83_aseg_stats.txt",
-          "subject84_aseg_stats.txt",
-          "subject85_aseg_stats.txt",
-          "subject86_aseg_stats.txt",
-          "subject87_aseg_stats.txt",
-          "subject88_aseg_stats.txt",
-          "subject89_aseg_stats.txt",
-          "subject90_aseg_stats.txt",
-          "subject91_aseg_stats.txt",
-          "subject92_aseg_stats.txt",
-          "subject93_aseg_stats.txt",
-          "subject94_aseg_stats.txt",
-          "subject95_aseg_stats.txt",
-          "subject96_aseg_stats.txt",
-          "subject97_aseg_stats.txt",
-          "subject98_aseg_stats.txt",
-          "subject99_aseg_stats.txt",
-          "subject100_aseg_stats.txt",
-          "subject101_aseg_stats.txt",
-          "subject102_aseg_stats.txt",
-          "subject103_aseg_stats.txt",
-          "subject104_aseg_stats.txt",
-          "subject105_aseg_stats.txt",
-          "subject106_aseg_stats.txt",
-          "subject107_aseg_stats.txt",
-          "subject108_aseg_stats.txt",
-          "subject109_aseg_stats.txt",
-          "subject110_aseg_stats.txt",
-          "subject111_aseg_stats.txt",
-          "subject112_aseg_stats.txt",
-          "subject113_aseg_stats.txt",
-          "subject114_aseg_stats.txt",
-          "subject115_aseg_stats.txt",
-          "subject116_aseg_stats.txt",
-          "subject117_aseg_stats.txt",
-          "subject118_aseg_stats.txt",
-          "subject119_aseg_stats.txt"
-        ],
-        [
-          "freesurferfile"
-        ],
-        [
-          "Left-Lateral-Ventricle",
-          "Left-Inf-Lat-Vent",
-          "Left-Cerebellum-White-Matter",
-          "Left-Cerebellum-Cortex",
-          "Left-Thalamus-Proper",
-          "Left-Caudate",
-          "Left-Putamen",
-          "Left-Pallidum",
-          "3rd-Ventricle",
-          "4th-Ventricle",
-          "Brain-Stem",
-          "Left-Hippocampus",
-          "Left-Amygdala",
-          "CSF",
-          "Left-Accumbens-area",
-          "Left-VentralDC",
-          "Left-vessel",
-          "Left-choroid-plexus",
-          "Right-Lateral-Ventricle",
-          "Right-Inf-Lat-Vent",
-          "Right-Cerebellum-White-Matter",
-          "Right-Cerebellum-Cortex",
-          "Right-Thalamus-Proper",
-          "Right-Caudate",
-          "Right-Putamen",
-          "Right-Pallidum",
-          "Right-Hippocampus",
-          "Right-Amygdala",
-          "Right-Accumbens-area",
-          "Right-VentralDC",
-          "Right-vessel",
-          "Right-choroid-plexus",
-          "5th-Ventricle",
-          "WM-hypointensities",
-          "Left-WM-hypointensities",
-          "Right-WM-hypointensities",
-          "non-WM-hypointensities",
-          "Left-non-WM-hypointensities",
-          "Right-non-WM-hypointensities",
-          "Optic-Chiasm",
-          "CC_Posterior",
-          "CC_Mid_Posterior",
-          "CC_Central",
-          "CC_Mid_Anterior",
-          "CC_Anterior",
-          "BrainSegVol",
-          "BrainSegVolNotVent",
-          "BrainSegVolNotVentSurf",
-          "lhCortexVol",
-          "rhCortexVol",
-          "CortexVol",
-          "lhCorticalWhiteMatterVol",
-          "rhCorticalWhiteMatterVol",
-          "CorticalWhiteMatterVol",
-          "SubCortGrayVol",
-          "TotalGrayVol",
-          "SupraTentorialVol",
-          "SupraTentorialVolNotVent",
-          "SupraTentorialVolNotVentVox",
-          "MaskVol",
-          "BrainSegVol-to-eTIV",
-          "MaskVol-to-eTIV",
-          "lhSurfaceHoles",
-          "rhSurfaceHoles",
-          "SurfaceHoles",
-          "EstimatedTotalIntraCranialVol"
-        ]
-      ]
-    },
-    "label": {
-      "value": "isControl"
-    }, 
-    "model_local": {
-      "value": "SVM"
-    },
-    "is_private_local": {
-      "value": true
-    },
-    "perturb_method_local": {
-      "value": "objective"
-    },
-    "lambda_local": {
-     "value": 1e-4
-    },
-    "epsilon_local": {
-      "value": 30
-    },
-    "huberconst_local": {
-      "value": 0.5
-    },    
-    "fit_intercept_local": {
-      "value": true
-    },
-    "intercept_scaling_local": {
-      "value": 1.0
-    },    
-    "model_owner": {
-      "value":  "SVM"
-    },
-    "is_private_owner": {
-     "value": true
-    },
-    "perturb_method_owner": {
-      "value": "objective"
-    },
-    "lambda_owner": {
-      "value": 1e-5
-    },
-    "epsilon_owner": {
-      "value": 30
-    },
-    "huberconst_owner": {
-      "value": 0.5
-    },   
-    "fit_intercept_owner": {
-      "value": true
-    },
-    "intercept_scaling_owner": {
-      "value": 1.0
-    },     
-    "train_split": {
-      "value": 0.8
-    },
-    "shuffle": {
-      "value": true
-    }    
-  }
+        },
+        "label": {
+            "fulfilled": true,
+            "value": "isControl"
+        },
+        "model_local": {
+            "fulfilled": true,
+            "value": "SVM"
+        },
+        "is_private_local": {
+            "fulfilled": true,
+            "value": true
+        },
+        "perturb_method_local": {
+            "fulfilled": true,
+            "value": "objective"
+        },
+        "lambda_local": {
+            "fulfilled": true,
+            "value": 0.0001
+        },
+        "epsilon_local": {
+            "fulfilled": true,
+            "value": 30
+        },
+        "huberconst_local": {
+            "fulfilled": true,
+            "value": 0.5
+        },
+        "fit_intercept_local": {
+            "fulfilled": true,
+            "value": true
+        },
+        "intercept_scaling_local": {
+            "fulfilled": true,
+            "value": 1.0
+        },
+        "model_owner": {
+            "fulfilled": true,
+            "value": "SVM"
+        },
+        "is_private_owner": {
+            "fulfilled": true,
+            "value": true
+        },
+        "perturb_method_owner": {
+            "fulfilled": true,
+            "value": "objective"
+        },
+        "lambda_owner": {
+            "fulfilled": true,
+            "value": 1e-05
+        },
+        "epsilon_owner": {
+            "fulfilled": true,
+            "value": 30
+        },
+        "huberconst_owner": {
+            "fulfilled": true,
+            "value": 0.5
+        },
+        "fit_intercept_owner": {
+            "fulfilled": true,
+            "value": true
+        },
+        "intercept_scaling_owner": {
+            "fulfilled": true,
+            "value": 1.0
+        },
+        "train_split": {
+            "fulfilled": true,
+            "value": 0.8
+        },
+        "shuffle": {
+            "fulfilled": true,
+            "value": true
+        }
+    }
 ]

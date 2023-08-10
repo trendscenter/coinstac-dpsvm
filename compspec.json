@@ -8,14 +8,14 @@
   },
   "computation": {
     "type": "docker",
-    "dockerImage": "coinstacteam/dpsvm",
+    "dockerImage": "dpsvm",
     "command": [
       "python",
       "\/computation\/scripts\/local.py"
     ],
     "remote": {
       "type": "docker",
-      "dockerImage": "coinstacteam/dpsvm",
+      "dockerImage": "dpsvm",
       "command": [
         "python",
         "\/computation\/scripts\/remote.py"
