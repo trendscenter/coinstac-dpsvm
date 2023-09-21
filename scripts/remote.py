@@ -100,46 +100,28 @@ def remote_1(args):
         #"w_locals": [dict_locals.get("w_locals"), "arrays"],
         #"intercept_owner": [dict_owner.get("intercept_owner"), "number"],
         #"intercept_locals": [dict_locals.get("intercept_locals"), "array"],
-        "cm_test_owner": [dict_owner.get("cm_test_owner"), "array"],
-        "cm_test_owner_normalized": [
-            dict_owner.get("cm_test_owner_normalized"),
-            "array",
-        ],
-        "acc_test_owner": [dict_owner.get("acc_test_owner"), "number"],
-        "f1_test_owner": [dict_owner.get("f1_test_owner"), "number"],
-        "rocauc_test_owner": [dict_owner.get("rocauc_test_owner"), "number"],
-        "cm_train_owner": [dict_owner.get("cm_train_owner"), "array"],
-        "cm_train_owner_normalized": [
-            dict_owner.get("cm_train_owner_normalized"),
-            "array",
-        ],
-        "acc_train_owner": [dict_owner.get("acc_train_owner"), "number"],
-        "cm_test_locals": [dict_owner.get("cm_test_locals"), "arrays"],
-        "cm_test_locals_normalized": [
-            dict_owner.get("cm_test_locals_normalized"),
-            "arrays",
-        ],
-        "acc_test_locals": [dict_owner.get("acc_test_locals"), "array"],
-        "f1_test_locals": [dict_owner.get("f1_test_locals"), "array"],
-        "rocauc_test_locals": [dict_owner.get("rocauc_test_locals"), "array"],
-        "cm_train_locals": [dict_locals.get("cm_train_locals"), "arrays"],
-        "cm_train_locals_normalized": [
-            dict_locals.get("cm_train_locals_normalized"),
-            "arrays",
-        ],
-        "acc_train_locals": [dict_locals.get("acc_train_locals"), "array"],
-        "n_samples_owner_train": [
-            dict_owner.get("n_samples_owner_train"),
-            "number",
-        ],
-        "n_samples_owner_test": [
-            dict_owner.get("n_samples_owner_test"),
-            "number",
-        ],
-        "n_samples_locals": [dict_locals.get("n_samples_locals"), "array"],
+        "cm_test_owner": dict_owner.get("cm_test_owner"),
+        "cm_test_owner_normalized": dict_owner.get("cm_test_owner_normalized"),
+        "acc_test_owner": dict_owner.get("acc_test_owner"),
+        "f1_test_owner": dict_owner.get("f1_test_owner"), 
+        "rocauc_test_owner": dict_owner.get("rocauc_test_owner"),
+        "cm_train_owner": dict_owner.get("cm_train_owner"),
+        "cm_train_owner_normalized": dict_owner.get("cm_train_owner_normalized"),
+        "acc_train_owner": dict_owner.get("acc_train_owner"), 
+        "cm_test_locals": dict_owner.get("cm_test_locals"), 
+        "cm_test_locals_normalized": dict_owner.get("cm_test_locals_normalized"),
+        "acc_test_locals": dict_owner.get("acc_test_locals"),
+        "f1_test_locals": dict_owner.get("f1_test_locals"),
+        "rocauc_test_locals": dict_owner.get("rocauc_test_locals"), 
+        "cm_train_locals": dict_locals.get("cm_train_locals"),
+        "cm_train_locals_normalized": dict_locals.get("cm_train_locals_normalized"),
+        "acc_train_locals": dict_locals.get("acc_train_locals"), 
+        "n_samples_owner_train": dict_owner.get("n_samples_owner_train"),
+        "n_samples_owner_test": dict_owner.get("n_samples_owner_test"),
+        "n_samples_locals": dict_locals.get("n_samples_locals"),
     }
 
-    result_dict = {"output": output_dict, "success": True}
+    result_dict = {"output": {"measurements": output_dict}, "success": True}
     return json.dumps(result_dict)
 
 
