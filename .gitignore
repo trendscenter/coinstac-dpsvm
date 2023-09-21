@@ -1,7 +1,8 @@
-__pycache__
+*.idea
+*.DS_Store
+*__pycache__
 test/cache/*
 test/output/*
 test/remote/*
 test/transfer/*
 test/system/*
-

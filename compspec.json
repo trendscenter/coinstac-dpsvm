@@ -236,90 +236,87 @@
         "order": 4
       }
     },
-    "output": {  
-      "regressions": {
-        "label": "Regressions",
-        "type": "array",
-        "items": {
-          "global_stats": {
-            "label": "Global Stats",
-            "type": "object",
-            "items": {
-              "avg_beta_vector": {
-                "label": "Avg Beta Vector",
-                "type": "array"
-              },
-              "r2_global": {
-                "label": "R2 Global",
-                "type": "number"
-              },
-              "ts_global": {
-                "label": "TS Global",
-                "type": "array"
-              },
-              "ps_global": {
-                "label": "PS Global",
-                "type": "number"
-              },
-              "dof_global": {
-                "label": "DOF Global",
-                "type": "array"
-              }
-            }
-          },
-          "local_stats": {
-            "label": "Local Stats",
-            "type": "object",
-            "items": {
-              "beta": {
-                "label": "Beta",
-                "type": "array"
-              },
-              "pval": {
-                "label": "PVal",
-                "type": "array"
-              },
-              "rsquared": {
-                "label": "R Squared",
-                "type": "number"
-              },
-              "sse": {
-                "label": "SSE",
-                "type": "number"
-              },
-              "tval": {
-                "label": "TVal",
-                "type": "array"
-              }
-            }
-          },
-          "ROI": {
-            "label": "Region of Interest",
-            "type": "string"
-          }
+    "output": {
+      "label": "Differentially private SVM classifier",
+      "type": "object",
+      "items": {
+        "cm_test_owner": {
+          "label": "Remote site: Confusion Matrix of the test data",
+          "type": "array"
+        },
+        "cm_test_owner_normalized": {
+          "label": "Remote site: Normalized Confusion Matrix of the test data",
+          "type": "array"
+        },
+        "acc_test_owner": {
+          "label": "Remote site: Testing accuracy",
+          "type": "number"
+        },
+        "f1_test_owner": {
+          "label": "Remote site: Testing F1 score",
+          "type": "number"
+        },
+        "rocauc_test_owner": {
+          "label": "Remote site: Testing AUC score",
+          "type": "number"
+        },
+        "cm_train_owner": {
+          "label": "Remote site: Confusion Matrix of the training data",
+          "type": "array"
+        },
+        "cm_train_owner_normalized": {
+          "label": "Remote site: Normalized Confusion Matrix of the training data",
+          "type": "array"
+        },
+        "acc_train_owner": {
+          "label": "Remote site: Training accuracy",
+          "type": "number"
+        },
+        "cm_test_locals": {
+          "label": "Local sites: Confusion Matrix of the test data",
+          "type": "array"
+        },
+        "cm_test_locals_normalized": {
+          "label": "Local sites: Normalized Confusion Matrix of the test data",
+          "type": "array"
+        },
+        "acc_test_locals": {
+          "label": "Local sites: Testing accuracy",
+          "type": "array"
+        },
+        "f1_test_locals": {
+          "label": "Local sites: Testing F1 score",
+          "type": "array"
+        },
+        "rocauc_test_locals": {
+          "label": "Local sites: Testing AUC score",
+          "type": "array"
+        },
+        "cm_train_locals": {
+          "label": "Local sites: Confusion Matrix of the training data",
+          "type": "array"
+        },
+        "cm_train_locals_normalized": {
+          "label": "Local sites: Normalized Confusion Matrix of the training data",
+          "type": "array"
+        },
+        "acc_train_locals": {
+          "label": "Local sites: Training accuracy",
+          "type": "array"
+        },
+        "n_samples_owner_train": {
+          "label": "Remote site: Number of training data samples",
+          "type": "number"
+        },
+        "n_samples_owner_test": {
+          "label": "Remote site: Number of test data samples",
+          "type": "number"
+        },
+        "n_samples_locals": {
+          "label": "Local sites: Number of data samples",
+          "type": "array"
         }
       }
-    },
-    "display": [ 
-      {
-        "type": "string",
-        "tables": [
-          {
-            "source": "regressions",
-            "subtables": [
-              {
-                "source": "global_stats",
-                "subtitle": "ROI"
-              },
-              {
-                "source": "local_stats",
-                "subtitle": "ROI",
-                "subtables": "by-key"
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    }
   }
 }
