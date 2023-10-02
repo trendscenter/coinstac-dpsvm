@@ -9,7 +9,8 @@ At iteration 1, run remote_1(): Receives an aggregator classifier from the
 Raises:
     Exception: If neither 'local_0' nor 'local_1' is in sys.stdin.
 """
-import sys
+import sys, os
+import shutil
 
 import numpy as np
 import ujson as json
@@ -93,6 +94,27 @@ def remote_1(args):
     owner = state["owner"] if "owner" in state else "local0"
     dict_owner = input[owner]
     dict_locals = args["cache"]
+    owner_model_params_file=os.path.join(state["outputDirectory"], "global_model_params.txt")
+    local_model_params_file=os.path.join(state["outputDirectory"], "local_model_params.txt")
+
+    with open(owner_model_params_file, 'w') as f:
+        f.write(f"Owner model intercept: {str(dict_owner.get('intercept_owner'))}\n" )
+        f.write("Owner model weights: \n")
+        f.write(str(dict_owner.get("w_owner")))
+
+    with open(local_model_params_file, 'w') as f:
+        f.write(f"locals model intercept: {str(dict_locals.get('intercept_locals'))}\n" )
+        f.write("locals model weights: \n")
+        #f.write(str(dict_locals.get("w_locals")))
+        for line in dict_locals.get("w_locals"):
+            f.write(f"{str(line)}\n")
+
+    shutil.copy(owner_model_params_file,
+                 os.path.join(state["transferDirectory"],
+                              os.path.basename(owner_model_params_file)))
+    shutil.copy(local_model_params_file,
+                 os.path.join(state["transferDirectory"],
+                              os.path.basename(local_model_params_file)))
 
     # combine owner and locals
     output_dict = {
@@ -137,3 +159,4 @@ if __name__ == "__main__":
         sys.stdout.write(result_dict)
     else:
         raise Exception("Error occurred at Remote")
+
