@@ -179,6 +179,9 @@ def train_svm_objectiveperturb(XY, num, dim, lambda_, epsilon, huberconst):
         method="L-BFGS-B",
         bounds=None,
     )
+    From https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html#optimize-minimize-lbfgsb, it says maxfun: int
+    Maximum number of function evaluations. Note that this function may violate the limit because of evaluating gradients by numerical differentiation. 
+    Edited the minimize function and add maxfun argument
     '''
     
     res = minimize(
