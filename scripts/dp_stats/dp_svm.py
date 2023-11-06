@@ -190,7 +190,7 @@ def train_svm_objectiveperturb(XY, num, dim, lambda_, epsilon, huberconst):
         args=(XY, num, lambda_, b, huberconst),
         method="L-BFGS-B",
         bounds=None,
-        maxfun=np.inf
+        options={'maxfun':np.inf}
     )
     
     if not res.success:

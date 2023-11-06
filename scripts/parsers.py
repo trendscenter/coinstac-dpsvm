@@ -39,12 +39,8 @@ def fsl_parser(input, base_dir):
     X_df.reset_index(inplace=True)
     X_df = X_df.rename(columns={'index': index_name})
 
-    X = X_df.apply(pd.to_numeric, errors='ignore')
-    X = pd.get_dummies(X, drop_first=True)
-    X = X * 1
 
     y_labels = y_info[0]["value"]
-    y_files = X.index
 
 
     # process measurements (fsl section)
@@ -65,6 +61,12 @@ def fsl_parser(input, base_dir):
     Y_df = pd.concat(tmp_list)
     Y_df = pd.DataFrame(Y_df)
     Y_df.set_index(index_name, inplace=True)
+
+    #Filter freesurfer ROIs from stats file based on the provided input ROIs
+    if len(y_labels)>0:
+        missing_fs_stats = [_temp for _temp in y_labels if _temp not in Y_df.columns.to_list()]
+        assert len(missing_fs_stats) == 0, f'Missing freesurfer stats: {str(missing_fs_stats)}'
+        Y_df = Y_df[np.intersect1d(Y_df.columns, y_labels)]
 
     # merge covariates and measurements into features_df
     X_df = pd.merge(
