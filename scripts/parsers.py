@@ -6,18 +6,40 @@ import numpy as np
 import pandas as pd
 
 
+def parse_covar_info(covar_info):
+    # convert bool to categorical as soon as possible
+    for column in covar_info.select_dtypes(bool):
+        covar_info[column] = covar_info[column].astype("object")
+
+    covar_info = covar_info.apply(pd.to_numeric, errors="ignore")
+
+    # convert contents of object columns to lowercase
+    for column in covar_info.select_dtypes(object):
+        covar_info[column] = covar_info[column].astype("str").str.lower()
+
+    return covar_info
+
+
+def parse_for_categorical(X_df):
+    """Return unique subsites as a dictionary"""
+    X = parse_covar_info(X_df)
+
+    site_dict1 = {col: list(X[col].unique()) for col in X.select_dtypes(include=object)}
+
+    return X, site_dict1
+
 def fsl_parser(input, base_dir):
     """Parses fsl-specific inputspec.json, returns features X and labels y.
 
-    If there is no fsl section in inputspec.json, then only the csv section 
-    will be parsed. 
+    If there is no fsl section in inputspec.json, then only the csv section
+    will be parsed.
 
     Args:
         input (dict): Input of COINSTAC pipeline at each iteration.
         base_dir (str): baseDirectory at each site.
 
     Returns:
-        features_np (ndarray of shape (n_sample, n_feature)): X.
+        features(pandas df of shape (n_sample, n_feature)): X.
         labels_np (ndarray of shape (n_sample,)): y.
     """
     # process covariates (csv section)
@@ -85,14 +107,6 @@ def fsl_parser(input, base_dir):
     label_name = input["label"]
     labels_df = X_df.pop(label_name)
 
-    # process categorical classes, then convert dataframes to numpy arrays
-    X_df = X_df.apply(pd.to_numeric, errors="ignore")
-    X_df = pd.get_dummies(X_df, drop_first=True)
-    X_df = X_df * 1  # True -> 1, False -> 0
-    X_df = X_df.apply(
-        pd.to_numeric, errors="ignore"
-    )  # object 0, 1 -> int
-
     labels_df = labels_df.apply(pd.to_numeric, errors="ignore")
     labels_df = pd.get_dummies(labels_df, drop_first=True, dtype=np.int8)
     labels_df = labels_df * 1
@@ -101,8 +115,7 @@ def fsl_parser(input, base_dir):
         0, -1, inplace=True
     )  # binary label [0, 1] -> [-1, 1] for LR and SVM
 
-    features_np = X_df.to_numpy()
     labels_np = labels_df.to_numpy().flatten()
 
-    return (features_np, labels_np)
+    return (X_df, labels_df)
 
