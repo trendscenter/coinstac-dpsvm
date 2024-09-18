@@ -16,7 +16,10 @@ import sys
 
 import copy
 import numpy as np
+import pandas as pd
 import ujson as json
+import utils as ut
+
 from sklearn.metrics import (
     confusion_matrix,
     accuracy_score,
@@ -32,34 +35,79 @@ from dp_stats.train_predict import (
     predict_decision_svmhuber,
 )
 from common_functions import list_recursive
-from parsers import fsl_parser
+from parsers import fsl_parser, parse_for_categorical
+from local_ancillary import add_site_covariates
+
+
+def local_pre_0(args):
+    input = args["input"]
+    state = args["state"]
+    (X, y) = fsl_parser(input, state["baseDirectory"])
+    X_df, categorical_dict = parse_for_categorical(X)
+    categorical_column_frequency_dict = {}
+    for column in categorical_dict.keys():
+        temp_dict=dict(X[column].value_counts())
+        categorical_column_frequency_dict[column] = {k: int(v) for k, v in temp_dict.items()}
+
+    reference_dict = {}
+    output_dict = {"phase": "local_pre_0",
+                   "categorical_column_frequency_dict": categorical_column_frequency_dict,
+                   "categorical_dict": categorical_dict,
+                   "reference_columns": reference_dict}
+
+    cache_dict = {
+        "covariates": X.to_json(orient='split'),
+        "dependents": y.to_json(orient='split'),
+        "model_local": input["model_local"],
+        "is_private_local": input["is_private_local"],
+        "perturb_method_local": input["perturb_method_local"],
+        "lambda_local": input["lambda_local"],
+        "epsilon_local": input["epsilon_local"],
+        "huberconst_local": input["huberconst_local"],
+        "fit_intercept_local": input["fit_intercept_local"],
+        "intercept_scaling_local": input["intercept_scaling_local"],
+        "model_owner": input["model_owner"],
+        "is_private_owner": input["is_private_owner"],
+        "perturb_method_owner": input["perturb_method_owner"],
+        "lambda_owner": input["lambda_owner"],
+        "epsilon_owner": input["epsilon_owner"],
+        "huberconst_owner": input["huberconst_owner"],
+        "fit_intercept_owner": input["fit_intercept_owner"],
+        "intercept_scaling_owner": input["intercept_scaling_owner"],
+        "train_split": input["train_split"],
+        "shuffle": input["shuffle"],
+    }
+
+    computation_output = {"output": output_dict, "cache": cache_dict}
+    ut.log(f'\nlocal_0() method output: {str(computation_output)} ', args["state"])
+
+    return json.dumps(computation_output)
 
 
 def local_0(args):
     input = args["input"]
     state = args["state"]
+    cache = args["cache"]
     cache_dir = state["cacheDirectory"]
     base_dir = state["baseDirectory"]
     owner = state["owner"] if "owner" in state else "local0"
 
-    (X, y) = fsl_parser(input, base_dir)
+    ut.log(f'\nlocal_1() method input: {str(args["input"])} ', args["state"])
+
+    X_df = pd.read_json(cache["covariates"], orient='split')
+    y_df = pd.read_json(cache["dependents"], orient='split')
+
+    X_df = add_site_covariates(args, X_df)
+
+    #Convert dataframes to numpy arrays
+    X = X_df.to_numpy()
+    y = y_df.to_numpy().flatten()
 
     if state["clientId"] == owner:
         np.save(os.path.join(cache_dir, "X.npy"), X)
         np.save(os.path.join(cache_dir, "y.npy"), y)
 
         cache_dict = {
-            "model_local": input["model_local"],
-            "model_owner": input["model_owner"],
-            "is_private_owner": input["is_private_owner"],
-            "perturb_method_owner": input["perturb_method_owner"],
-            "lambda_owner": input["lambda_owner"],
-            "epsilon_owner": input["epsilon_owner"],
-            "huberconst_owner": input["huberconst_owner"],
-            "fit_intercept_owner": input["fit_intercept_owner"],
-            "intercept_scaling_owner": input["intercept_scaling_owner"],
-            "train_split": input["train_split"],
-            "shuffle": input["shuffle"],
             "X_filename": "X.npy",
             "y_filename": "y.npy",
         }
@@ -67,9 +115,9 @@ def local_0(args):
     else:
         n_samples_local = X.shape[0]
         # preprocess training data
-        if input["fit_intercept_local"]:
+        if cache["fit_intercept_local"]:
             # add synthetic feature
-            synthetic = input["intercept_scaling_local"] * np.ones(
+            synthetic = cache["intercept_scaling_local"] * np.ones(
                 (n_samples_local, 1)
             )
             X_scaled = np.concatenate((X, synthetic), axis=1)
@@ -80,10 +128,10 @@ def local_0(args):
         X_scaled = X_scaled / scale
 
         # train local model
-        w_local = (1 / scale) * train_model(X_scaled, y, input, "local")
+        w_local = (1 / scale) * train_model(X_scaled, y, cache, "local")
 
-        if input["fit_intercept_local"]:
-            intercept_local = input["intercept_scaling_local"] * w_local[-1]
+        if cache["fit_intercept_local"]:
+            intercept_local = cache["intercept_scaling_local"] * w_local[-1]
             w_local = w_local[:-1]
         else:
             intercept_local = 0.0
@@ -254,6 +302,9 @@ if __name__ == "__main__":
     parsed_args = json.loads(sys.stdin.read())
     phase_key = list(list_recursive(parsed_args, "phase"))
     if not phase_key:
+        result_dict = local_pre_0(parsed_args)
+        sys.stdout.write(result_dict)
+    elif "remote_pre_0" in phase_key:
         result_dict = local_0(parsed_args)
         sys.stdout.write(result_dict)
     elif "remote_0" in phase_key:

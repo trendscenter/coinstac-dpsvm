@@ -14,9 +14,41 @@ import shutil
 
 import numpy as np
 import ujson as json
+import pandas as pd
+import jsonpickle
 
 from common_functions import list_recursive
+import remote_ancillary as rem_anc
+import utils as ut
 
+
+def remote_pre_0(args):
+
+    input_list = args["input"]
+    ut.log(f'\nremote_pre_0() method input: {str(args["input"])} ', args["state"])
+
+    site_ids = list(input_list.keys())
+
+    site_info = {site: input_list[site]["categorical_dict"] for site in input_list.keys()}
+    df = pd.DataFrame.from_dict(site_info)
+    covar_keys, unique_count = rem_anc.return_uniques_and_counts(df)
+
+    reference_dict =  rem_anc.get_dummy_encoding_reference_dict(covar_keys)
+
+    output_dict = {
+        "covar_keys": jsonpickle.encode(covar_keys, unpicklable=False),
+        "global_unique_count": unique_count,
+        "reference_columns": reference_dict,
+        "phase": "remote_pre_0"
+    }
+
+    cache_dict = {}
+
+    computation_output = ut.get_encoded_dict({"output": output_dict, "cache": cache_dict})
+    ut.log(f'\nremote_0() method output: {str(computation_output)} ', args["state"])
+
+
+    return json.dumps(computation_output)
 
 def remote_0(args):
     input = args["input"]
@@ -150,8 +182,10 @@ def remote_1(args):
 if __name__ == "__main__":
     parsed_args = json.loads(sys.stdin.read())
     phase_key = list(list_recursive(parsed_args, "phase"))
-
-    if "local_0" in phase_key:
+    if "local_pre_0" in phase_key:
+        result_dict = remote_pre_0(parsed_args)
+        sys.stdout.write(result_dict)
+    elif "local_0" in phase_key:
         result_dict = remote_0(parsed_args)
         sys.stdout.write(result_dict)
     elif "local_1" in phase_key:
