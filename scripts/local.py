@@ -50,7 +50,7 @@ def local_pre_0(args):
         categorical_column_frequency_dict[column] = {k: int(v) for k, v in temp_dict.items()}
 
     reference_dict = {}
-    output_dict = {"computation_phase": "local_pre_0",
+    output_dict = {"phase": "local_pre_0",
                    "categorical_column_frequency_dict": categorical_column_frequency_dict,
                    "categorical_dict": categorical_dict,
                    "reference_columns": reference_dict}
@@ -81,7 +81,7 @@ def local_pre_0(args):
     computation_output = {"output": output_dict, "cache": cache_dict}
     ut.log(f'\nlocal_0() method output: {str(computation_output)} ', args["state"])
 
-    return computation_output
+    return json.dumps(computation_output)
 
 
 def local_0(args):

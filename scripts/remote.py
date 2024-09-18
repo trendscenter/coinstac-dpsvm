@@ -39,7 +39,7 @@ def remote_pre_0(args):
         "covar_keys": jsonpickle.encode(covar_keys, unpicklable=False),
         "global_unique_count": unique_count,
         "reference_columns": reference_dict,
-        "computation_phase": "remote_pre_0"
+        "phase": "remote_pre_0"
     }
 
     cache_dict = {}
@@ -48,7 +48,7 @@ def remote_pre_0(args):
     ut.log(f'\nremote_0() method output: {str(computation_output)} ', args["state"])
 
 
-    return computation_output
+    return json.dumps(computation_output)
 
 def remote_0(args):
     input = args["input"]
