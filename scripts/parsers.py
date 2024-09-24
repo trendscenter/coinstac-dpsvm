@@ -109,13 +109,12 @@ def fsl_parser(input, base_dir):
 
     labels_df = labels_df.apply(pd.to_numeric, errors="ignore")
     labels_df = pd.get_dummies(labels_df, drop_first=True, dtype=np.int8)
+    labels_df = labels_df.rename(columns={labels_df.columns[0]: label_name})
     labels_df = labels_df * 1
     labels_df = labels_df.apply(pd.to_numeric, errors="ignore")
     labels_df.replace(
         0, -1, inplace=True
     )  # binary label [0, 1] -> [-1, 1] for LR and SVM
-
-    labels_np = labels_df.to_numpy().flatten()
 
     return (X_df, labels_df)
 

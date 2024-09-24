@@ -35,6 +35,16 @@ def remote_pre_0(args):
 
     reference_dict =  rem_anc.get_dummy_encoding_reference_dict(covar_keys)
 
+    #Check that all the participating sites have data for all the class labels
+    all_class_labels = [ input_list[site]["label_counts"].keys() for site in input_list.keys()]
+    all_class_labels = set().union(*all_class_labels)
+
+    class_chk=np.asarray([all_class_labels == set(input_list[site]["label_counts"].keys()) for site in input_list.keys()])
+    class_chk_failed = np.where(class_chk == False)[0]
+    if len(class_chk_failed)>0:
+        raise Exception(f'Sites {str(class_chk)} do not have all the class labels {all_class_labels}. '
+                        f'Please remove those sites and rerun the analysis')
+
     output_dict = {
         "covar_keys": jsonpickle.encode(covar_keys, unpicklable=False),
         "global_unique_count": unique_count,

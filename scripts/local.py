@@ -49,15 +49,21 @@ def local_pre_0(args):
         temp_dict=dict(X[column].value_counts())
         categorical_column_frequency_dict[column] = {k: int(v) for k, v in temp_dict.items()}
 
+    #Check frequencies of class labels
+    label_counts=y[input["label"]].value_counts().to_dict()
+
     reference_dict = {}
     output_dict = {"phase": "local_pre_0",
                    "categorical_column_frequency_dict": categorical_column_frequency_dict,
                    "categorical_dict": categorical_dict,
-                   "reference_columns": reference_dict}
+                   "reference_columns": reference_dict,
+                   "label_counts": label_counts
+                   }
 
     cache_dict = {
         "covariates": X.to_json(orient='split'),
         "dependents": y.to_json(orient='split'),
+        "label": input["label"],
         "model_local": input["model_local"],
         "is_private_local": input["is_private_local"],
         "perturb_method_local": input["perturb_method_local"],
